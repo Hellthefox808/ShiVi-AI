@@ -1,0 +1,22 @@
+{
+  "name": "@shivi/dev-platform",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi Developer Platform CLI & Golden Path Service Scaffolding Generator",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "shivi": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shivi/kernel": "workspace:*",
+    "@shivi/telemetry": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

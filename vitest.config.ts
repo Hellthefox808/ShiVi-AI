@@ -15,6 +15,7 @@ export default defineConfig({
       '@shivi/ui': path.resolve(__dirname, './packages/ui/src/index.ts'),
       '@shivi/resilience': path.resolve(__dirname, './packages/resilience/src/index.ts'),
       '@shivi/chaos-redteam': path.resolve(__dirname, './packages/chaos-redteam/src/index.ts'),
+      '@shivi/dev-platform': path.resolve(__dirname, './packages/dev-platform/src/index.ts'),
       '@shivi/app-kernel-api': path.resolve(__dirname, './apps/kernel-api/src/index.ts'),
       '@shivi/app-command-center': path.resolve(__dirname, './apps/command-center/src/index.ts'),
     },

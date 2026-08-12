@@ -26,6 +26,7 @@
       "@shivi/ui": ["packages/ui/dist/index.d.ts"],
       "@shivi/resilience": ["packages/resilience/dist/index.d.ts"],
       "@shivi/chaos-redteam": ["packages/chaos-redteam/dist/index.d.ts"],
+      "@shivi/dev-platform": ["packages/dev-platform/dist/index.d.ts"],
       "@shivi/app-kernel-api": ["apps/kernel-api/dist/index.d.ts"],
       "@shivi/app-command-center": ["apps/command-center/dist/index.d.ts"]
     }
