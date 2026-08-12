@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/app-analytics",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi Analytics Dashboard — Business Intelligence & KPIs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

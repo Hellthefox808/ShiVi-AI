@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-email-intelligence",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 15: Email Intelligence",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

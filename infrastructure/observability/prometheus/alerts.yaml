@@ -1,0 +1,71 @@
+# ShiVi Platform Prometheus Alerting Rules
+
+groups:
+  - name: shivi-platform-alerts
+    rules:
+      - alert: ShiViHighErrorRate
+        expr: rate(shivi_http_requests_total{status=~"5.."}[5m]) / rate(shivi_http_requests_total[5m]) > 0.05
+        for: 2m
+        labels:
+          severity: critical
+          team: platform
+        annotations:
+          summary: "High error rate on {{ $labels.service }}"
+          description: "Error rate is {{ $value | humanizePercentage }} on {{ $labels.service }}"
+
+      - alert: ShiViAgentQuarantined
+        expr: shivi_agent_state{state="quarantined"} > 0
+        for: 1m
+        labels:
+          severity: warning
+          team: ai-ops
+        annotations:
+          summary: "Agent {{ $labels.agent_id }} quarantined"
+          description: "Agent has been quarantined in tenant {{ $labels.tenant_id }}"
+
+      - alert: ShiViHighLatencyP99
+        expr: histogram_quantile(0.99, rate(shivi_request_duration_seconds_bucket[5m])) > 2
+        for: 5m
+        labels:
+          severity: warning
+          team: platform
+        annotations:
+          summary: "P99 latency exceeds 2s on {{ $labels.service }}"
+
+      - alert: ShiViModelBudgetExceeded
+        expr: shivi_ai_cost_total_usd > shivi_ai_budget_limit_usd * 0.9
+        for: 1m
+        labels:
+          severity: critical
+          team: finops
+        annotations:
+          summary: "AI model budget 90% consumed for tenant {{ $labels.tenant_id }}"
+
+      - alert: ShiViEvidenceLedgerTamper
+        expr: shivi_evidence_ledger_tamper_detected_total > 0
+        for: 0m
+        labels:
+          severity: critical
+          team: security
+        annotations:
+          summary: "Evidence ledger tamper detected!"
+          description: "Cryptographic chain integrity violation in tenant {{ $labels.tenant_id }}"
+
+      - alert: ShiViDRReplicationLag
+        expr: shivi_dr_replication_lag_seconds > 60
+        for: 5m
+        labels:
+          severity: critical
+          team: sre
+        annotations:
+          summary: "DR replication lag exceeds 60s"
+          description: "Cross-region replication lag is {{ $value }}s"
+
+      - alert: ShiViTenantIsolationViolation
+        expr: shivi_tenant_isolation_violations_total > 0
+        for: 0m
+        labels:
+          severity: critical
+          team: security
+        annotations:
+          summary: "Tenant isolation violation detected!"

@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/validation",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi Frontend Validation — Zod schemas for forms",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

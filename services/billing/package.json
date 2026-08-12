@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/service-billing",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Billing Service — Metering, subscriptions, usage",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

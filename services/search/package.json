@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/service-search",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Search Service — Enterprise semantic search",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

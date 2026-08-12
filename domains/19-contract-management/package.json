@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-contract-management",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 19: Contract Management",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

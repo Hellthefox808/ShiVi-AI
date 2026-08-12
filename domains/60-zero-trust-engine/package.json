@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-zero-trust-engine",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 60: Zero Trust Engine",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

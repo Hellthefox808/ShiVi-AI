@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/worker-ingestion",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Ingestion Worker — Document/data ingestion pipeline",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

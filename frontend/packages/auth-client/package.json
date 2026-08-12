@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/auth-client",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi Auth Client — SSO, MFA, Session Management",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

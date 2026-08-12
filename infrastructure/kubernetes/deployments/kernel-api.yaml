@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shivi-kernel-api
+  namespace: shivi-platform
+  labels:
+    app: kernel-api
+    tier: api-gateway
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kernel-api
+  template:
+    metadata:
+      labels:
+        app: kernel-api
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+    spec:
+      serviceAccountName: shivi-kernel-api
+      containers:
+        - name: kernel-api
+          image: gcr.io/PROJECT_ID/shivi-kernel-api:latest
+          ports:
+            - containerPort: 3000
+              name: http
+            - containerPort: 9090
+              name: metrics
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: "3000"
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: shivi-database
+                  key: connection-string
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: shivi-redis
+                  key: connection-string
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: "http://otel-collector.shivi-platform:4317"
+            - name: OTEL_SERVICE_NAME
+              value: shivi-kernel-api
+          resources:
+            requests:
+              cpu: 500m
+              memory: 512Mi
+            limits:
+              cpu: 2000m
+              memory: 2Gi
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          securityContext:
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false

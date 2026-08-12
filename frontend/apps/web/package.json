@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/app-web",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Next.js main web application for ShiVi platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

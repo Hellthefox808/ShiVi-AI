@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-marketplace-platform",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 98: Marketplace Platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

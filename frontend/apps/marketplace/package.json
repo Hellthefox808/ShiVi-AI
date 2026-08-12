@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/app-marketplace",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi Marketplace — Agent, Tool, and Extension Marketplace",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

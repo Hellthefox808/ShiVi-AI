@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/service-tools",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Tool Service — Registry, execution, ACL",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

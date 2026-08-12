@@ -1,0 +1,14 @@
+# ShiVi Staging Overrides
+replicaCount: 2
+autoscaling:
+  minReplicas: 2
+  maxReplicas: 10
+resources:
+  requests:
+    cpu: 250m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+dr:
+  enabled: false

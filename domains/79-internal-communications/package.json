@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-internal-communications",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 79: Internal Communications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

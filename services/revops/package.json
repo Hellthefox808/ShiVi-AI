@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/service-revops",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "RevOps Service — Revenue analytics, attribution",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

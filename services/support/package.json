@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/service-support",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Support Service — Tickets, SLA, escalation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-agent-collaboration",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 43: Agent Collaboration",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

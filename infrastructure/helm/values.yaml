@@ -1,0 +1,72 @@
+# ShiVi X100+ Helm Chart — Default Values
+
+replicaCount: 3
+
+image:
+  repository: gcr.io/shivi-platform/kernel-api
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: api.shivi.io
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: shivi-tls
+      hosts:
+        - api.shivi.io
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 512Mi
+  limits:
+    cpu: 2000m
+    memory: 2Gi
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 50
+  targetCPUUtilizationPercentage: 70
+
+database:
+  host: ""
+  port: 5432
+  name: shivi_platform
+  sslMode: require
+
+redis:
+  host: ""
+  port: 6379
+
+observability:
+  otel:
+    enabled: true
+    endpoint: "http://otel-collector:4317"
+  prometheus:
+    enabled: true
+    port: 9090
+
+security:
+  podSecurityContext:
+    runAsNonRoot: true
+  containerSecurityContext:
+    readOnlyRootFilesystem: true
+    allowPrivilegeEscalation: false
+
+dr:
+  enabled: false
+  region: us-east1
+  failoverMode: automatic
+  rpo: "1m"
+  rto: "5m"

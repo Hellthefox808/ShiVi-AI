@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/design-system",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi Design System — 24 components × 15 states",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

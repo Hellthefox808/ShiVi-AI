@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/telemetry-client",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi Frontend Telemetry — RUM, Error Tracking, Analytics",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

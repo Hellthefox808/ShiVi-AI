@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-competitive-intel",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 10: Competitive Intelligence",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

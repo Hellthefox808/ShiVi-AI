@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: shivi-platform-config
+  namespace: shivi-platform
+data:
+  LOG_LEVEL: "info"
+  OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-collector.shivi-platform:4317"
+  OTEL_SERVICE_NAME: "shivi-platform"
+  MAX_AGENT_CONCURRENCY: "100"
+  DEFAULT_MODEL_PROVIDER: "gemini"
+  RATE_LIMIT_RPM: "1000"
+  EVIDENCE_CHAIN_ALGORITHM: "sha256"
+  TENANT_ISOLATION_MODE: "strict"

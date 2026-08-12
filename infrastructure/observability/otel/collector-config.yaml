@@ -1,0 +1,90 @@
+# ShiVi OpenTelemetry Collector Configuration
+# Distributed tracing, metrics, and log collection
+
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+processors:
+  batch:
+    timeout: 5s
+    send_batch_size: 1024
+    send_batch_max_size: 2048
+
+  memory_limiter:
+    check_interval: 5s
+    limit_mib: 4096
+    spike_limit_mib: 512
+
+  attributes:
+    actions:
+      - key: platform
+        value: shivi-x100
+        action: upsert
+      - key: environment
+        from_attribute: deployment.environment
+        action: upsert
+
+  resource:
+    attributes:
+      - key: service.namespace
+        value: shivi-platform
+        action: upsert
+
+  tail_sampling:
+    policies:
+      - name: error-traces
+        type: status_code
+        status_code:
+          status_codes: [ERROR]
+      - name: slow-traces
+        type: latency
+        latency:
+          threshold_ms: 1000
+      - name: probabilistic
+        type: probabilistic
+        probabilistic:
+          sampling_percentage: 10
+
+exporters:
+  otlp/cloud_trace:
+    endpoint: cloudtrace.googleapis.com:443
+    compression: gzip
+
+  otlp/cloud_monitoring:
+    endpoint: monitoring.googleapis.com:443
+    compression: gzip
+
+  prometheus:
+    endpoint: 0.0.0.0:9090
+    namespace: shivi
+
+  logging:
+    loglevel: info
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, batch, attributes, resource, tail_sampling]
+      exporters: [otlp/cloud_trace, logging]
+    metrics:
+      receivers: [otlp]
+      processors: [memory_limiter, batch, attributes, resource]
+      exporters: [otlp/cloud_monitoring, prometheus]
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, batch, attributes, resource]
+      exporters: [logging]
+
+  extensions: []
+
+  telemetry:
+    logs:
+      level: info
+    metrics:
+      address: 0.0.0.0:8888

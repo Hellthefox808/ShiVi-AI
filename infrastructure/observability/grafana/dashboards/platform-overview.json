@@ -1,0 +1,119 @@
+{
+  "dashboard": {
+    "title": "ShiVi X100+ Platform Overview",
+    "uid": "shivi-platform-overview",
+    "tags": [
+      "shivi",
+      "platform",
+      "overview"
+    ],
+    "timezone": "browser",
+    "panels": [
+      {
+        "title": "Request Rate",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "targets": [
+          {
+            "expr": "rate(shivi_http_requests_total[5m])"
+          }
+        ]
+      },
+      {
+        "title": "Error Rate",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "targets": [
+          {
+            "expr": "rate(shivi_http_requests_total{status=~'5..'}[5m])"
+          }
+        ]
+      },
+      {
+        "title": "P99 Latency",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.99, rate(shivi_request_duration_seconds_bucket[5m]))"
+          }
+        ]
+      },
+      {
+        "title": "Active Agents",
+        "type": "stat",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 8
+        },
+        "targets": [
+          {
+            "expr": "count(shivi_agent_state{state='active'})"
+          }
+        ]
+      },
+      {
+        "title": "Quarantined Agents",
+        "type": "stat",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 8
+        },
+        "targets": [
+          {
+            "expr": "count(shivi_agent_state{state='quarantined'})"
+          }
+        ]
+      },
+      {
+        "title": "AI Spend (USD)",
+        "type": "stat",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 12,
+          "y": 12
+        },
+        "targets": [
+          {
+            "expr": "sum(shivi_ai_cost_total_usd)"
+          }
+        ]
+      },
+      {
+        "title": "DR Replication Lag",
+        "type": "gauge",
+        "gridPos": {
+          "h": 4,
+          "w": 6,
+          "x": 18,
+          "y": 12
+        },
+        "targets": [
+          {
+            "expr": "shivi_dr_replication_lag_seconds"
+          }
+        ]
+      }
+    ]
+  }
+}

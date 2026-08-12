@@ -7,5 +7,7 @@ packages:
   - 'packages/*'
   - 'apps/*'
   - 'domains/*'
+  - 'services/*'
+  - 'workers/*'
 allowBuilds:
   esbuild: true

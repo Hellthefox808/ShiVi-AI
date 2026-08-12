@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/service-crm",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CRM Service — Contacts, deals, activities",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

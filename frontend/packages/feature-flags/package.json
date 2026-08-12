@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/feature-flags",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi Feature Flags — Progressive rollout, A/B testing",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-sales-acceleration",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 05: Sales Acceleration",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

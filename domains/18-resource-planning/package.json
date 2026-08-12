@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-resource-planning",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 18: Resource Planning",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

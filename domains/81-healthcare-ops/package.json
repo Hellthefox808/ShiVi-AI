@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/domain-healthcare-ops",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 81: Healthcare Operations",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

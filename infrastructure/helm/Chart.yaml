@@ -1,0 +1,17 @@
+apiVersion: v2
+name: shivi-platform
+description: ShiVi X100+ Enterprise AI Operating Ecosystem
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - ai
+  - enterprise
+  - multi-tenant
+  - agents
+  - governance
+maintainers:
+  - name: ShiVi Engineering Core
+home: https://github.com/Hellthefox808/ShiVi-AI
+sources:
+  - https://github.com/Hellthefox808/ShiVi-AI

@@ -1,0 +1,12 @@
+{
+  "name": "@shivi/service-a2a",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "A2A Protocol Service — Agent-to-Agent communication",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  }
+}

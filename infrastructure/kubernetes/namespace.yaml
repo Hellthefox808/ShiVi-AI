@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: shivi-platform
+  labels:
+    app.kubernetes.io/part-of: shivi-x100
+    app.kubernetes.io/managed-by: helm
+  annotations:
+    purpose: "ShiVi X100+ Enterprise AI Platform"
