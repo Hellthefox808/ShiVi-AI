@@ -1,0 +1,22 @@
+{
+  "name": "@shivi/resilience",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi X100+ Resilience, Agent Recovery, Context Safety & Edge Readiness Package",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shivi/kernel": "workspace:*",
+    "@shivi/telemetry": "workspace:*",
+    "@shivi/security": "workspace:*",
+    "@shivi/ai-sdk": "workspace:*",
+    "@shivi/agent-runtime": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

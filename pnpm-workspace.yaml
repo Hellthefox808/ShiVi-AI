@@ -1,0 +1,8 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'domains/*'
+  - 'infra'
+  - 'tests'
+allowBuilds:
+  esbuild: true

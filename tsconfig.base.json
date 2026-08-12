@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "@shivi/kernel": ["packages/kernel/dist/index.d.ts"],
+      "@shivi/contracts": ["packages/contracts/dist/index.d.ts"],
+      "@shivi/database": ["packages/database/dist/index.d.ts"],
+      "@shivi/telemetry": ["packages/telemetry/dist/index.d.ts"],
+      "@shivi/security": ["packages/security/dist/index.d.ts"],
+      "@shivi/ai-sdk": ["packages/ai-sdk/dist/index.d.ts"],
+      "@shivi/agent-runtime": ["packages/agent-runtime/dist/index.d.ts"],
+      "@shivi/mcp-gateway": ["packages/mcp-gateway/dist/index.d.ts"],
+      "@shivi/ui": ["packages/ui/dist/index.d.ts"],
+      "@shivi/resilience": ["packages/resilience/dist/index.d.ts"],
+      "@shivi/chaos-redteam": ["packages/chaos-redteam/dist/index.d.ts"],
+      "@shivi/app-kernel-api": ["apps/kernel-api/dist/index.d.ts"],
+      "@shivi/app-command-center": ["apps/command-center/dist/index.d.ts"]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@shivi/domain-enterprise-search",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 12: Enterprise Search & Governed RAG Pipeline Domain Engine",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shivi/kernel": "workspace:*",
+    "@shivi/telemetry": "workspace:*",
+    "@shivi/ai-sdk": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

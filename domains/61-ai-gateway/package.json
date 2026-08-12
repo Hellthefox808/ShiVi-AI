@@ -1,0 +1,20 @@
+{
+  "name": "@shivi/domain-ai-gateway",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi System 61: AI Gateway Domain",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shivi/kernel": "workspace:*",
+    "@shivi/ai-sdk": "workspace:*",
+    "@shivi/telemetry": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

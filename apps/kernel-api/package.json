@@ -1,0 +1,26 @@
+{
+  "name": "@shivi/app-kernel-api",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi X100+ Kernel REST API & Fastify Gateway Application",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@shivi/kernel": "workspace:*",
+    "@shivi/contracts": "workspace:*",
+    "@shivi/telemetry": "workspace:*",
+    "@shivi/security": "workspace:*",
+    "@shivi/ai-sdk": "workspace:*",
+    "@shivi/agent-runtime": "workspace:*",
+    "@shivi/mcp-gateway": "workspace:*",
+    "fastify": "^4.28.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^5.5.4"
+  }
+}

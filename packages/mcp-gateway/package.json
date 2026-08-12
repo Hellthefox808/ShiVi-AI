@@ -1,0 +1,20 @@
+{
+  "name": "@shivi/mcp-gateway",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi X100+ Model Context Protocol (MCP) Gateway & Tool Registry",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shivi/kernel": "workspace:*",
+    "@shivi/telemetry": "workspace:*",
+    "@shivi/security": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

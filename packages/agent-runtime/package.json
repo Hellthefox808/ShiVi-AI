@@ -1,0 +1,21 @@
+{
+  "name": "@shivi/agent-runtime",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi X100+ Agent Runtime State Machine & Fleet Execution Engine",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shivi/kernel": "workspace:*",
+    "@shivi/telemetry": "workspace:*",
+    "@shivi/security": "workspace:*",
+    "@shivi/ai-sdk": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

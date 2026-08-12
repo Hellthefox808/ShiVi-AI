@@ -1,0 +1,22 @@
+{
+  "name": "shivi-x100-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ShiVi X100+ AI-Native Enterprise Operating Ecosystem",
+  "scripts": {
+    "build": "pnpm --recursive run build",
+    "test": "vitest run",
+    "typecheck": "pnpm --recursive run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
+  }
+}
