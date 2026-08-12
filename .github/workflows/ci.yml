@@ -1,0 +1,59 @@
+name: ShiVi X100+ Enterprise CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    name: Build, Typecheck, Test & Security Verification
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install pnpm Package Manager
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9.7.0
+
+      - name: Get pnpm Store Directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
+
+      - name: Cache pnpm Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile || pnpm install
+
+      - name: Run Typecheck Across All Monorepo Packages
+        run: pnpm --recursive run typecheck
+
+      - name: Build All Monorepo Workspace Packages
+        run: pnpm --recursive run build
+
+      - name: Execute Vitest Unit & Integration Test Suite
+        run: npx vitest run
+
+      - name: Verify Docker Container Build
+        run: docker build -t shivi-kernel-api:ci .

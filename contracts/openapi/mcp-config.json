@@ -1,0 +1,79 @@
+{
+  "mcpServers": {
+    "serena": {
+      "command": "npx",
+      "args": ["-y", "serena-mcp"],
+      "description": "Serena Code Exploration, AST Symbol Search & Semantic Editing MCP Server"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@context7/mcp-server"],
+      "description": "Context7 Documentation & Framework Context Retrieval MCP Server"
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@mcp/postgres"],
+      "description": "PostgreSQL Schema, DDL & PgVector Similarity MCP Server"
+    },
+    "redis": {
+      "command": "npx",
+      "args": ["-y", "@mcp/redis"],
+      "description": "Redis Cache, Pub/Sub & Rate Limit State MCP Server"
+    },
+    "bigquery": {
+      "command": "npx",
+      "args": ["-y", "@google-cloud/bigquery-mcp"],
+      "description": "BigQuery Data Warehouse & Analytical Query MCP Server"
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp"],
+      "description": "Chrome DevTools Browser Automation & Performance Audit MCP Server"
+    },
+    "git": {
+      "command": "npx",
+      "args": ["-y", "@mcp/git"],
+      "description": "Git Version Control, Diffs & Commit History MCP Server"
+    },
+    "docker": {
+      "command": "npx",
+      "args": ["-y", "docker-mcp"],
+      "description": "Docker Container Health & Log Stream MCP Server"
+    },
+    "kubernetes": {
+      "command": "npx",
+      "args": ["-y", "k8s-mcp"],
+      "description": "Kubernetes Cluster Metrics & Pod Operations MCP Server"
+    },
+    "ai-security": {
+      "command": "node",
+      "args": ["packages/security/dist/index.js"],
+      "description": "ShiVi AI Security Threat Scanning & Evidence Audit MCP Server"
+    },
+    "ai-finops": {
+      "command": "node",
+      "args": ["domains/25-ai-finops/dist/index.js"],
+      "description": "ShiVi AI FinOps Token Cost & Budget Audit MCP Server"
+    },
+    "workflow": {
+      "command": "node",
+      "args": ["packages/kernel/dist/workflow.js"],
+      "description": "ShiVi Durable Event-Driven Workflow Saga MCP Server"
+    },
+    "enterprise-search": {
+      "command": "node",
+      "args": ["domains/12-enterprise-search/dist/index.js"],
+      "description": "ShiVi Governed RAG Enterprise Search MCP Server"
+    },
+    "crm-copilot": {
+      "command": "node",
+      "args": ["domains/04-crm-copilot/dist/index.js"],
+      "description": "ShiVi CRM Copilot Lead Scoring MCP Server"
+    },
+    "gtm-os": {
+      "command": "node",
+      "args": ["domains/01-gtm-os/dist/index.js"],
+      "description": "ShiVi GTM OS Marketing Campaign Analytics MCP Server"
+    }
+  }
+}

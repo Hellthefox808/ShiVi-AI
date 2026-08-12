@@ -197,6 +197,19 @@ importers:
         specifier: ^5.5.4
         version: 5.9.3
 
+  frontend/packages/agent-ui:
+    dependencies:
+      '@shivi/contracts':
+        specifier: workspace:*
+        version: link:../../../packages/contracts
+      '@shivi/ui':
+        specifier: workspace:*
+        version: link:../../../packages/ui
+    devDependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: 5.9.3
+
   packages/agent-runtime:
     dependencies:
       '@shivi/ai-sdk':
@@ -278,6 +291,19 @@ importers:
       '@shivi/kernel':
         specifier: workspace:*
         version: link:../kernel
+    devDependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: 5.9.3
+
+  packages/dev-platform:
+    dependencies:
+      '@shivi/kernel':
+        specifier: workspace:*
+        version: link:../kernel
+      '@shivi/telemetry':
+        specifier: workspace:*
+        version: link:../telemetry
     devDependencies:
       typescript:
         specifier: ^5.5.4

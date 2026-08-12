@@ -52,20 +52,17 @@ export class AdvancedRagPipeline {
 
     // 3. Chunking & Indexing into Vector RAG & Knowledge Graph
     const chunk: VectorDocumentChunk = {
-      id: `${req.documentId}-chunk-1`,
+      chunkId: `${req.documentId}-chunk-1`,
+      documentId: req.documentId,
+      tenantId: req.tenantId,
+      classification: req.classification,
+      allowedRoles: ['ADMIN', 'ANALYST'],
       content: req.rawContent,
-      embedding: new Array(1536).fill(0.01),
-      metadata: {
-        tenantId: req.tenantId,
-        classification: req.classification,
-        allowedRoles: ['ADMIN', 'ANALYST'],
-        documentId: req.documentId,
-        version: req.version,
-        contentHash
-      }
+      vectorEmbedding: new Array(1536).fill(0.01),
     };
 
-    VectorRetrievalEngine.upsertVectorChunk(req.tenantId, chunk);
+    VectorRetrievalEngine.indexDocument(chunk);
+
 
     return {
       documentId: req.documentId,

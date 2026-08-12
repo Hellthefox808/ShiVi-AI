@@ -1,8 +1,11 @@
 packages:
-  - 'apps/*'
+  - 'frontend/apps/*'
+  - 'frontend/packages/*'
+  - 'backend/apps/*'
+  - 'backend/services/*'
+  - 'contracts/*'
   - 'packages/*'
+  - 'apps/*'
   - 'domains/*'
-  - 'infra'
-  - 'tests'
 allowBuilds:
   esbuild: true

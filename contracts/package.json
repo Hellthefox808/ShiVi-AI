@@ -1,0 +1,18 @@
+{
+  "name": "@shivi/contracts",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi X100+ Platform OpenAPI 3.1, SSE Events, and Agent Trajectory Contracts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

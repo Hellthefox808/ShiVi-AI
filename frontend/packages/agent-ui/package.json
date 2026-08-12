@@ -1,0 +1,19 @@
+{
+  "name": "@shivi/agent-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ShiVi X100+ 18 AI-Native Component Suite for Agent Control Plane & UX",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@shivi/contracts": "workspace:*",
+    "@shivi/ui": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}

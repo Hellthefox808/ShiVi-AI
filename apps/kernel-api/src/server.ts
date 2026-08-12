@@ -9,12 +9,17 @@ import { AgentLifecycleManager, AgentExecutor } from '@shivi/agent-runtime';
 import { McpGatewayServer, ToolRegistry, McpJsonRpcRequest } from '@shivi/mcp-gateway';
 import { ModelRouter, VectorRetrievalEngine } from '@shivi/ai-sdk';
 import { TenancyContextSchema, AgentExecutionTaskSchema, McpJsonRpcRequestSchema } from '@shivi/contracts';
+import { registerSSERoutes } from './sse.js';
 
 export function buildServer() {
   const server = Fastify({ logger: false });
 
+  // Register SSE Streaming Routes
+  registerSSERoutes(server);
+
   // Initialize tool registry
   ToolRegistry.bootstrapLegacyNexTools();
+
 
   // Health Check
   server.get('/health', async () => {
