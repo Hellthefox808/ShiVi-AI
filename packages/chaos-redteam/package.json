@@ -16,7 +16,8 @@
     "@shivi/ai-sdk": "workspace:*",
     "@shivi/agent-runtime": "workspace:*",
     "@shivi/mcp-gateway": "workspace:*",
-    "@shivi/resilience": "workspace:*"
+    "@shivi/resilience": "workspace:*",
+    "@shivi/service-workflows": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.5.4"
