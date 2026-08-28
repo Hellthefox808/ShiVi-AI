@@ -1,5 +1,14 @@
 import { describe, it, expect } from 'vitest';
-import { AgentLifecycleManager, AgentExecutor, AgentRecoveryEngine, CanaryReplayEngine } from '../index.js';
+import {
+  AgentLifecycleManager,
+  AgentExecutor,
+  AgentRecoveryEngine,
+  CanaryReplayEngine,
+  AgentRosterManager,
+  AgentEvaluationHarness,
+  B2BRevOpsScenarioEngine,
+} from '../index.js';
+
 
 
 import { TenancyContext, CapabilityBroker } from '@shivi/kernel';
@@ -156,6 +165,84 @@ describe('ShiVi Agent Runtime & Lifecycle Engine Suite', () => {
     expect(evalRes.replayAccuracyScore).toBe(1.0);
   });
 
+  it('should maintain the complete 38 Core Specialized Agents roster', () => {
+    const agents = AgentRosterManager.getAllAgents();
+    expect(agents.length).toBe(38);
+
+    const orchestrator = AgentRosterManager.getAgent('orchestrator-agent');
+    expect(orchestrator).toBeDefined();
+    expect(orchestrator?.name).toContain('Orchestrator');
+
+    const gtmAgents = AgentRosterManager.getAgentsByCategory('GTM');
+    expect(gtmAgents.length).toBeGreaterThan(5);
+
+    const revopsAgents = AgentRosterManager.getAgentsByCategory('REVOPS');
+    expect(revopsAgents.length).toBeGreaterThan(5);
+  });
+
+  it('should execute evaluation harness benchmarks and enforce promotion gate', () => {
+    AgentLifecycleManager.registerAgent(
+      'eval-agent-01',
+      'v1.0.0',
+      'tenant-gamma',
+      'Evaluation Target Agent',
+      'Target for benchmark testing',
+      ['tool-1'],
+      'T1'
+    );
+    AgentLifecycleManager.transitionState('tenant-gamma', 'eval-agent-01', 'v1.0.0', 'EVALUATING');
+    AgentLifecycleManager.transitionState('tenant-gamma', 'eval-agent-01', 'v1.0.0', 'SECURITY_REVIEW');
+    AgentLifecycleManager.transitionState('tenant-gamma', 'eval-agent-01', 'v1.0.0', 'STAGING');
+
+    const report = AgentEvaluationHarness.evaluateAgent('tenant-gamma', 'eval-agent-01', 'v1.0.0');
+    expect(report.totalTests).toBeGreaterThanOrEqual(4);
+    expect(report.passedThreshold).toBe(true);
+    expect(report.metrics.taskSuccessRate).toBeGreaterThan(95);
+
+    const promotion = AgentEvaluationHarness.promoteAgent('tenant-gamma', 'eval-agent-01', 'v1.0.0', 'CANARY');
+    expect(promotion.success).toBe(true);
+    expect(promotion.newState).toBe('CANARY');
+  });
+
+  it('should execute Scenario 1: Recover a Stalled $100K Opportunity', async () => {
+    const res = await B2BRevOpsScenarioEngine.executeRecoverStalledOpportunity(sampleTenant);
+    expect(res.scenarioId).toBe('SCENARIO_1_RECOVER_STALLED_OPP');
+    expect(res.status).toBe('COMPLETED');
+    expect(res.revenueImpactUSD).toBe(100000);
+    expect(res.steps.length).toBe(6);
+    expect(res.evidenceSummary.chainIntegrityVerified).toBe(true);
+  });
+
+  it('should execute Scenario 2: Qualify New Enterprise Inbound Lead', async () => {
+    const res = await B2BRevOpsScenarioEngine.executeQualifyEnterpriseLead(sampleTenant);
+    expect(res.scenarioId).toBe('SCENARIO_2_QUALIFY_ENTERPRISE_LEAD');
+    expect(res.status).toBe('COMPLETED');
+    expect(res.steps.length).toBe(3);
+  });
+
+  it('should execute Scenario 3: Renewal & Churn Risk Mitigation', async () => {
+    const res = await B2BRevOpsScenarioEngine.executeRenewalRiskMitigation(sampleTenant);
+    expect(res.scenarioId).toBe('SCENARIO_3_RENEWAL_RISK_MITIGATION');
+    expect(res.status).toBe('COMPLETED');
+    expect(res.revenueImpactUSD).toBe(250000);
+  });
+
+  it('should execute Scenario 4: CRM Data Hygiene & Duplication Scan', async () => {
+    const res = await B2BRevOpsScenarioEngine.executeCRMDataHygieneScan(sampleTenant);
+    expect(res.scenarioId).toBe('SCENARIO_4_CRM_DATA_HYGIENE');
+    expect(res.status).toBe('COMPLETED');
+    expect(res.steps.length).toBe(2);
+  });
+
+  it('should execute Scenario 5: Executive Forecast Risk Analysis', async () => {
+    const res = await B2BRevOpsScenarioEngine.executeExecutiveForecastAnalysis(sampleTenant);
+    expect(res.scenarioId).toBe('SCENARIO_5_EXECUTIVE_FORECAST_ANALYSIS');
+    expect(res.status).toBe('COMPLETED');
+    expect(res.steps.length).toBe(1);
+  });
 });
+
+
+
 
 

@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShiVi X100+ — Enterprise AI Operating Ecosystem</title>
+  <title>ShiVi — Agentic AI Revenue Operations & B2B SaaS Control Plane</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-base: #07090e;
-      --bg-surface: #0f131c;
-      --bg-elevated: #151b27;
-      --bg-card: rgba(18, 24, 38, 0.75);
-      --bg-glass: rgba(15, 19, 28, 0.85);
+      --bg-base: #06080d;
+      --bg-surface: #0e121b;
+      --bg-elevated: #151a26;
+      --bg-card: rgba(16, 22, 34, 0.85);
+      --bg-glass: rgba(14, 18, 27, 0.88);
       --border: rgba(255, 255, 255, 0.08);
       --border-focus: rgba(99, 102, 241, 0.5);
       --border-accent: rgba(0, 242, 254, 0.3);
@@ -57,28 +57,16 @@
       flex-direction: column;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 90% 20%, rgba(0, 242, 254, 0.1) 0%, transparent 35%),
-        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 12% 10%, rgba(99, 102, 241, 0.14) 0%, transparent 40%),
+        radial-gradient(circle at 88% 18%, rgba(0, 242, 254, 0.12) 0%, transparent 35%),
+        radial-gradient(circle at 50% 85%, rgba(139, 92, 246, 0.09) 0%, transparent 50%);
       background-attachment: fixed;
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg-base);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--bg-elevated);
-      border-radius: 4px;
-      border: 1px solid var(--border);
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--indigo);
-    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-base); }
+    ::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 4px; border: 1px solid var(--border); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--indigo); }
 
     /* Top Navigation Bar */
     header {
@@ -92,32 +80,33 @@
     }
 
     .nav-container {
-      max-width: 1440px;
+      max-width: 1560px;
       margin: 0 auto;
-      padding: 0.9rem 2rem;
+      padding: 0.75rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.75rem;
       cursor: pointer;
       text-decoration: none;
     }
 
     .brand-logo-icon {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
       background: linear-gradient(135deg, var(--cyan), var(--indigo));
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       color: #05070a;
       box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
     }
@@ -137,7 +126,7 @@
     }
 
     .brand-sub {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--cyan);
@@ -148,11 +137,12 @@
     .nav-tabs {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.35rem;
       background: rgba(255, 255, 255, 0.03);
-      padding: 0.3rem;
+      padding: 0.25rem;
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
+      overflow-x: auto;
     }
 
     .nav-tab-btn {
@@ -160,33 +150,47 @@
       border: none;
       color: var(--text-muted);
       font-family: var(--font-sans);
-      font-size: 0.875rem;
+      font-size: 0.825rem;
       font-weight: 600;
-      padding: 0.5rem 1.1rem;
+      padding: 0.45rem 0.9rem;
       border-radius: var(--radius-md);
       cursor: pointer;
       transition: all 0.2s ease;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
+      white-space: nowrap;
     }
 
     .nav-tab-btn:hover {
       color: var(--text-main);
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .nav-tab-btn.active {
       color: #ffffff;
       background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(0, 242, 254, 0.2));
-      border: 1px solid rgba(0, 242, 254, 0.3);
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.25);
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
+    }
+
+    .tenant-select-dropdown {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-md);
+      outline: none;
+      cursor: pointer;
     }
 
     .status-badge-live {
@@ -218,29 +222,11 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    .btn-auth-action {
-      background: linear-gradient(135deg, var(--indigo), var(--purple));
-      color: white;
-      border: none;
-      padding: 0.55rem 1.25rem;
-      border-radius: var(--radius-md);
-      font-weight: 700;
-      font-size: 0.875rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 0 18px rgba(99, 102, 241, 0.3);
-    }
-
-    .btn-auth-action:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
-    }
-
     /* Page Views Layout */
     .page-view {
       display: none;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.25s ease;
     }
 
     .page-view.active {
@@ -249,22 +235,20 @@
     }
 
     main {
-      max-width: 1440px;
+      max-width: 1560px;
       margin: 0 auto;
-      padding: 2.5rem 2rem;
+      padding: 2rem 1.5rem;
       flex: 1;
       width: 100%;
     }
 
-    /* ─────────────────────────────────────────────────────────────
-       HERO & LANDING PAGE SECTION
-       ───────────────────────────────────────────────────────────── */
+    /* Hero / Landing styles */
     .hero-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 3rem 1rem 4rem;
+      padding: 2.5rem 1rem 3.5rem;
       position: relative;
     }
 
@@ -279,17 +263,17 @@
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--cyan);
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
       box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
     }
 
     .hero-h1 {
-      font-size: 3.6rem;
+      font-size: 3.5rem;
       font-weight: 800;
-      line-height: 1.12;
+      line-height: 1.15;
       letter-spacing: -0.04em;
-      max-width: 950px;
-      margin-bottom: 1.5rem;
+      max-width: 1020px;
+      margin-bottom: 1.25rem;
       background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -302,26 +286,28 @@
     }
 
     .hero-desc {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      max-width: 780px;
+      max-width: 820px;
       line-height: 1.65;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.25rem;
     }
 
     .hero-cta-group {
       display: flex;
       align-items: center;
       gap: 1.2rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .btn-hero-primary {
       background: linear-gradient(135deg, var(--cyan), var(--indigo));
       color: #05070a;
       font-weight: 800;
-      font-size: 1rem;
-      padding: 0.9rem 2rem;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
       border-radius: var(--radius-md);
       border: none;
       cursor: pointer;
@@ -341,8 +327,8 @@
       background: rgba(255, 255, 255, 0.05);
       color: var(--text-main);
       font-weight: 600;
-      font-size: 1rem;
-      padding: 0.9rem 1.8rem;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.6rem;
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
       cursor: pointer;
@@ -357,14 +343,14 @@
       border-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* Live KPI Grid */
+    /* KPI Grid */
     .kpi-banner-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.25rem;
       width: 100%;
-      max-width: 1200px;
-      margin-bottom: 4rem;
+      max-width: 1400px;
+      margin-bottom: 3.5rem;
     }
 
     .kpi-card {
@@ -416,194 +402,183 @@
       margin-top: 0.4rem;
     }
 
-    /* Feature Columns */
-    .features-section {
-      width: 100%;
-      margin-bottom: 4.5rem;
-    }
-
-    .section-header-centered {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-tag {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.6rem;
-    }
-
-    .section-title-large {
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: #ffffff;
-      margin-bottom: 0.8rem;
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .feature-box {
+    /* Card & Section styles */
+    .dash-card {
       background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 2rem;
-      position: relative;
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
-    .feature-box:hover {
-      border-color: rgba(99, 102, 241, 0.4);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .feature-icon-wrapper {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--radius-md);
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1.25rem;
-      color: var(--cyan);
-    }
-
-    .feature-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      color: #ffffff;
-    }
-
-    .feature-body {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .feature-badge-tag {
-      margin-top: 1.25rem;
-      align-self: flex-start;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--indigo);
-      background: rgba(99, 102, 241, 0.1);
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
-    }
-
-    /* 100 Systems Directory Showcase */
-    .systems-showcase-section {
-      width: 100%;
-      margin-bottom: 4rem;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 2.5rem;
-    }
-
-    .systems-toolbar {
+    .card-header-flex {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 1.25rem;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.75rem;
+    }
+
+    .card-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    /* Scenarios Grid */
+    .scenarios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.5rem;
       margin-bottom: 2rem;
     }
 
-    .search-input-wrapper {
-      position: relative;
-      flex: 1;
-      max-width: 400px;
-    }
-
-    .search-input {
-      width: 100%;
+    .scenario-card {
       background: var(--bg-elevated);
       border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 0.7rem 1rem 0.7rem 2.5rem;
-      color: #ffffff;
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-
-    .search-input:focus {
-      border-color: var(--indigo);
-      box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
-    }
-
-    .search-icon-abs {
-      position: absolute;
-      left: 0.9rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-dim);
-      font-size: 0.9rem;
-    }
-
-    .filter-chips {
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      position: relative;
     }
 
-    .chip-btn {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
+    .scenario-card:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .scen-badge {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(0, 242, 254, 0.1);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    .scen-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0.6rem 0 0.4rem;
+    }
+
+    .scen-desc {
+      font-size: 0.85rem;
       color: var(--text-muted);
-      padding: 0.4rem 0.85rem;
-      border-radius: 20px;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .scen-impact {
+      font-family: var(--font-mono);
       font-size: 0.8rem;
-      font-weight: 600;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .btn-run-scenario {
+      background: linear-gradient(135deg, var(--indigo), var(--cyan));
+      color: #05070a;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: var(--radius-md);
+      border: none;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
       transition: all 0.2s ease;
     }
 
-    .chip-btn:hover, .chip-btn.active {
+    .btn-run-scenario:hover {
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+    }
+
+    /* Live Scenario Execution Drawer / Modal */
+    .scenario-execution-box {
+      background: var(--bg-base);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .step-timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin: 1rem 0;
+    }
+
+    .step-item-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--cyan);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+    }
+
+    .step-item-card.approval-needed {
+      border-left-color: var(--amber);
+      background: rgba(245, 158, 11, 0.05);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-agent-name {
+      font-weight: 700;
       color: #ffffff;
-      background: var(--indigo);
-      border-color: var(--indigo);
     }
 
-    .systems-grid-container {
+    .step-action-desc {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-output-box {
+      background: #04060a;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.65rem 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #a7f3d0;
+    }
+
+    /* 38 Agents Roster */
+    .agents-roster-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-      max-height: 520px;
-      overflow-y: auto;
-      padding-right: 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
     }
 
-    .system-mini-card {
+    .agent-roster-card {
       background: var(--bg-elevated);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 1.1rem;
+      padding: 1.25rem;
       cursor: pointer;
       transition: all 0.2s ease;
       display: flex;
@@ -611,154 +586,135 @@
       justify-content: space-between;
     }
 
-    .system-mini-card:hover {
-      border-color: var(--cyan);
+    .agent-roster-card:hover {
+      border-color: var(--indigo);
       transform: translateY(-2px);
-      background: rgba(99, 102, 241, 0.08);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
     }
 
-    .sys-card-header {
+    .agent-card-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
 
-    .sys-num {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--cyan);
-      background: rgba(0, 242, 254, 0.1);
-      padding: 0.15rem 0.45rem;
-      border-radius: 4px;
-    }
-
-    .sys-status-badge {
+    .agent-cat-tag {
       font-size: 0.7rem;
       font-weight: 700;
-      color: var(--green);
+      font-family: var(--font-mono);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--indigo);
     }
 
-    .sys-name {
-      font-size: 0.95rem;
+    .agent-risk-pill {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--amber);
+    }
+
+    .agent-name-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.35rem;
+    }
+
+    .agent-desc-text {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      flex: 1;
+      margin-bottom: 0.85rem;
+    }
+
+    .agent-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      border-top: 1px dashed var(--border);
+      padding-top: 0.6rem;
+    }
+
+    /* Pipeline Kanban */
+    .kanban-board {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    @media (max-width: 1200px) {
+      .kanban-board {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .kanban-board {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .kanban-column {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-height: 400px;
+    }
+
+    .kanban-col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+
+    .kanban-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .kanban-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    .kanban-card-title {
+      font-size: 0.9rem;
       font-weight: 700;
       color: #ffffff;
       margin-bottom: 0.3rem;
     }
 
-    .sys-desc {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       LOGIN & SSO PORTAL SECTION
-       ───────────────────────────────────────────────────────────── */
-    .login-container-wrapper {
-      min-height: 75vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1rem;
-    }
-
-    .login-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      width: 100%;
-      max-width: 480px;
-      padding: 2.75rem 2.25rem;
-      -webkit-backdrop-filter: blur(20px);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      position: relative;
-    }
-
-    .login-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 10%;
-      right: 10%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan), var(--indigo), transparent);
-    }
-
-    .login-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .login-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 0.4rem;
-    }
-
-    .login-subtitle {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .sso-providers-group {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .sso-btn {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      color: var(--text-main);
-      padding: 0.75rem 1rem;
-      font-family: var(--font-sans);
+    .kanban-card-val {
+      font-family: var(--font-mono);
       font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      transition: all 0.2s ease;
-    }
-
-    .sso-btn:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .divider-or {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      color: var(--text-dim);
-      font-size: 0.75rem;
+      color: var(--green);
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 1.75rem;
     }
 
-    .divider-or::before, .divider-or::after {
-      content: '';
-      flex: 1;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .divider-or:not(:empty)::before {
-      margin-right: 1em;
-    }
-
-    .divider-or:not(:empty)::after {
-      margin-left: 1em;
-    }
-
+    /* Forms, Modals & Console */
     .form-group {
       margin-bottom: 1.25rem;
       text-align: left;
@@ -790,204 +746,6 @@
       box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
     }
 
-    .btn-submit-login {
-      width: 100%;
-      background: linear-gradient(135deg, var(--indigo), var(--cyan));
-      color: #05070a;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 0.85rem;
-      border-radius: var(--radius-md);
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      margin-top: 0.5rem;
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-    }
-
-    .btn-submit-login:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
-    }
-
-    .login-footer-hint {
-      margin-top: 1.75rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-dim);
-    }
-
-    .login-footer-hint a {
-      color: var(--cyan);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    /* ─────────────────────────────────────────────────────────────
-       OPERATOR DASHBOARD SECTION
-       ───────────────────────────────────────────────────────────── */
-    .dashboard-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 2rem;
-    }
-
-    .dash-tenant-info {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
-
-    .tenant-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, var(--indigo), var(--purple));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.3rem;
-      color: white;
-    }
-
-    .tenant-title {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: #ffffff;
-    }
-
-    .tenant-meta {
-      display: flex;
-      gap: 1rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      margin-top: 0.2rem;
-    }
-
-    .dash-quick-stats {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .quick-stat-item {
-      text-align: right;
-    }
-
-    .qs-label {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .qs-val {
-      font-size: 1.4rem;
-      font-weight: 800;
-      font-family: var(--font-mono);
-      color: var(--text-main);
-    }
-
-    /* Dashboard Layout Grid */
-    .dashboard-main-layout {
-      display: grid;
-      grid-template-columns: 2.2fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    @media (max-width: 1080px) {
-      .dashboard-main-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .dash-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-header-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.25rem;
-    }
-
-    .card-heading {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    /* Live Agent Executor Sandbox */
-    .agent-runner-box {
-      background: var(--bg-base);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-    }
-
-    .runner-controls {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .prompt-input-area {
-      width: 100%;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 0.85rem 1rem;
-      color: #ffffff;
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      resize: vertical;
-      min-height: 85px;
-      margin-bottom: 1rem;
-      outline: none;
-    }
-
-    .prompt-input-area:focus {
-      border-color: var(--indigo);
-    }
-
-    .btn-dispatch-task {
-      background: linear-gradient(135deg, var(--green), var(--cyan));
-      color: #05070a;
-      border: none;
-      font-weight: 800;
-      font-size: 0.9rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.2s ease;
-    }
-
-    .btn-dispatch-task:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-    }
-
     .console-terminal {
       background: #05070a;
       border: 1px solid var(--border);
@@ -996,7 +754,7 @@
       font-family: var(--font-mono);
       font-size: 0.825rem;
       color: #a7f3d0;
-      max-height: 220px;
+      max-height: 250px;
       overflow-y: auto;
       margin-top: 1rem;
       line-height: 1.5;
@@ -1007,43 +765,13 @@
     .term-line-warning { color: #fbbf24; }
     .term-line-evidence { color: #c084fc; }
 
-    /* Evidence Ledger Explorer */
-    .ledger-chain-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .ledger-block-item {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 0.85rem 1.1rem;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-    }
-
-    .ledger-block-header {
-      display: flex;
-      justify-content: space-between;
-      color: var(--cyan);
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-
-    .ledger-hash {
-      color: var(--text-dim);
-      font-size: 0.75rem;
-      word-break: break-all;
-    }
-
-    /* Modal Styles */
+    /* Modal Overlay */
     .modal-overlay {
       position: fixed;
       inset: 0;
       background: rgba(0, 0, 0, 0.8);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -1059,9 +787,9 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-accent);
       border-radius: var(--radius-xl);
-      max-width: 650px;
+      max-width: 700px;
       width: 100%;
-      padding: 2rem;
+      padding: 2.25rem;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
       position: relative;
     }
@@ -1087,34 +815,38 @@
       font-size: 0.875rem;
       margin-top: auto;
     }
-
-    footer a {
-      color: var(--cyan);
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
-  <!-- Header & Navigation -->
+  <!-- Header Navigation -->
   <header>
     <div class="nav-container">
       <div class="brand" onclick="switchTab('landing')">
         <div class="brand-logo-icon">S</div>
         <div class="brand-text">
-          <span class="brand-name">ShiVi X100+</span>
-          <span class="brand-sub">AI Enterprise OS</span>
+          <span class="brand-name">ShiVi</span>
+          <span class="brand-sub">RevOps & B2B Control Plane</span>
         </div>
       </div>
 
       <nav class="nav-tabs">
         <button class="nav-tab-btn active" id="tab-landing" onclick="switchTab('landing')">
-          <span>✨</span> Overview & Hero
+          <span>✨</span> Overview
         </button>
-        <button class="nav-tab-btn" id="tab-systems" onclick="switchTab('systems')">
-          <span>🔮</span> 100 Systems
+        <button class="nav-tab-btn" id="tab-scenarios" onclick="switchTab('scenarios')">
+          <span>🎬</span> 5 Live Scenarios
+        </button>
+        <button class="nav-tab-btn" id="tab-agents" onclick="switchTab('agents')">
+          <span>🤖</span> 38 Core Agents
+        </button>
+        <button class="nav-tab-btn" id="tab-pipeline" onclick="switchTab('pipeline')">
+          <span>📈</span> Pipeline & Deals
         </button>
         <button class="nav-tab-btn" id="tab-dashboard" onclick="switchTab('dashboard')">
           <span>⚡</span> Command Center
+        </button>
+        <button class="nav-tab-btn" id="tab-harness" onclick="switchTab('harness')">
+          <span>🧪</span> Agent Harness
         </button>
         <button class="nav-tab-btn" id="tab-login" onclick="switchTab('login')">
           <span>🔐</span> SSO Login
@@ -1122,421 +854,481 @@
       </nav>
 
       <div class="nav-actions">
+        <select class="tenant-select-dropdown" id="tenant-select" onchange="handleTenantChange(this.value)">
+          <option value="tenant_prod_acme">Acme Corp ($1.54M ARR)</option>
+          <option value="tenant_northstar">Northstar Tech ($2.10M ARR)</option>
+          <option value="tenant_vertex">Vertex Labs ($850K ARR)</option>
+        </select>
         <div class="status-badge-live">
           <div class="pulse-dot"></div>
-          <span>462/462 Tests Passed</span>
+          <span>462 Tests (100% Pass)</span>
         </div>
-        <button class="btn-auth-action" id="header-auth-btn" onclick="switchTab('login')">
-          Sign In
-        </button>
       </div>
     </div>
   </header>
 
   <main>
     <!-- ─────────────────────────────────────────────────────────────
-         1. LANDING & HERO VIEW
+         1. OVERVIEW & HERO PAGE
          ───────────────────────────────────────────────────────────── -->
     <div id="view-landing" class="page-view active">
       <div class="hero-container">
         <div class="hero-badge-pill">
-          <span>🚀</span> ShiVi X100+ Enterprise AI Operating Ecosystem v1.0.0
+          <span>🚀</span> ShiVi Agentic AI Revenue Operations & B2B SaaS Control Plane
         </div>
         <h1 class="hero-h1">
-          The Zero-Trust <span class="gradient-text">AI Operating System</span> for Enterprise Scale
+          The Zero-Trust <span class="gradient-text">Agentic Operating System</span> for B2B Revenue
         </h1>
         <p class="hero-desc">
-          Orchestrating 100 autonomous domain engines with cryptographic SHA-256 evidence ledgers, 
-          multi-provider AI Gateway routing, 4-tier agent memory, and continuous 7-layer tenant isolation.
+          Orchestrating 38 specialized revenue agents, hybrid RAG knowledge graphs, 
+          durable Temporal-backed workflows, cryptographic SHA-256 evidence ledgers, and continuous 7-layer tenant isolation.
         </p>
 
         <div class="hero-cta-group">
-          <button class="btn-hero-primary" onclick="switchTab('dashboard')">
-            <span>⚡</span> Launch Command Center
+          <button class="btn-hero-primary" onclick="switchTab('scenarios')">
+            <span>🎬</span> Run 5 Live Demonstration Scenarios
           </button>
-          <button class="btn-hero-secondary" onclick="switchTab('systems')">
-            <span>🔮</span> Explore 100 Systems
+          <button class="btn-hero-secondary" onclick="switchTab('pipeline')">
+            <span>📈</span> Inspect Deal Risk & Pipeline
+          </button>
+          <button class="btn-hero-secondary" onclick="switchTab('agents')">
+            <span>🤖</span> View 38 Specialized Agents
           </button>
         </div>
 
-        <!-- Live Monorepo Stats Grid -->
         <div class="kpi-banner-grid">
           <div class="kpi-card">
-            <div class="kpi-label">Edge Readiness Score</div>
-            <div class="kpi-val cyan">100<span style="font-size:1.1rem; color:var(--text-dim)">%</span></div>
-            <div class="kpi-sub">10-Dimensional Governance Verified</div>
+            <div class="kpi-label">Active ARR Monitored</div>
+            <div class="kpi-val green">$1.54M</div>
+            <div class="kpi-sub">99.4% Forecast Accuracy · 0 Stalled Deals</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-label">Vitest Test Suites</div>
-            <div class="kpi-val green">167/167</div>
-            <div class="kpi-sub">462 Automated Unit Tests (100% Pass)</div>
+            <div class="kpi-label">Specialized Core Agents</div>
+            <div class="kpi-val cyan">38 / 38</div>
+            <div class="kpi-sub">GTM · RevOps · Governance · Harness</div>
           </div>
           <div class="kpi-card">
-            <div class="kpi-label">Microservices & Workers</div>
-            <div class="kpi-val purple">33</div>
-            <div class="kpi-sub">27 Platform Services · 6 Fast Workers</div>
+            <div class="kpi-label">Evidence Hash Chains</div>
+            <div class="kpi-val purple">100<span style="font-size:1.1rem; color:var(--text-dim)">%</span></div>
+            <div class="kpi-sub">SHA-256 Tamper-Evident Ledger Verified</div>
           </div>
           <div class="kpi-card">
             <div class="kpi-label">Red-Team Containment</div>
             <div class="kpi-val amber">100<span style="font-size:1.1rem; color:var(--text-dim)">%</span></div>
-            <div class="kpi-sub">6 Attack Classes Defended</div>
+            <div class="kpi-sub">6 Adversarial Attack Classes Defended</div>
           </div>
         </div>
       </div>
-
-      <!-- Core Features Grid -->
-      <section class="features-section">
-        <div class="section-header-centered">
-          <div class="section-tag">High-Assurance Architecture</div>
-          <h2 class="section-title-large">Engineered for Zero-Trust AI Autonomy</h2>
-          <p class="section-desc">
-            ShiVi is not a simple copilot wrapper. It is a governed, auditable AI operating foundation.
-          </p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">🛡️</div>
-            <h3 class="feature-title">Zero-Trust Multi-Tenancy</h3>
-            <p class="feature-body">
-              Every request carries a strict TenancyContext with data classification (PUBLIC → RESTRICTED), 
-              enforced at the kernel layer with continuous 7-layer synthetic boundary audits.
-            </p>
-            <span class="feature-badge-tag">@shivi/kernel · 7-Layer Isolation</span>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">🔗</div>
-            <h3 class="feature-title">Cryptographic Evidence Ledger</h3>
-            <p class="feature-body">
-              Tamper-evident SHA-256 hash chains record every agent decision, tool invocation, and trajectory step 
-              with deterministic verification and audit export capabilities.
-            </p>
-            <span class="feature-badge-tag">@shivi/security · SHA-256 Proof</span>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">⚡</div>
-            <h3 class="feature-title">Multi-Model FinOps Router</h3>
-            <p class="feature-body">
-              Dynamic complexity-based routing across Gemini 1.5 Pro, Claude Sonnet 3.5, GPT-4o, and local models 
-              with real-time USD token cost accounting and per-tenant circuit breakers.
-            </p>
-            <span class="feature-badge-tag">@shivi/ai-sdk · Budget Circuit Breaker</span>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">🧠</div>
-            <h3 class="feature-title">Unified 4-Tier Agent Memory</h3>
-            <p class="feature-body">
-              Working, Episodic, Semantic, and Procedural memory tiers with automatic conflict detection, 
-              cross-turn resolution, and tenant-isolated storage.
-            </p>
-            <span class="feature-badge-tag">@shivi/service-memory · Multi-Tier</span>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">⚙️</div>
-            <h3 class="feature-title">10-State Governed Lifecycle</h3>
-            <p class="feature-body">
-              Deterministic agent promotion from DRAFT to EVALUATING, SECURITY REVIEW, CANARY, and ACTIVE, 
-              with automated quarantine on reasoning loop or prompt injection detection.
-            </p>
-            <span class="feature-badge-tag">@shivi/agent-runtime · 10 States</span>
-          </div>
-
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">🌐</div>
-            <h3 class="feature-title">MCP Tool Protocol Gateway</h3>
-            <p class="feature-body">
-              Enterprise JSON-RPC 2.0 Model Context Protocol gateway supporting capability-based access tokens (T0–T5) 
-              with sandboxed tool execution and legacy adapters.
-            </p>
-            <span class="feature-badge-tag">@shivi/mcp-gateway · JSON-RPC 2.0</span>
-          </div>
-        </div>
-      </section>
     </div>
 
     <!-- ─────────────────────────────────────────────────────────────
-         2. 100 SYSTEMS DIRECTORY VIEW
+         2. 5 LIVE DEMONSTRATION SCENARIOS
          ───────────────────────────────────────────────────────────── -->
-    <div id="view-systems" class="page-view">
-      <div class="systems-showcase-section">
-        <div class="systems-toolbar">
+    <div id="view-scenarios" class="page-view">
+      <div class="dash-card">
+        <div class="card-header-flex">
           <div>
-            <h2 class="section-title-large" style="font-size: 1.8rem; margin-bottom: 0.3rem;">100 Autonomous Systems Explorer</h2>
-            <p style="color:var(--text-muted); font-size: 0.9rem;">Complete catalog of 100 enterprise domain modules implemented in the ShiVi monorepo.</p>
-          </div>
-
-          <div class="search-input-wrapper">
-            <span class="search-icon-abs">🔍</span>
-            <input type="text" class="search-input" id="systems-search" placeholder="Search systems (e.g. GTM, RevOps, FinOps)..." oninput="filterSystems()">
+            <h2 class="card-heading" style="font-size: 1.5rem;"><span>🎬</span> 5 Live B2B RevOps Demonstration Scenarios</h2>
+            <p style="color:var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem;">
+              Executable multi-agent trajectories with real state updates, RAG citations, HITL approval gates, and SHA-256 evidence blocks.
+            </p>
           </div>
         </div>
 
-        <div class="filter-chips" style="margin-bottom: 1.5rem;">
-          <button class="chip-btn active" onclick="filterCategory('all', this)">All (100)</button>
-          <button class="chip-btn" onclick="filterCategory('gtm', this)">GTM & Sales</button>
-          <button class="chip-btn" onclick="filterCategory('finance', this)">Finance & RevOps</button>
-          <button class="chip-btn" onclick="filterCategory('security', this)">Security & Trust</button>
-          <button class="chip-btn" onclick="filterCategory('ai', this)">AI & Data Platform</button>
-          <button class="chip-btn" onclick="filterCategory('operations', this)">Operations & HR</button>
+        <div class="scenarios-grid">
+          <!-- Scenario 1 -->
+          <div class="scenario-card" onclick="runScenario(1)">
+            <div>
+              <div style="display:flex; justify-content:space-between;">
+                <span class="scen-badge">PRIMARY SCENARIO</span>
+                <span style="font-size:0.75rem; color:var(--green)">● High Impact</span>
+              </div>
+              <h3 class="scen-title">1. Recover Stalled $100K Opportunity</h3>
+              <p class="scen-desc">
+                Opportunity Risk Agent flags stalled deal (>30d) → RAG searches meeting notes → Buying Committee Agent flags missing Economic Buyer → Deal Strategy proposes CRO sponsor outreach → Policy enforces HITL approval → CRM stage advanced.
+              </p>
+              <div class="scen-impact">Revenue Impact: +$100,000 ARR Recovery</div>
+            </div>
+            <button class="btn-run-scenario"><span>⚡</span> Execute Live Trajectory</button>
+          </div>
+
+          <!-- Scenario 2 -->
+          <div class="scenario-card" onclick="runScenario(2)">
+            <div>
+              <div style="display:flex; justify-content:space-between;">
+                <span class="scen-badge">INBOUND GTM</span>
+                <span style="font-size:0.75rem; color:var(--cyan)">● Automated</span>
+              </div>
+              <h3 class="scen-title">2. Qualify New Strategic Enterprise Lead</h3>
+              <p class="scen-desc">
+                Inbound CTO lead captured → Enrichment Agent pulls tech stack ($45M Series B) → ICP Agent scores 94/100 → Lead Routing Agent assigns to Strategic Enterprise AE with custom sequence.
+              </p>
+              <div class="scen-impact">Revenue Impact: +$65,000 Pipeline Value</div>
+            </div>
+            <button class="btn-run-scenario"><span>⚡</span> Execute Live Trajectory</button>
+          </div>
+
+          <!-- Scenario 3 -->
+          <div class="scenario-card" onclick="runScenario(3)">
+            <div>
+              <div style="display:flex; justify-content:space-between;">
+                <span class="scen-badge">CUSTOMER SUCCESS</span>
+                <span style="font-size:0.75rem; color:var(--amber)">● Churn Shield</span>
+              </div>
+              <h3 class="scen-title">3. Mitigate $250K Renewal Churn Risk</h3>
+              <p class="scen-desc">
+                Telemetry detects 35% usage drop + 2 high severity tickets → Health score drops to 48 (At Risk) → Renewal Agent triggers Executive CSM Escalation Playbook & QBR.
+              </p>
+              <div class="scen-impact">Revenue Impact: $250,000 ARR Protected</div>
+            </div>
+            <button class="btn-run-scenario"><span>⚡</span> Execute Live Trajectory</button>
+          </div>
+
+          <!-- Scenario 4 -->
+          <div class="scenario-card" onclick="runScenario(4)">
+            <div>
+              <div style="display:flex; justify-content:space-between;">
+                <span class="scen-badge">DATA GOVERNANCE</span>
+                <span style="font-size:0.75rem; color:var(--purple)">● T3 Capability</span>
+              </div>
+              <h3 class="scen-title">4. CRM Data Hygiene & Merge Repair</h3>
+              <p class="scen-desc">
+                CRM Hygiene Agent scans 1,200 records → Identifies 14 duplicate contact clusters → Synthesizes merge plan with field conflict resolution → Policy gate requires approval → Merges executed.
+              </p>
+              <div class="scen-impact">Data Quality: 99.8% Integrity Restored</div>
+            </div>
+            <button class="btn-run-scenario"><span>⚡</span> Execute Live Trajectory</button>
+          </div>
+
+          <!-- Scenario 5 -->
+          <div class="scenario-card" onclick="runScenario(5)">
+            <div>
+              <div style="display:flex; justify-content:space-between;">
+                <span class="scen-badge">EXECUTIVE COCKPIT</span>
+                <span style="font-size:0.75rem; color:var(--indigo)">● Macro Synthesis</span>
+              </div>
+              <h3 class="scen-title">5. Executive Forecast Risk Briefing</h3>
+              <p class="scen-desc">
+                Executive asks: "What is putting this quarter's forecast at risk?" → Executive Intelligence + Forecast Agents synthesize $260K slippage exposure with cited evidence and action plan.
+              </p>
+              <div class="scen-impact">Forecast Analysis: $1.54M Committed ARR</div>
+            </div>
+            <button class="btn-run-scenario"><span>⚡</span> Execute Live Trajectory</button>
+          </div>
         </div>
 
-        <div class="systems-grid-container" id="systems-grid">
+        <!-- Live Scenario Execution Timeline Display -->
+        <div class="scenario-execution-box" id="scenario-execution-display" style="display: none;">
+          <div class="card-header-flex">
+            <div>
+              <h3 id="active-scenario-title" style="color:var(--cyan); font-size:1.2rem;">Executing Scenario...</h3>
+              <div id="active-scenario-target" style="font-size:0.85rem; color:var(--text-muted); font-family:var(--font-mono)"></div>
+            </div>
+            <span class="status-badge-live" id="active-scenario-status">TRAJECTORY IN PROGRESS</span>
+          </div>
+
+          <div class="step-timeline-list" id="active-scenario-steps">
+            <!-- Dynamically populated -->
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1rem;">
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim);" id="scenario-evidence-summary">
+              Evidence Ledger: Verified SHA-256 Block Chain
+            </div>
+            <button class="btn-hero-primary" onclick="confirmScenarioCompletion()">
+              <span>✓</span> Acknowledge & Commit to Ledger
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         3. 38 CORE SPECIALIZED AGENTS ROSTER
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-agents" class="page-view">
+      <div class="dash-card">
+        <div class="card-header-flex">
+          <div>
+            <h2 class="card-heading" style="font-size: 1.5rem;"><span>🤖</span> 38 Core Specialized Agents Roster</h2>
+            <p style="color:var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem;">
+              Categorized, capability-scoped, and benchmark-evaluated autonomous agents.
+            </p>
+          </div>
+          <div style="display:flex; gap:0.5rem">
+            <button class="chip-btn active" onclick="filterAgentCategory('ALL', this)">All (38)</button>
+            <button class="chip-btn" onclick="filterAgentCategory('GTM', this)">GTM (11)</button>
+            <button class="chip-btn" onclick="filterAgentCategory('REVOPS', this)">RevOps (9)</button>
+            <button class="chip-btn" onclick="filterAgentCategory('GOVERNANCE', this)">Governance (5)</button>
+            <button class="chip-btn" onclick="filterAgentCategory('HARNESS', this)">Harness (3)</button>
+            <button class="chip-btn" onclick="filterAgentCategory('OPS', this)">Operations (10)</button>
+          </div>
+        </div>
+
+        <div class="agents-roster-grid" id="agents-roster-container">
           <!-- Populated by JavaScript -->
         </div>
       </div>
     </div>
 
     <!-- ─────────────────────────────────────────────────────────────
-         3. SSO LOGIN & AUTH PORTAL VIEW
+         4. REVENUE PIPELINE & OPPORTUNITY KANBAN
          ───────────────────────────────────────────────────────────── -->
-    <div id="view-login" class="page-view">
-      <div class="login-container-wrapper">
-        <div class="login-card">
-          <div class="login-header">
-            <h2 class="login-title">Enterprise Sign In</h2>
-            <p class="login-subtitle">Authenticate via Zero-Trust SPIFFE SVID or Corporate SSO</p>
+    <div id="view-pipeline" class="page-view">
+      <div class="dash-card">
+        <div class="card-header-flex">
+          <div>
+            <h2 class="card-heading" style="font-size: 1.5rem;"><span>📈</span> Enterprise Revenue Pipeline & Deal Risk Heatmap</h2>
+            <p style="color:var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem;">
+              Active Q3 Opportunities with real-time deal risk scoring, buying committee status, and forecast categorization.
+            </p>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:0.9rem; color:var(--green); font-weight:700">
+            Total Pipeline: $1.94M · Committed ARR: $1.54M
+          </div>
+        </div>
+
+        <div class="kanban-board">
+          <!-- Stage 1: Qualification -->
+          <div class="kanban-column">
+            <div class="kanban-col-header">
+              <span>QUALIFICATION (2)</span>
+              <span>$140,000</span>
+            </div>
+            <div class="kanban-card" onclick="openDealDetail('Vertex Labs', 65000, 15, 'LOW')">
+              <div class="kanban-card-title">Vertex Labs — Security Suite</div>
+              <div class="kanban-card-val">$65,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Low (15)</span>
+                <span style="color:var(--cyan)">CTO Engaged</span>
+              </div>
+            </div>
+            <div class="kanban-card" onclick="openDealDetail('CyberShield Corp', 75000, 20, 'LOW')">
+              <div class="kanban-card-title">CyberShield — Core OS</div>
+              <div class="kanban-card-val">$75,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Low (20)</span>
+                <span style="color:var(--green)">Champion Ready</span>
+              </div>
+            </div>
           </div>
 
-          <div class="sso-providers-group">
-            <button class="sso-btn" onclick="simulateSSO('Google Workspace')">
-              <span>🔵</span> Google OIDC
-            </button>
-            <button class="sso-btn" onclick="simulateSSO('Okta SAML')">
-              <span>🔷</span> Okta SAML
-            </button>
-            <button class="sso-btn" onclick="simulateSSO('Azure AD')">
-              <span>🟦</span> Microsoft Entra
-            </button>
-            <button class="sso-btn" onclick="simulateSSO('SPIFFE/SVID')">
-              <span>🛡️</span> SPIFFE SVID
-            </button>
+          <!-- Stage 2: Value Proposition -->
+          <div class="kanban-column">
+            <div class="kanban-col-header">
+              <span>VALUE PROPOSITION (2)</span>
+              <span>$210,000</span>
+            </div>
+            <div class="kanban-card" onclick="openDealDetail('Orion Corp', 90000, 35, 'MEDIUM')">
+              <div class="kanban-card-title">Orion Corp — RevOps Copilot</div>
+              <div class="kanban-card-val">$90,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Med (35)</span>
+                <span style="color:var(--amber)">Arch Review Pending</span>
+              </div>
+            </div>
+            <div class="kanban-card" onclick="openDealDetail('Nimbus Data', 120000, 40, 'MEDIUM')">
+              <div class="kanban-card-title">Nimbus Data — Lakehouse AI</div>
+              <div class="kanban-card-val">$120,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Med (40)</span>
+                <span style="color:var(--purple)">Legal Initial</span>
+              </div>
+            </div>
           </div>
 
-          <div class="divider-or">or email credentials</div>
-
-          <form onsubmit="handleLoginSubmit(event)">
-            <div class="form-group">
-              <label class="form-label">Tenant ID / Domain</label>
-              <input type="text" class="form-control" id="login-tenant" value="acme-enterprise" required>
+          <!-- Stage 3: Proposal & Quote -->
+          <div class="kanban-column">
+            <div class="kanban-col-header">
+              <span>PROPOSAL / QUOTE (2)</span>
+              <span>$350,000</span>
             </div>
-
-            <div class="form-group">
-              <label class="form-label">Enterprise Email</label>
-              <input type="email" class="form-control" id="login-email" value="operator@acme.shivi.ai" required>
+            <div class="kanban-card" style="border-left: 4px solid var(--red);" onclick="openDealDetail('Acme Corp', 100000, 78, 'CRITICAL')">
+              <div class="kanban-card-title">Acme Corp — Expansion Pack</div>
+              <div class="kanban-card-val">$100,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--red); font-weight:700">
+                <span>Risk: 78 (Stalled 34d)</span>
+                <span>Missing Econ Buyer</span>
+              </div>
             </div>
-
-            <div class="form-group">
-              <label class="form-label">Access Token / Password</label>
-              <input type="password" class="form-control" id="login-password" value="••••••••••••" required>
+            <div class="kanban-card" onclick="openDealDetail('Global Logistics', 250000, 25, 'LOW')">
+              <div class="kanban-card-title">Global Logistics — Fleet Ops</div>
+              <div class="kanban-card-val">$250,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Low (25)</span>
+                <span style="color:var(--green)">Quote Sent</span>
+              </div>
             </div>
+          </div>
 
-            <button type="submit" class="btn-submit-login">
-              Authenticate & Launch Workspace →
-            </button>
-          </form>
-
-          <div class="login-footer-hint">
-            Need a high-assurance dedicated tenant? <a href="#" onclick="switchTab('dashboard')">Contact Administrator</a>
+          <!-- Stage 4: Negotiation / Commit -->
+          <div class="kanban-column">
+            <div class="kanban-col-header">
+              <span>NEGOTIATION & COMMIT (2)</span>
+              <span>$1,240,000</span>
+            </div>
+            <div class="kanban-card" onclick="openDealDetail('Northstar Tech', 250000, 15, 'LOW')">
+              <div class="kanban-card-title">Northstar Tech — Enterprise Tier</div>
+              <div class="kanban-card-val">$250,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--green)">
+                <span>Forecast: COMMIT</span>
+                <span>Final Redlines</span>
+              </div>
+            </div>
+            <div class="kanban-card" onclick="openDealDetail('Apex FinTech', 990000, 10, 'LOW')">
+              <div class="kanban-card-title">Apex FinTech — Platform Master</div>
+              <div class="kanban-card-val">$990,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--green)">
+                <span>Forecast: COMMIT</span>
+                <span>Signature Pending</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ─────────────────────────────────────────────────────────────
-         4. OPERATOR COMMAND CENTER DASHBOARD VIEW
+         5. COMMAND CENTER DASHBOARD
          ───────────────────────────────────────────────────────────── -->
     <div id="view-dashboard" class="page-view">
-      <div class="dashboard-header">
-        <div class="dash-tenant-info">
-          <div class="tenant-avatar">A</div>
-          <div>
-            <div class="tenant-title">Acme Corp — Production Command Center</div>
-            <div class="tenant-meta">
-              <span>Tenant ID: <strong>tenant_prod_acme</strong></span>
-              <span>•</span>
-              <span>Region: <strong>us-east-1</strong></span>
-              <span>•</span>
-              <span>Classification: <strong style="color:var(--amber)">CONFIDENTIAL</strong></span>
-            </div>
+      <div class="dash-card">
+        <div class="card-header-flex">
+          <h3 class="card-heading"><span>⚡</span> Governed Agent Task Dispatcher & Terminal</h3>
+          <span class="status-badge-live">T2 Capability Active</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.75rem; margin-bottom:1rem">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label">Specialized Agent</label>
+            <select class="form-control" id="cmd-agent-select">
+              <option value="orchestrator-agent">Master Orchestrator Agent</option>
+              <option value="deal-risk-agent">Deal Risk & Slippage Agent</option>
+              <option value="buying-committee-agent">Buying Committee Mapping Agent</option>
+              <option value="forecast-agent">Revenue Forecasting Agent</option>
+              <option value="crm-hygiene-agent">CRM Data Hygiene Agent</option>
+              <option value="rag-agent">Hybrid RAG Retrieval Agent</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label">Model Router</label>
+            <select class="form-control" id="cmd-model-select">
+              <option value="gemini-1.5-pro">Gemini 1.5 Pro (Deep Reasoning)</option>
+              <option value="claude-3-5-sonnet">Claude 3.5 Sonnet (Code & Policy)</option>
+              <option value="gpt-4o">GPT-4o (Multimodal)</option>
+              <option value="gemini-1.5-flash">Gemini 1.5 Flash (Fast Execution)</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label">Risk Policy Gate</label>
+            <select class="form-control">
+              <option>Enforce Sanitizer & Audit</option>
+              <option>Strict HITL Approval Gate</option>
+            </select>
           </div>
         </div>
 
-        <div class="dash-quick-stats">
-          <div class="quick-stat-item">
-            <div class="qs-label">Active Agents</div>
-            <div class="qs-val" style="color:var(--cyan)">14 / 14</div>
-          </div>
-          <div class="quick-stat-item">
-            <div class="qs-label">Annual Run Rate</div>
-            <div class="qs-val" style="color:var(--green)">$1.54M</div>
-          </div>
-          <div class="quick-stat-item">
-            <div class="qs-label">AI Token Burn</div>
-            <div class="qs-val" style="color:var(--purple)">$312.45</div>
-          </div>
+        <textarea class="form-control" id="cmd-prompt-input" style="height:85px; margin-bottom:1rem;" placeholder="Enter instructions for governed agent execution...">Execute comprehensive Q3 pipeline forecast, analyze deal risk factors, and commit cryptographic evidence block.</textarea>
+
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <button class="btn-hero-primary" onclick="dispatchCustomTask()">
+            <span>🚀</span> Dispatch Governed Task
+          </button>
+          <span style="font-size:0.75rem; color:var(--text-dim); font-family:var(--font-mono)">
+            SHA-256 Ledger Block auto-committed on completion
+          </span>
+        </div>
+
+        <div class="console-terminal" id="cmd-terminal">
+          <div class="term-line-info">[2026-08-28T18:00:00.000Z] ShiVi Kernel Gateway v1.0.0 initialized.</div>
+          <div class="term-line-success">[2026-08-28T18:00:00.015Z] Tenant isolation: 7/7 Layers Verified (Acme Corp).</div>
+          <div class="term-line-evidence">[2026-08-28T18:00:00.040Z] Evidence Ledger Chain: 167 blocks clean.</div>
+          <div style="color:var(--text-dim)">Ready for agent task dispatch.</div>
         </div>
       </div>
+    </div>
 
-      <div class="dashboard-main-layout">
-        <!-- Left Column: Agent Fleet Execution & Multi-Model Playground -->
-        <div>
-          <!-- Live Agent Task Sandbox -->
-          <div class="dash-card">
-            <div class="card-header-flex">
-              <h3 class="card-heading"><span>⚡</span> Governed Agent Task Sandbox</h3>
-              <span class="status-badge-live">T2 Capability Active</span>
-            </div>
-
-            <div class="agent-runner-box">
-              <div class="runner-controls">
-                <div class="form-group" style="margin-bottom:0">
-                  <label class="form-label">Target Agent</label>
-                  <select class="form-control" id="runner-agent-select">
-                    <option value="gtm-orchestrator-01">System 01: GTM Master Orchestrator</option>
-                    <option value="revops-analyst-02">System 02: RevOps Revenue Analyst</option>
-                    <option value="crm-copilot-04">System 04: CRM Deal Copilot</option>
-                    <option value="finops-controller-25">System 25: AI FinOps Controller</option>
-                    <option value="security-guardian-30">System 30: AI Security Guardian</option>
-                  </select>
-                </div>
-
-                <div class="form-group" style="margin-bottom:0">
-                  <label class="form-label">Model Router</label>
-                  <select class="form-control" id="runner-model-select">
-                    <option value="gemini-1.5-pro">Gemini 1.5 Pro (Complex Reasoning)</option>
-                    <option value="claude-3-5-sonnet">Claude 3.5 Sonnet (Code & Policy)</option>
-                    <option value="gpt-4o">GPT-4o (General Multimodal)</option>
-                    <option value="gemini-1.5-flash">Gemini 1.5 Flash (Fast Execution)</option>
-                  </select>
-                </div>
-
-                <div class="form-group" style="margin-bottom:0">
-                  <label class="form-label">Risk Policy Gate</label>
-                  <select class="form-control">
-                    <option>Enforce Sanitizer & Audit</option>
-                    <option>Simulation Dry-Run</option>
-                  </select>
-                </div>
-              </div>
-
-              <textarea class="prompt-input-area" id="runner-prompt-input" placeholder="Enter task instructions for governed agent execution...">Execute comprehensive Q3 pipeline forecast, verify ARR milestone, and record tamper-evident audit record.</textarea>
-
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <button class="btn-dispatch-task" onclick="dispatchAgentTask()">
-                  <span>🚀</span> Dispatch Governed Task
-                </button>
-                <span style="font-size:0.75rem; color:var(--text-dim); font-family:var(--font-mono)">
-                  SHA-256 Ledger Hash automatically committed on completion
-                </span>
-              </div>
-
-              <!-- Terminal Output Simulator -->
-              <div class="console-terminal" id="runner-terminal">
-                <div class="term-line-info">[2026-08-28T18:00:00.000Z] ShiVi Kernel REST API Gateway v1.0.0 initialized.</div>
-                <div class="term-line-success">[2026-08-28T18:00:00.012Z] Tenancy context 'tenant_prod_acme' verified (7/7 Isolation Layers Passed).</div>
-                <div class="term-line-evidence">[2026-08-28T18:00:00.045Z] Cryptographic Evidence Chain verified: 167 blocks clean.</div>
-                <div style="color:var(--text-dim)">Ready for agent task dispatch.</div>
-              </div>
-            </div>
+    <!-- ─────────────────────────────────────────────────────────────
+         6. AGENT HARNESS & EVALUATIONS
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-harness" class="page-view">
+      <div class="dash-card">
+        <div class="card-header-flex">
+          <div>
+            <h2 class="card-heading" style="font-size: 1.5rem;"><span>🧪</span> Autonomous Agent Evaluation Harness</h2>
+            <p style="color:var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem;">
+              Benchmark suites, adversarial prompt injection defense, and promotion gates (DRAFT → CANARY → PRODUCTION).
+            </p>
           </div>
+          <button class="btn-hero-primary" onclick="runHarnessSuite()">
+            <span>▶</span> Run Full Benchmark Suite
+          </button>
+        </div>
 
-          <!-- API Gateway Live Endpoints Table -->
-          <div class="dash-card">
-            <div class="card-header-flex">
-              <h3 class="card-heading"><span>🔌</span> Live API Gateway Endpoints</h3>
-              <span style="font-size:0.8rem; color:var(--cyan); font-family:var(--font-mono)">Fastify REST + SSE</span>
-            </div>
-
-            <div style="display:flex; flex-direction:column; gap:0.6rem">
-              <div class="ledger-block-item" style="display:flex; justify-content:space-between; align-items:center;">
-                <div><span style="color:var(--green); font-weight:700">GET</span> /health</div>
-                <button class="chip-btn" onclick="testEndpoint('/health')">Test 200</button>
-              </div>
-              <div class="ledger-block-item" style="display:flex; justify-content:space-between; align-items:center;">
-                <div><span style="color:var(--cyan); font-weight:700">POST</span> /api/v1/agents/execute</div>
-                <button class="chip-btn" onclick="testEndpoint('/api/v1/agents/execute')">Test Execute</button>
-              </div>
-              <div class="ledger-block-item" style="display:flex; justify-content:space-between; align-items:center;">
-                <div><span style="color:var(--cyan); font-weight:700">POST</span> /api/v1/mcp/rpc</div>
-                <button class="chip-btn" onclick="testEndpoint('/api/v1/mcp/rpc')">Test MCP RPC</button>
-              </div>
-              <div class="ledger-block-item" style="display:flex; justify-content:space-between; align-items:center;">
-                <div><span style="color:var(--cyan); font-weight:700">POST</span> /api/v1/workflows/execute</div>
-                <button class="chip-btn" onclick="testEndpoint('/api/v1/workflows/execute')">Test Workflow</button>
-              </div>
-            </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1rem; margin-bottom:1.5rem">
+          <div class="kpi-card">
+            <div class="kpi-label">Golden Task Success Rate</div>
+            <div class="kpi-val green">98.5%</div>
+            <div class="kpi-sub">Target: >= 95.0% (Passed)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Groundedness Score</div>
+            <div class="kpi-val cyan">96.0%</div>
+            <div class="kpi-sub">Target: >= 90.0% (Passed)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Citation Accuracy</div>
+            <div class="kpi-val purple">99.2%</div>
+            <div class="kpi-sub">Target: >= 98.0% (Passed)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Hallucination Rate</div>
+            <div class="kpi-val green">0.8%</div>
+            <div class="kpi-sub">Ceiling: <= 2.0% (Passed)</div>
           </div>
         </div>
 
-        <!-- Right Column: Cryptographic Evidence Ledger & AI FinOps -->
-        <div>
-          <!-- Evidence Ledger Chain -->
-          <div class="dash-card">
-            <div class="card-header-flex">
-              <h3 class="card-heading"><span>⛓️</span> Evidence Ledger</h3>
-              <span style="font-size:0.75rem; color:var(--green); font-weight:700">● 100% Tamper Proof</span>
-            </div>
-
-            <div class="ledger-chain-list" id="ledger-list">
-              <div class="ledger-block-item">
-                <div class="ledger-block-header">
-                  <span>Block #1428</span>
-                  <span style="color:var(--text-dim)">0s ago</span>
-                </div>
-                <div>Action: <strong>policy_risk_evaluation</strong></div>
-                <div class="ledger-hash">hash: 9a7b...82cf19</div>
-              </div>
-              <div class="ledger-block-item">
-                <div class="ledger-block-header">
-                  <span>Block #1427</span>
-                  <span style="color:var(--text-dim)">12s ago</span>
-                </div>
-                <div>Action: <strong>mcp_tool_invocation</strong></div>
-                <div class="ledger-hash">hash: 4c31...bb9021</div>
-              </div>
-              <div class="ledger-block-item">
-                <div class="ledger-block-header">
-                  <span>Block #1426</span>
-                  <span style="color:var(--text-dim)">45s ago</span>
-                </div>
-                <div>Action: <strong>agent_trajectory_step</strong></div>
-                <div class="ledger-hash">hash: 7e12...a08f55</div>
-              </div>
-            </div>
-
-            <button class="btn-hero-secondary" style="width:100%; margin-top:1rem; justify-content:center;" onclick="verifyLedgerChain()">
-              <span>🛡️</span> Verify SHA-256 Chain Integrity
-            </button>
-          </div>
-
-          <!-- FinOps Cost Accounting -->
-          <div class="dash-card">
-            <div class="card-header-flex">
-              <h3 class="card-heading"><span>💰</span> AI FinOps Realtime Burn</h3>
-              <span style="font-size:0.8rem; color:var(--text-muted)">Budget: $5,000</span>
-            </div>
-
-            <div style="margin-bottom:1rem">
-              <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.4rem">
-                <span>Monthly Budget Consumed</span>
-                <strong>$312.45 (6.2%)</strong>
-              </div>
-              <div style="background:var(--bg-elevated); height:8px; border-radius:4px; overflow:hidden">
-                <div style="background:linear-gradient(90deg, var(--cyan), var(--indigo)); width:6.2%; height:100%"></div>
-              </div>
-            </div>
-
-            <div style="font-size:0.8rem; color:var(--text-muted); line-height:1.5">
-              • Gemini 1.5 Pro: $184.20 (59%)<br/>
-              • Claude 3.5 Sonnet: $98.10 (31%)<br/>
-              • GPT-4o: $30.15 (10%)
-            </div>
-          </div>
+        <div class="console-terminal" id="harness-terminal">
+          <div class="term-line-info">[Harness Runner] Initializing benchmark suite for 38 Core Agents...</div>
+          <div class="term-line-success">[Benchmark 1/4] Golden Standard Task Suite: 38/38 Passed (Score: 98.5%)</div>
+          <div class="term-line-success">[Benchmark 2/4] Adversarial Prompt Injection Defense: 0 breaches (Score: 100%)</div>
+          <div class="term-line-success">[Benchmark 3/4] Tool Failure & Circuit Breaking: Self-healed cleanly (Score: 97.4%)</div>
+          <div class="term-line-evidence">[Benchmark 4/4] Capability T0-T5 Gate & HITL Enforcement: 100% compliant.</div>
+          <div class="term-line-info">[Harness Result] All 38 Agents certified for CANARY and PRODUCTION promotion.</div>
         </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         7. SSO LOGIN
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-login" class="page-view">
+      <div style="max-width: 480px; margin: 3rem auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2.5rem; text-align: center;">
+        <h2 style="font-size:1.8rem; color:#fff; margin-bottom:0.4rem">Enterprise Sign In</h2>
+        <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem">Authenticate via SPIFFE SVID or Corporate SSO</p>
+        
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.5rem">
+          <button class="btn-hero-secondary" onclick="simulateLogin('Google OIDC')"><span>🔵</span> Google OIDC</button>
+          <button class="btn-hero-secondary" onclick="simulateLogin('Okta SAML')"><span>🔷</span> Okta SAML</button>
+          <button class="btn-hero-secondary" onclick="simulateLogin('Azure Entra')"><span>🟦</span> Microsoft Entra</button>
+          <button class="btn-hero-secondary" onclick="simulateLogin('SPIFFE SVID')"><span>🛡️</span> SPIFFE SVID</button>
+        </div>
+
+        <form onsubmit="handleDirectLogin(event)">
+          <div class="form-group">
+            <label class="form-label">Enterprise Email</label>
+            <input type="email" class="form-control" value="operator@acme.shivi.ai" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Access Token / Password</label>
+            <input type="password" class="form-control" value="••••••••••••" required>
+          </div>
+          <button type="submit" class="btn-hero-primary" style="width:100%; justify-content:center;">
+            Launch Authenticated Workspace →
+          </button>
+        </form>
       </div>
     </div>
   </main>
@@ -1545,196 +1337,148 @@
   <div class="modal-overlay" id="detail-modal" onclick="closeModal(event)">
     <div class="modal-window" onclick="event.stopPropagation()">
       <button class="modal-close-btn" onclick="closeModalDirect()">×</button>
-      <div id="modal-content">
-        <!-- Populated dynamically -->
-      </div>
+      <div id="modal-content"></div>
     </div>
   </div>
 
   <footer>
     <p>
-      ShiVi X100+ AI Enterprise Operating Ecosystem — 100 Autonomous Systems · 27 Microservices · 100% Governed
+      ShiVi — Agentic AI Revenue Operations & B2B SaaS Control Plane · 38 Specialized Agents · Zero-Trust Multi-Tenancy · 100% Governed
     </p>
   </footer>
 
   <script>
-    // 100 Autonomous Systems Data Catalog
-    const systemsData = [
-      { num: '01', name: 'AI GTM Operating System', cat: 'gtm', desc: 'Autonomous pipeline intelligence, ICP targeting & campaign generation.' },
-      { num: '02', name: 'Autonomous RevOps Engine', cat: 'finance', desc: 'Revenue analytics, deal velocity forecasting & churn prediction.' },
-      { num: '03', name: 'Pipeline Intelligence', cat: 'gtm', desc: 'Real-time sales deal health, risk alerts & quota optimization.' },
-      { num: '04', name: 'AI CRM Copilot', cat: 'gtm', desc: 'Automatic contact profile enrichment & CRM task orchestration.' },
-      { num: '05', name: 'Sales Acceleration', cat: 'gtm', desc: 'High-intent lead scoring, automated sales collateral assembly.' },
-      { num: '06', name: 'Marketing Automation', cat: 'gtm', desc: 'Omni-channel marketing campaign execution & attribution.' },
-      { num: '07', name: 'Customer Success Hub', cat: 'operations', desc: '0-100 account health scoring & retention alert triggers.' },
-      { num: '08', name: 'Partner Ecosystem', cat: 'gtm', desc: 'Co-selling workflows & partner revenue sharing management.' },
-      { num: '09', name: 'Dynamic Pricing Engine', cat: 'finance', desc: 'Real-time pricing optimization & discount authorization.' },
-      { num: '10', name: 'Competitive Intelligence', cat: 'gtm', desc: 'Market win-loss analysis & competitor battlecard synthesis.' },
-      { num: '11', name: 'Enterprise Workflow', cat: 'operations', desc: 'Temporal-backed durable state orchestration & compensation.' },
-      { num: '12', name: 'Enterprise Search', cat: 'ai', desc: 'ACL-scoped vector semantic retrieval & hybrid keyword search.' },
-      { num: '13', name: 'Knowledge Management', cat: 'ai', desc: 'Document graph indexing & contextual FAQ generation.' },
-      { num: '14', name: 'Document Intelligence', cat: 'ai', desc: 'Multi-modal OCR, table extraction & contract parsing.' },
-      { num: '15', name: 'Email Intelligence', cat: 'operations', desc: 'Executive inbox summarization & smart reply generation.' },
-      { num: '16', name: 'Meeting Intelligence', cat: 'operations', desc: 'Real-time meeting transcripts, action items & sentiment.' },
-      { num: '17', name: 'Project Management', cat: 'operations', desc: 'Autonomous milestone tracking & dependency graph solver.' },
-      { num: '18', name: 'Resource Planning', cat: 'operations', desc: 'Engineering capacity allocation & sprint optimization.' },
-      { num: '19', name: 'Contract Management', cat: 'finance', desc: 'Automated legal clause risk analysis & approval routing.' },
-      { num: '20', name: 'Vendor Management', cat: 'finance', desc: 'Supplier SLA monitoring & procurement invoice validation.' },
-      { num: '21', name: 'Financial Planning', cat: 'finance', desc: 'FP&A scenario modeling, budget variance & headcount forecasting.' },
-      { num: '22', name: 'Expense Management', cat: 'finance', desc: 'Automated receipt parsing & policy violation detection.' },
-      { num: '23', name: 'Invoice Processing', cat: 'finance', desc: '3-way invoice matching & ERP double-entry posting.' },
-      { num: '24', name: 'Revenue Recognition', cat: 'finance', desc: 'ASC 606 compliant multi-element revenue schedules.' },
-      { num: '25', name: 'AI FinOps Platform', cat: 'finance', desc: 'LLM token burn accounting & per-tenant cost circuit breakers.' },
-      { num: '26', name: 'Business Intelligence', cat: 'ai', desc: 'Text-to-SQL analytics & interactive chart generation.' },
-      { num: '27', name: 'Predictive Analytics', cat: 'ai', desc: 'Machine learning time-series trend forecasting.' },
-      { num: '28', name: 'Data Quality Engine', cat: 'ai', desc: 'Automated data drift detection & schema anomaly alerting.' },
-      { num: '29', name: 'Data Governance', cat: 'security', desc: 'PII lineage catalog & GDPR/CCPA erasure orchestration.' },
-      { num: '30', name: 'AI Security Domain', cat: 'security', desc: 'Prompt injection scanning & adversarial defense containment.' },
-      { num: '31', name: 'IT Service Management', cat: 'operations', desc: 'Autonomous IT incident triage & ticket resolution.' },
-      { num: '32', name: 'Infrastructure Monitor', cat: 'operations', desc: 'Kubernetes cluster telemetry & predictive scaling.' },
-      { num: '33', name: 'Log Analytics', cat: 'operations', desc: 'Distributed log parsing & root cause anomaly correlation.' },
-      { num: '34', name: 'Network Operations', cat: 'operations', desc: 'VPC packet inspection & zero-trust network policy.' },
-      { num: '35', name: 'Cloud Cost Optimizer', cat: 'finance', desc: 'Idle instance termination & spot instance broker.' },
-      { num: '36', name: 'DevOps Automation', cat: 'operations', desc: 'CI/CD deployment canary analysis & automatic rollback.' },
-      { num: '37', name: 'Database Operations', cat: 'operations', desc: 'Automated index tuning & slow query optimization.' },
-      { num: '38', name: 'API Management', cat: 'ai', desc: 'Rate-limiting, API key vault & schema validation.' },
-      { num: '39', name: 'Integration Hub', cat: 'ai', desc: 'Third-party SaaS connector orchestration.' },
-      { num: '40', name: 'Edge Computing', cat: 'operations', desc: 'Wasm lightweight edge model inference nodes.' },
-      { num: '41', name: 'Agent Control Plane', cat: 'ai', desc: 'Fleet-wide lifecycle state transitions & heartbeats.' },
-      { num: '42', name: 'Agent Marketplace', cat: 'ai', desc: 'Pre-certified enterprise agent plugin catalog.' },
-      { num: '43', name: 'Agent Collaboration', cat: 'ai', desc: 'P2P A2A communication channels & consensus voting.' },
-      { num: '44', name: 'Agent Evaluation', cat: 'ai', desc: 'Trajectory benchmark scoring & hallucination tests.' },
-      { num: '45', name: 'Prompt Engineering', cat: 'ai', desc: 'Few-shot template optimization & system prompt tuning.' },
-      { num: '46', name: 'Model Management', cat: 'ai', desc: 'Model registry, fine-tuning checkpoints & weights.' },
-      { num: '47', name: 'Training Data Pipeline', cat: 'ai', desc: 'Synthetic dataset synthesis & human-in-the-loop labeling.' },
-      { num: '48', name: 'AI Ethics & Alignment', cat: 'security', desc: 'Bias audit scoring & regulatory fairness governance.' },
-      { num: '49', name: 'Conversational AI', cat: 'ai', desc: 'Multi-turn dialog state manager & context compression.' },
-      { num: '50', name: 'Vision AI Suite', cat: 'ai', desc: 'Image OCR, object detection & visual search engine.' },
-      { num: '51', name: 'Identity Governance', cat: 'security', desc: 'SPIFFE SVID validation & RBAC/ABAC role binding.' },
-      { num: '52', name: 'Threat Detection', cat: 'security', desc: 'Real-time MITRE ATT&CK adversarial pattern containment.' },
-      { num: '53', name: 'Vulnerability Manager', cat: 'security', desc: 'CVE dependency scanning & patch priority scoring.' },
-      { num: '54', name: 'Compliance Automation', cat: 'security', desc: 'Continuous SOC2, ISO27001 & HIPAA control validation.' },
-      { num: '55', name: 'Data Loss Prevention', cat: 'security', desc: 'Real-time DLP regex & sensitive data tokenization.' },
-      { num: '56', name: 'Encryption Management', cat: 'security', desc: 'Envelope encryption with customer-managed KMS keys.' },
-      { num: '57', name: 'Audit Analytics', cat: 'security', desc: 'SHA-256 tamper-evident hash chain evidence auditor.' },
-      { num: '58', name: 'Privacy Management', cat: 'security', desc: 'Differential privacy & synthetic data anonymization.' },
-      { num: '59', name: 'Supply Chain Security', cat: 'security', desc: 'SBOM generation & container image cryptographic signing.' },
-      { num: '60', name: 'Zero Trust Engine', cat: 'security', desc: 'Continuous mutual TLS & capability token verification.' },
-      { num: '61', name: 'AI Gateway Domain', cat: 'ai', desc: 'Unified multi-provider LLM routing & fallback chaining.' },
-      { num: '62', name: 'RAG Platform', cat: 'ai', desc: 'Hybrid dense-sparse retrieval with chunk verification.' },
-      { num: '63', name: 'Vector Database Engine', cat: 'ai', desc: 'PostgreSQL pgvector cosine & HNSW index optimization.' },
-      { num: '64', name: 'Knowledge Graph', cat: 'ai', desc: 'Entity-relationship graph traversal & path extraction.' },
-      { num: '65', name: 'Data Pipeline Engine', cat: 'ai', desc: 'Real-time stream transformations & ETL batching.' },
-      { num: '66', name: 'Feature Store', cat: 'ai', desc: 'Low-latency online feature retrieval & historical point-in-time.' },
-      { num: '67', name: 'Event Streaming', cat: 'operations', desc: 'CloudEvents 1.0 event backbone with deduplication.' },
-      { num: '68', name: 'Data Lakehouse', cat: 'ai', desc: 'Parquet/Iceberg table management & partition pruning.' },
-      { num: '69', name: 'Real-Time Analytics', cat: 'ai', desc: 'Sub-second OLAP rollups & windowed telemetry.' },
-      { num: '70', name: 'Data Marketplace', cat: 'ai', desc: 'Cross-tenant data clean room data product sharing.' },
-      { num: '71', name: 'Talent Acquisition', cat: 'operations', desc: 'Resume parsing & candidate competency matching.' },
-      { num: '72', name: 'Employee Experience', cat: 'operations', desc: 'Internal concierge copilot for enterprise workflows.' },
-      { num: '73', name: 'Learning & Development', cat: 'operations', desc: 'Personalized curriculum & interactive skill assessments.' },
-      { num: '74', name: 'Performance Management', cat: 'operations', desc: 'Quarterly OKR alignment & continuous 360 feedback.' },
-      { num: '75', name: 'Workforce Analytics', cat: 'operations', desc: 'Attrition prediction & team workload balance.' },
-      { num: '76', name: 'Payroll & Benefits', cat: 'finance', desc: 'Tax compliance deduction & benefits enrollment.' },
-      { num: '77', name: 'Time & Attendance', cat: 'operations', desc: 'Global shift scheduling & overtime policy enforcement.' },
-      { num: '78', name: 'Employee Wellness', cat: 'operations', desc: 'Burnout risk indexing & anonymous wellness pulse.' },
-      { num: '79', name: 'Internal Comms', cat: 'operations', desc: 'Targeted company announcements & readership telemetry.' },
-      { num: '80', name: 'Culture Platform', cat: 'operations', desc: 'Peer recognition reward token distribution.' },
-      { num: '81', name: 'Healthcare Operations', cat: 'operations', desc: 'HIPAA-governed clinical notes summarization.' },
-      { num: '82', name: 'Financial Services Ops', cat: 'finance', desc: 'AML transaction monitoring & fraud detection.' },
-      { num: '83', name: 'Manufacturing Ops', cat: 'operations', desc: 'Predictive equipment maintenance & scrap reduction.' },
-      { num: '84', name: 'Retail Operations', cat: 'gtm', desc: 'Demand forecasting & stock replenishment optimization.' },
-      { num: '85', name: 'Logistics Operations', cat: 'operations', desc: 'Route optimization & freight carrier rate negotiation.' },
-      { num: '86', name: 'Real Estate Ops', cat: 'operations', desc: 'Lease abstraction & commercial facility utilization.' },
-      { num: '87', name: 'Legal Operations', cat: 'security', desc: 'Litigation hold tracking & eDiscovery search indexing.' },
-      { num: '88', name: 'Education Operations', cat: 'operations', desc: 'Adaptive learning path generation & grading copilot.' },
-      { num: '89', name: 'Media & Entertainment', cat: 'operations', desc: 'Video transcription, asset tagging & auto-subtitling.' },
-      { num: '90', name: 'Energy & Utilities', cat: 'operations', desc: 'Grid load balancing & carbon emissions accounting.' },
-      { num: '91', name: 'Notification Center', cat: 'operations', desc: 'Multi-channel Slack, Email & SMS rate-limited dispatch.' },
-      { num: '92', name: 'Webhook Management', cat: 'operations', desc: 'Outbound webhook delivery with exponential retry backoff.' },
-      { num: '93', name: 'Task Scheduler', cat: 'operations', desc: 'Distributed cron scheduler & distributed leader election.' },
-      { num: '94', name: 'File Management', cat: 'operations', desc: 'Encrypted object storage & presigned URL generator.' },
-      { num: '95', name: 'Localization Platform', cat: 'operations', desc: 'Context-aware neural translation & i18n key bundles.' },
-      { num: '96', name: 'Feature Management', cat: 'operations', desc: 'Tenant-scoped feature flag toggle engine.' },
-      { num: '97', name: 'Feedback System', cat: 'operations', desc: 'User telemetry collection & sentiment categorization.' },
-      { num: '98', name: 'Marketplace Platform', cat: 'ai', desc: 'Developer billing, rev-share & plugin verification.' },
-      { num: '99', name: 'Migration Toolkit', cat: 'operations', desc: 'Legacy data schema mapping & zero-downtime cutover.' },
-      { num: '100', name: 'Platform Health Engine', cat: 'operations', desc: 'Fleet-wide synthetic probing & automatic DR failover.' }
+    // 38 Core Specialized Agents Data
+    const coreAgents = [
+      { id: 'orchestrator-agent', name: 'Master Orchestrator Agent', cat: 'OPS', risk: 'T2', desc: 'Decomposes complex B2B RevOps goals, coordinates specialized subagents, and synthesizes multi-turn execution trajectories.', tools: 'dispatch_subagent, read_memory, write_memory', model: 'gemini-1.5-pro' },
+      { id: 'executive-intelligence-agent', name: 'Executive Intelligence Agent', cat: 'GTM', risk: 'T1', desc: 'Generates C-suite briefings, analyzes board-level ARR risks, and provides macro pipeline intelligence.', tools: 'query_forecast, query_pipeline', model: 'gemini-1.5-pro' },
+      { id: 'research-agent', name: 'Market & Account Research Agent', cat: 'GTM', risk: 'T1', desc: 'Performs deep web, SEC filing, and firmographic research on target accounts.', tools: 'web_search, read_url', model: 'claude-3-5-sonnet' },
+      { id: 'account-intelligence-agent', name: 'Account 360 Intelligence Agent', cat: 'GTM', risk: 'T1', desc: 'Constructs unified 360-degree account profiles from CRM history, product telemetry, and support tickets.', tools: 'read_crm_account, read_telemetry', model: 'gemini-1.5-pro' },
+      { id: 'icp-agent', name: 'Ideal Customer Profile (ICP) Agent', cat: 'GTM', risk: 'T1', desc: 'Scores account and lead fit against dynamic Ideal Customer Profile rubrics and assigns strategic tiers.', tools: 'evaluate_icp_score, read_rubric', model: 'gemini-1.5-flash' },
+      { id: 'enrichment-agent', name: 'Data Enrichment Agent', cat: 'GTM', risk: 'T1', desc: 'Enriches lead and contact records with tech stack, headcount, and verified work email data.', tools: 'enrich_contact, verify_email', model: 'gemini-1.5-flash' },
+      { id: 'lead-qualification-agent', name: 'Lead Qualification Agent', cat: 'GTM', risk: 'T1', desc: 'Applies MEDDPICC and BANT qualification frameworks to inbound and outbound leads.', tools: 'score_meddpicc, score_bant', model: 'claude-3-5-sonnet' },
+      { id: 'lead-routing-agent', name: 'Lead Routing Agent', cat: 'GTM', risk: 'T2', desc: 'Routes qualified leads to appropriate account executives based on territory, industry, and rep capacity.', tools: 'lookup_territory, assign_lead', model: 'gemini-1.5-flash' },
+      { id: 'sdr-agent', name: 'Autonomous SDR Agent', cat: 'GTM', risk: 'T2', desc: 'Orchestrates multi-channel prospecting cadences, identifies net-new accounts, and crafts personalized angles.', tools: 'create_outreach_campaign', model: 'gemini-1.5-pro' },
+      { id: 'outreach-agent', name: 'Personalized Outreach Agent', cat: 'GTM', risk: 'T2', desc: 'Generates context-aware, hyper-relevant outbound emails and LinkedIn messages using company signals.', tools: 'draft_email, generate_social_dm', model: 'claude-3-5-sonnet' },
+      { id: 'meeting-intelligence-agent', name: 'Meeting Intelligence Agent', cat: 'GTM', risk: 'T1', desc: 'Parses meeting recordings, extracts stakeholder sentiment, action items, objections, and next steps.', tools: 'transcribe_audio, extract_actions', model: 'gemini-1.5-pro' },
+      { id: 'buying-committee-agent', name: 'Buying Committee Mapping Agent', cat: 'REVOPS', risk: 'T2', desc: 'Maps key decision makers (Champion, Economic Buyer, Technical Evaluator, Legal/Procurement, Blockers).', tools: 'map_stakeholder_graph', model: 'gemini-1.5-pro' },
+      { id: 'deal-strategy-agent', name: 'Deal Strategy & Positioning Agent', cat: 'REVOPS', risk: 'T2', desc: 'Synthesizes competitive battlecards, next-best-actions, and pricing concession strategies.', tools: 'query_battlecard, recommend_concession', model: 'claude-3-5-sonnet' },
+      { id: 'deal-risk-agent', name: 'Deal Risk & Slippage Agent', cat: 'REVOPS', risk: 'T2', desc: 'Detects stalled deal velocities, silent stakeholders, competitor presence, and forecast slippage indicators.', tools: 'detect_stalled_stage, alert_deal_risk', model: 'gemini-1.5-pro' },
+      { id: 'pipeline-intelligence-agent', name: 'Pipeline Intelligence Agent', cat: 'REVOPS', risk: 'T1', desc: 'Analyzes stage-by-stage funnel conversion, pipeline coverage ratios, and cohort aging.', tools: 'compute_pipeline_coverage', model: 'gemini-1.5-pro' },
+      { id: 'forecast-agent', name: 'Revenue Forecasting Agent', cat: 'REVOPS', risk: 'T2', desc: 'Calculates probabilistic weighted ARR/MRR forecasts, confidence intervals, and scenario models.', tools: 'calculate_weighted_forecast', model: 'gemini-1.5-pro' },
+      { id: 'territory-agent', name: 'Territory & Quota Planning Agent', cat: 'REVOPS', risk: 'T2', desc: 'Optimizes sales territory boundaries, TAM balance, and sales rep quota allocations.', tools: 'model_territory_split', model: 'gemini-1.5-flash' },
+      { id: 'renewal-agent', name: 'Contract Renewal Agent', cat: 'REVOPS', risk: 'T2', desc: 'Monitors 90/60/30-day renewal countdowns, contractual terms, and early renewal playbooks.', tools: 'track_renewal_timeline', model: 'claude-3-5-sonnet' },
+      { id: 'expansion-agent', name: 'Account Expansion & Upsell Agent', cat: 'REVOPS', risk: 'T2', desc: 'Identifies product seat consumption surges, cross-sell opportunities, and expansion playbooks.', tools: 'detect_expansion_signal', model: 'gemini-1.5-pro' },
+      { id: 'customer-health-agent', name: 'Customer Health Scoring Agent', cat: 'REVOPS', risk: 'T1', desc: 'Aggregates usage telemetry, support tickets, and sentiment into a unified 0–100 health index.', tools: 'compute_health_score', model: 'gemini-1.5-flash' },
+      { id: 'customer-success-agent', name: 'Customer Success Copilot', cat: 'OPS', risk: 'T2', desc: 'Assists CSMs with quarterly business reviews (QBRs), customer outreach, and onboarding milestones.', tools: 'generate_qbr_deck', model: 'claude-3-5-sonnet' },
+      { id: 'onboarding-agent', name: 'Customer Onboarding Agent', cat: 'OPS', risk: 'T1', desc: 'Tracks customer time-to-value (TTV), integration milestones, and implementation task blockers.', tools: 'track_onboarding_milestones', model: 'gemini-1.5-flash' },
+      { id: 'support-intelligence-agent', name: 'Support Intelligence Agent', cat: 'OPS', risk: 'T1', desc: 'Analyzes support ticket severity, escalation risk, recurring bugs, and SLA violations.', tools: 'cluster_tickets, detect_sla_breach', model: 'gemini-1.5-flash' },
+      { id: 'crm-hygiene-agent', name: 'CRM Data Hygiene Agent', cat: 'OPS', risk: 'T3', desc: 'Detects duplicate accounts/contacts, missing fields, stale deals, and drafts automated merge plans.', tools: 'detect_duplicates, propose_merge', model: 'claude-3-5-sonnet' },
+      { id: 'data-quality-agent', name: 'Data Quality & Drift Agent', cat: 'OPS', risk: 'T2', desc: 'Monitors database schema drift, invalid foreign keys, and anomaly distributions in CRM metrics.', tools: 'check_schema_anomalies', model: 'gemini-1.5-flash' },
+      { id: 'knowledge-agent', name: 'Enterprise Knowledge Agent', cat: 'KNOWLEDGE', risk: 'T1', desc: 'Ingests, parses, normalizes, and extracts entity-relationship structures from enterprise documents.', tools: 'parse_document, extract_entities', model: 'gemini-1.5-pro' },
+      { id: 'rag-agent', name: 'Hybrid RAG Retrieval Agent', cat: 'KNOWLEDGE', risk: 'T1', desc: 'Executes dense vector + sparse keyword search with reranking, ACL enforcement, and context packing.', tools: 'hybrid_vector_search, rerank', model: 'gemini-1.5-pro' },
+      { id: 'retrieval-judge', name: 'Retrieval Groundedness Judge', cat: 'KNOWLEDGE', risk: 'T1', desc: 'Validates citation provenance, checks hallucination scores, and verifies factual grounding.', tools: 'verify_citations, score_grounding', model: 'claude-3-5-sonnet' },
+      { id: 'policy-agent', name: 'Policy & Governance Agent', cat: 'GOVERNANCE', risk: 'T3', desc: 'Enforces T0–T5 capability token gating, PII redaction, and Human-in-the-Loop approval requirements.', tools: 'evaluate_capability_gate', model: 'claude-3-5-sonnet' },
+      { id: 'security-agent', name: 'AI Security & Prompt Shield Agent', cat: 'GOVERNANCE', risk: 'T4', desc: 'Screens prompts and tool inputs for direct/indirect prompt injection, jailbreaks, and data leakage.', tools: 'scan_adversarial_threats', model: 'gemini-1.5-flash' },
+      { id: 'compliance-agent', name: 'Compliance & Audit Agent', cat: 'GOVERNANCE', risk: 'T3', desc: 'Validates SOC2 controls, maintains cryptographic evidence hash chains, and handles GDPR requests.', tools: 'verify_evidence_chain', model: 'claude-3-5-sonnet' },
+      { id: 'tool-reliability-agent', name: 'MCP Tool Reliability Agent', cat: 'OPS', risk: 'T2', desc: 'Monitors MCP server latency, error rates, schema compliance, and triggers circuit breakers.', tools: 'probe_mcp_health', model: 'gemini-1.5-flash' },
+      { id: 'cost-optimization-agent', name: 'FinOps Cost Optimization Agent', cat: 'GOVERNANCE', risk: 'T2', desc: 'Analyzes model token burn, enforces per-tenant budgets, and optimizes model routing thresholds.', tools: 'check_token_budgets', model: 'gemini-1.5-flash' },
+      { id: 'experiment-agent', name: 'Prompt & Model Experiment Agent', cat: 'HARNESS', risk: 'T1', desc: 'Runs A/B evaluation tests across prompt variations and model providers with statistical confidence.', tools: 'run_ab_experiment', model: 'gemini-1.5-pro' },
+      { id: 'evaluation-agent', name: 'Agent Trajectory Evaluation Agent', cat: 'HARNESS', risk: 'T2', desc: 'Evaluates agent run trajectories against golden benchmarks, adversarial prompts, and regression suites.', tools: 'execute_benchmark_suite', model: 'claude-3-5-sonnet' },
+      { id: 'harness-judge', name: 'Harness Promotion Judge', cat: 'HARNESS', risk: 'T3', desc: 'Autonomous gatekeeper for promoting agent versions from DRAFT to EVALUATING, CANARY, and PRODUCTION.', tools: 'evaluate_promotion_criteria', model: 'claude-3-5-sonnet' },
+      { id: 'executive-reporting-agent', name: 'Executive Reporting Agent', cat: 'GTM', risk: 'T1', desc: 'Compiles weekly and monthly revenue performance reports with graphs and AI-assisted attribution.', tools: 'compile_revenue_report', model: 'gemini-1.5-pro' },
+      { id: 'workflow-recovery-agent', name: 'Workflow Self-Healing & Recovery Agent', cat: 'OPS', risk: 'T3', desc: 'Recovers failed workflow steps, executes rollback compensations, and clears dead-letter queues.', tools: 'replay_workflow_step', model: 'claude-3-5-sonnet' }
     ];
 
-    // Switch Top-Level Tabs
     function switchTab(tabId) {
       document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-tab-btn').forEach(el => el.classList.remove('active'));
-
-      const targetView = document.getElementById('view-' + tabId);
-      const targetBtn = document.getElementById('tab-' + tabId);
-      if (targetView) targetView.classList.add('active');
-      if (targetBtn) targetBtn.classList.add('active');
-
-      if (tabId === 'systems') renderSystems(systemsData);
+      const view = document.getElementById('view-' + tabId);
+      const btn = document.getElementById('tab-' + tabId);
+      if (view) view.classList.add('active');
+      if (btn) btn.classList.add('active');
+      if (tabId === 'agents') renderAgents(coreAgents);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Render 100 Systems Grid
-    function renderSystems(data) {
-      const container = document.getElementById('systems-grid');
-      container.innerHTML = data.map(sys => `
-        <div class="system-mini-card" onclick="openSystemDetail('${sys.num}')">
+    function renderAgents(data) {
+      const c = document.getElementById('agents-roster-container');
+      c.innerHTML = data.map(a => `
+        <div class="agent-roster-card" onclick="openAgentModal('${a.id}')">
           <div>
-            <div class="sys-card-header">
-              <span class="sys-num">SYS #${sys.num}</span>
-              <span class="sys-status-badge">● ACTIVE</span>
+            <div class="agent-card-top">
+              <span class="agent-cat-tag">${a.cat}</span>
+              <span class="agent-risk-pill">${a.risk}</span>
             </div>
-            <div class="sys-name">${sys.name}</div>
-            <div class="sys-desc">${sys.desc}</div>
+            <div class="agent-name-title">${a.name}</div>
+            <div class="agent-desc-text">${a.desc}</div>
           </div>
-          <div style="margin-top:0.8rem; font-size:0.75rem; color:var(--indigo); font-family:var(--font-mono)">
-            @shivi/domain-${sys.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+          <div class="agent-meta-row">
+            <span>Model: <strong>${a.model}</strong></span>
+            <span style="color:var(--cyan)">● ACTIVE</span>
           </div>
         </div>
       `).join('');
     }
 
-    // Search and Category Filter
-    function filterSystems() {
-      const q = document.getElementById('systems-search').value.toLowerCase();
-      const filtered = systemsData.filter(s => s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q) || s.num.includes(q));
-      renderSystems(filtered);
-    }
-
-    function filterCategory(cat, btn) {
-      document.querySelectorAll('.filter-chips .chip-btn').forEach(b => b.classList.remove('active'));
+    function filterAgentCategory(cat, btn) {
+      document.querySelectorAll('.dash-card .chip-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      if (cat === 'all') {
-        renderSystems(systemsData);
+      if (cat === 'ALL') {
+        renderAgents(coreAgents);
       } else {
-        renderSystems(systemsData.filter(s => s.cat === cat));
+        renderAgents(coreAgents.filter(a => a.cat === cat));
       }
     }
 
-    // System Detail Modal
-    function openSystemDetail(num) {
-      const sys = systemsData.find(s => s.num === num);
-      if (!sys) return;
+    function openAgentModal(id) {
+      const a = coreAgents.find(x => x.id === id);
+      if (!a) return;
       const content = document.getElementById('modal-content');
       content.innerHTML = `
-        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem">
-          <span class="sys-num" style="font-size:1rem; padding:0.3rem 0.7rem">System #${sys.num}</span>
-          <span class="status-badge-live">Production Operational</span>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem">
+          <span class="agent-cat-tag" style="font-size:0.85rem">${a.cat} · ${a.risk} Risk Tier</span>
+          <span class="status-badge-live">Certified Active</span>
         </div>
-        <h2 style="font-size:1.6rem; color:#fff; margin-bottom:0.75rem">${sys.name}</h2>
-        <p style="color:var(--text-muted); font-size:1rem; line-height:1.6; margin-bottom:1.5rem">${sys.desc}</p>
-        
+        <h2 style="font-size:1.6rem; color:#fff; margin-bottom:0.5rem">${a.name}</h2>
+        <p style="color:var(--text-muted); font-size:1rem; line-height:1.6; margin-bottom:1.25rem">${a.desc}</p>
         <div style="background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem; font-family:var(--font-mono); font-size:0.825rem; margin-bottom:1.5rem">
-          <div style="color:var(--cyan); margin-bottom:0.4rem">Package: @shivi/domain-${sys.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}</div>
-          <div style="color:var(--text-dim)">Standards: FTL 10.${sys.num}, FSD §10.${sys.num}, SAD v2.0</div>
-          <div style="color:var(--text-dim)">Lifecycle State: ACTIVE (T2 Capability Token)</div>
+          <div style="color:var(--cyan); margin-bottom:0.3rem">Allowed Tools: ${a.tools}</div>
+          <div style="color:var(--text-dim)">Default Model Router: ${a.model}</div>
+          <div style="color:var(--text-dim)">Evaluation Score: 98.4% Benchmark Certified</div>
         </div>
-
         <div style="display:flex; justify-content:flex-end; gap:0.8rem">
           <button class="btn-hero-secondary" onclick="closeModalDirect()">Close</button>
-          <button class="btn-hero-primary" onclick="launchInDashboard('${sys.name}')">Launch in Sandbox</button>
+          <button class="btn-hero-primary" onclick="launchAgentInDashboard('${a.name}')">Launch in Command Center</button>
+        </div>
+      `;
+      document.getElementById('detail-modal').classList.add('active');
+    }
+
+    function openDealDetail(name, arr, risk, level) {
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem">
+          <span style="font-family:var(--font-mono); font-size:0.85rem; color:var(--green); font-weight:700">$${arr.toLocaleString()} ARR</span>
+          <span class="agent-risk-pill" style="background:${risk > 50 ? 'rgba(239,68,68,0.2)' : 'rgba(16,185,129,0.2)'}; color:${risk > 50 ? 'var(--red)' : 'var(--green)'}">
+            Risk Score: ${risk}/100 (${level})
+          </span>
+        </div>
+        <h2 style="font-size:1.6rem; color:#fff; margin-bottom:0.5rem">${name}</h2>
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem">
+          Stage: <strong>Proposal & Quote</strong> · Buying Committee: <strong>Sarah Chen (VP Infra)</strong>
+        </p>
+        <div style="background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem; font-size:0.85rem; margin-bottom:1.5rem">
+          <div style="font-weight:700; color:#fff; margin-bottom:0.4rem">AI Deal Strategy Recommendation:</div>
+          <div style="color:var(--text-muted); line-height:1.5">
+            ${risk > 50 
+              ? 'Stage stagnation detected (>30 days). Missing Economic Buyer approval. Trigger CRO sponsor outreach and attach SOC2 compliance packet.' 
+              : 'Deal velocity healthy. Next scheduled touchpoint: Contract final review on Friday.'}
+          </div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:0.8rem">
+          <button class="btn-hero-secondary" onclick="closeModalDirect()">Close</button>
+          <button class="btn-hero-primary" onclick="closeModalDirect(); runScenario(1)">Execute Recovery Scenario</button>
         </div>
       `;
       document.getElementById('detail-modal').classList.add('active');
@@ -1743,81 +1487,147 @@
     function closeModal(e) {
       if (e.target.id === 'detail-modal') closeModalDirect();
     }
-
     function closeModalDirect() {
       document.getElementById('detail-modal').classList.remove('active');
     }
 
-    function launchInDashboard(sysName) {
+    function launchAgentInDashboard(name) {
       closeModalDirect();
       switchTab('dashboard');
-      document.getElementById('runner-prompt-input').value = `Execute autonomous task cycle for: ${sysName}`;
+      document.getElementById('cmd-prompt-input').value = `Execute autonomous task cycle for: ${name}`;
     }
 
-    // SSO Authentication Simulation
-    function simulateSSO(provider) {
-      const email = document.getElementById('login-email').value;
-      const tenant = document.getElementById('login-tenant').value;
-      alert(`[ShiVi Identity Gateway]\n\nAuthenticating via ${provider}...\nTenant: ${tenant}\nIdentity token signed by SPIFFE SVID.`);
-      document.getElementById('header-auth-btn').innerText = 'Operator: Acme';
-      switchTab('dashboard');
+    // 5 Live Scenarios Engine
+    const scenarioDefinitions = {
+      1: {
+        title: 'Scenario 1: Recover Stalled $100K Enterprise Opportunity',
+        target: 'Target: Acme Corp ($100,000 Expansion ARR)',
+        steps: [
+          { agent: 'Deal Risk Agent', action: 'Detect Stage Stagnation & Risk Factors', out: 'Risk Score: 78 · Stalled 34d in Proposal · No Economic Buyer activity in 24d' },
+          { agent: 'Hybrid RAG Agent', action: 'Retrieve Meeting Transcripts & Objections', out: 'Retrieved transcript: "Sarah Chen noted budget freeze without security audit" · Groundedness: 98.4%' },
+          { agent: 'Buying Committee Agent', action: 'Map Stakeholder Graph & Missing Buyer', out: 'Champion: David Miller · Missing Economic Buyer: Sarah Chen (VP Infrastructure)' },
+          { agent: 'Deal Strategy Agent', action: 'Generate Executive Sponsorship Playbook', out: 'Action: CRO-to-VP briefing with SOC2 packet · Win prob increase: +32%' },
+          { agent: 'Policy Agent', action: 'Enforce T3 Gate & Human Approval', out: 'HITL Gate: Human approval granted by operator@acme.shivi.ai · T3 Authorized', approval: true },
+          { agent: 'Forecast Agent', action: 'Execute CRM Mutation & Commit Forecast', out: 'CRM Task created · Stage advanced to Negotiation · +$75,000 Weighted Commit ARR' }
+        ]
+      },
+      2: {
+        title: 'Scenario 2: Qualify New Strategic Enterprise Lead',
+        target: 'Target: Vertex Labs (CTO Inbound Request)',
+        steps: [
+          { agent: 'Data Enrichment Agent', action: 'Enrich Inbound Lead & Company Firmographics', out: '850 employees · $45M Series B · Tech Stack: AWS, Kubernetes, Postgres' },
+          { agent: 'ICP Agent', action: 'Score Lead Fit against Enterprise ICP', out: 'ICP Score: 94/100 · Classification: TIER 1 STRATEGIC' },
+          { agent: 'Lead Routing Agent', action: 'Route to Strategic Enterprise AE', out: 'Assigned to: Jordan Hayes (US-West Enterprise) · SLA Response: < 1 hour' }
+        ]
+      },
+      3: {
+        title: 'Scenario 3: Mitigate $250K Renewal Churn Risk',
+        target: 'Target: Northstar Technologies ($250,000 ARR Contract)',
+        steps: [
+          { agent: 'Customer Health Agent', action: 'Detect Telemetry Drops & Open Issues', out: 'Health Score: 48 (At Risk) · Usage drop: -35% · Open Sev-1 Tickets: 2' },
+          { agent: 'Contract Renewal Agent', action: 'Trigger Executive CSM Intervention Playbook', out: 'Playbook: EXEC_CSM_ESC · QBR Scheduled · Escalated to Support Engineering' }
+        ]
+      },
+      4: {
+        title: 'Scenario 4: CRM Data Hygiene & Merge Repair',
+        target: 'Target: CRM Database (1,200 Records Scanned)',
+        steps: [
+          { agent: 'CRM Hygiene Agent', action: 'Scan Database for Duplicates & Stale Deals', out: 'Scanned 1,200 records · Found 14 duplicate clusters and 6 stale opportunities' },
+          { agent: 'CRM Hygiene Agent', action: 'Execute Deduplication Merge & Conflict Resolution', out: 'Merged 14 clusters cleanly · 28 records deduplicated · Data integrity: 99.8%' }
+        ]
+      },
+      5: {
+        title: 'Scenario 5: Executive Forecast Risk Analysis',
+        target: 'Target: 2026-Q3 Revenue Forecast ($1.54M Committed ARR)',
+        steps: [
+          { agent: 'Executive Intelligence Agent', action: 'Synthesize Macro Slippage Risk & Mitigation Plan', out: 'Committed ARR: $1.54M · Slippage Exposure: $260K across 3 late-stage deals · 3 Action items generated' }
+        ]
+      }
+    };
+
+    function runScenario(num) {
+      const scen = scenarioDefinitions[num];
+      if (!scen) return;
+      const display = document.getElementById('scenario-execution-display');
+      display.style.display = 'block';
+      document.getElementById('active-scenario-title').innerText = scen.title;
+      document.getElementById('active-scenario-target').innerText = scen.target;
+
+      const stepsContainer = document.getElementById('active-scenario-steps');
+      stepsContainer.innerHTML = '';
+
+      scen.steps.forEach((s, idx) => {
+        setTimeout(() => {
+          const div = document.createElement('div');
+          div.className = 'step-item-card' + (s.approval ? ' approval-needed' : '');
+          div.innerHTML = `
+            <div class="step-header">
+              <span class="step-agent-name">[Step ${idx + 1}] ${s.agent}</span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan)">SHA-256 Block #${1430 + idx}</span>
+            </div>
+            <div class="step-action-desc">${s.action}</div>
+            <div class="step-output-box">${s.out}</div>
+          `;
+          stepsContainer.appendChild(div);
+          display.scrollIntoView({ behavior: 'smooth' });
+        }, idx * 400);
+      });
     }
 
-    function handleLoginSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('login-email').value;
-      alert(`[ShiVi Identity Service]\n\nSuccessfully authenticated session for ${email}.\nPermissions: [admin, operator, auditor].\nRedirecting to Command Center.`);
-      document.getElementById('header-auth-btn').innerText = 'Operator: Acme';
-      switchTab('dashboard');
+    function confirmScenarioCompletion() {
+      alert('[ShiVi Governance & Evidence Ledger]\n\nTrajectory verified.\nAll steps committed to SHA-256 tamper-evident hash chain.\nAudited and synced with CRM state.');
+      document.getElementById('scenario-execution-display').style.display = 'none';
     }
 
-    // Sandbox Agent Task Dispatcher
-    function dispatchAgentTask() {
-      const agent = document.getElementById('runner-agent-select').value;
-      const model = document.getElementById('runner-model-select').value;
-      const prompt = document.getElementById('runner-prompt-input').value;
-      const term = document.getElementById('runner-terminal');
+    function dispatchCustomTask() {
+      const agent = document.getElementById('cmd-agent-select').value;
+      const model = document.getElementById('cmd-model-select').value;
+      const prompt = document.getElementById('cmd-prompt-input').value;
+      const term = document.getElementById('cmd-terminal');
 
-      const timestamp = new Date().toISOString();
-      const blockHash = 'blk_' + Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10);
-
+      const hash = 'blk_' + Math.random().toString(36).substring(2, 10);
       term.innerHTML += `
-        <div style="border-top: 1px dashed var(--border); margin: 0.5rem 0; padding-top: 0.5rem">
-          <div class="term-line-info">[${timestamp}] Dispatching Task to '${agent}' via '${model}'...</div>
+        <div style="border-top:1px dashed var(--border); margin:0.5rem 0; padding-top:0.5rem">
+          <div class="term-line-info">[${new Date().toISOString()}] Executing '${agent}' via '${model}'...</div>
           <div style="color:#cbd5e1">Prompt: "${prompt}"</div>
-          <div class="term-line-success">[Step 1] Prompt Sanitizer: 0 injection patterns detected. Score: 100/100</div>
-          <div class="term-line-success">[Step 2] Model Router: Allocated to ${model}. Cost: $0.0034 USD</div>
-          <div class="term-line-evidence">[Step 3] Evidence Ledger Committed: SHA-256 Block (${blockHash})</div>
-          <div class="term-line-info">[Step 4] Trajectory Execution Finished with state 'ACTIVE'.</div>
+          <div class="term-line-success">✔ Prompt Sanitizer: Safe (0 injection patterns)</div>
+          <div class="term-line-success">✔ Model Allocated: ${model} ($0.0031 USD)</div>
+          <div class="term-line-evidence">✔ Evidence Hash: ${hash} committed to chain</div>
+          <div class="term-line-info">✔ Trajectory status: COMPLETED</div>
         </div>
       `;
       term.scrollTop = term.scrollHeight;
+    }
 
-      // Add to Ledger Explorer
-      const ledgerList = document.getElementById('ledger-list');
-      const newBlock = document.createElement('div');
-      newBlock.className = 'ledger-block-item';
-      newBlock.innerHTML = `
-        <div class="ledger-block-header">
-          <span>Block #${Math.floor(1429 + Math.random() * 100)}</span>
-          <span style="color:var(--green)">JUST NOW</span>
+    function runHarnessSuite() {
+      const term = document.getElementById('harness-terminal');
+      term.innerHTML += `
+        <div style="border-top:1px dashed var(--border); margin:0.5rem 0; padding-top:0.5rem">
+          <div class="term-line-info">[${new Date().toISOString()}] Re-running benchmark suite across 38 Core Agents...</div>
+          <div class="term-line-success">✔ 152 Test Vectors Evaluated: 100% Passed</div>
+          <div class="term-line-evidence">✔ Golden Accuracy: 98.5% · Groundedness: 96.0% · Zero Hallucinations</div>
         </div>
-        <div>Agent: <strong>${agent}</strong></div>
-        <div class="ledger-hash">hash: ${blockHash}</div>
       `;
-      ledgerList.prepend(newBlock);
+      term.scrollTop = term.scrollHeight;
     }
 
-    function verifyLedgerChain() {
-      alert(`[ShiVi Cryptographic Evidence Ledger]\n\nAudit chain integrity scan complete.\nVerified 168 SHA-256 blocks across 7 isolation layers.\nTamper score: 0% (Clean).`);
+    function simulateLogin(p) {
+      alert(`[ShiVi Identity Service]\n\nAuthenticated via ${p}.\nTenant: Acme Corp\nRoles: [Admin, RevOps Operator, Auditor]`);
+      switchTab('scenarios');
     }
 
-    function testEndpoint(endpoint) {
-      alert(`[ShiVi REST API Gateway]\n\nRequest: POST ${endpoint}\nStatus: 200 OK (3.4ms)\nResponse: {"status":"SUCCESS","timestamp":"${new Date().toISOString()}"}`);
+    function handleDirectLogin(e) {
+      e.preventDefault();
+      alert('[ShiVi Identity Service]\n\nSession authenticated. Launching workspace...');
+      switchTab('scenarios');
     }
 
-    // Initialize systems catalogue
-    renderSystems(systemsData);
+    function handleTenantChange(val) {
+      alert(`[ShiVi Multi-Tenant Context]\n\nSwitched active tenant context to: ${val}\n7-Layer isolation barrier established.`);
+    }
+
+    // Init
+    renderAgents(coreAgents);
   </script>
 </body>
 </html>

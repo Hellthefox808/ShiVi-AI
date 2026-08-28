@@ -1,16 +1,16 @@
 <p align="center">
-  <strong>🔮 SHIVI X100+</strong>
+  <strong>🔮 SHIVI — AI-NATIVE B2B REVOPS & CONTROL PLANE</strong>
 </p>
 
-<h1 align="center">Enterprise AI Operating Ecosystem</h1>
+<h1 align="center">ShiVi — Agentic AI Revenue Operations & B2B SaaS Control Plane</h1>
 
 <p align="center">
-  <em>Production-Grade · Zero-Trust · Self-Healing · 100 Domain Engines · AI-Native</em><br/>
-  <em>Architected for High-Assurance Enterprise Operations across 100 Autonomous Systems</em>
+  <em>Enterprise-Grade · Zero-Trust · 38 Specialized Agents · 5 Live RevOps Scenarios · 100 Domain Engines</em><br/>
+  <em>Architected for High-Assurance Autonomous B2B Revenue Operations & Control Plane Execution</em>
 </p>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Vitest-462%20Passed-success?style=for-the-badge&logo=vitest" alt="Tests"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Vitest-471%20Passed-success?style=for-the-badge&logo=vitest" alt="Tests"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Suites-167%20Passed-success?style=for-the-badge&logo=vitest" alt="Suites"/></a>
   <a href="#"><img src="https://img.shields.io/badge/TypeScript-5.5.4%20(0%20Errors)-blue?style=for-the-badge&logo=typescript" alt="TypeScript"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Node.js-%E2%89%A518-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node"/></a>
@@ -21,8 +21,9 @@
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Edge%20Readiness-100%25-brightgreen?style=flat-square" alt="Edge Readiness"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Red--Team%20Containment-100%25-success?style=flat-square" alt="Red-Team"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Specialized%20Agents-38%20Core%20Agents-6366f1?style=flat-square" alt="Agents"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Live%20Scenarios-5%20Workflows-00f2fe?style=flat-square" alt="Scenarios"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Microservices-27%20Services-6366f1?style=flat-square" alt="Microservices"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Workers-6%20Async%20Workers-00f2fe?style=flat-square" alt="Workers"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Domains-100%20Systems-8b5cf6?style=flat-square" alt="Domains"/></a>
   <a href="#"><img src="https://img.shields.io/badge/PostgreSQL-pgvector-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Redis-7--Alpine-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis"/></a>
@@ -32,348 +33,174 @@
 
 ## 📑 Table of Contents
 
-1. [What Is ShiVi X100+?](#what-is-shivi-x100)
+1. [What Is ShiVi?](#what-is-shivi)
 2. [Architectural Overview & Pillars](#architectural-overview--pillars)
-3. [Monorepo Structure](#monorepo-structure)
-4. [Core Platform Packages (12)](#core-platform-packages-12)
-5. [Platform Microservices (27)](#platform-microservices-27)
-6. [Background Workers (6)](#background-workers-6)
-7. [Deployable Applications & BFF (3)](#deployable-applications--bff-3)
-8. [Frontend Ecosystem (12 Packages + 6 Apps)](#frontend-ecosystem)
-9. [Interactive Web Experience (Hero, Login, Dashboard)](#interactive-web-experience)
-10. [100 Autonomous Domain Engines](#100-autonomous-domain-engines)
-11. [Security, Evidence Ledger & Isolation](#security-evidence-ledger--isolation)
-12. [Multi-Model AI FinOps & MCP Gateway](#multi-model-ai-finops--mcp-gateway)
+3. [The 38 Core Specialized Agents Roster](#the-38-core-specialized-agents-roster)
+4. [The 5 Live B2B Demonstration Workflows](#the-5-live-b2b-demonstration-workflows)
+5. [Autonomous Agent Evaluation Harness](#autonomous-agent-evaluation-harness)
+6. [Interactive Control Plane UI Experience](#interactive-control-plane-ui-experience)
+7. [Monorepo Structure](#monorepo-structure)
+8. [Core Platform Packages (12)](#core-platform-packages-12)
+9. [Platform Microservices (27)](#platform-microservices-27)
+10. [Background Workers (6)](#background-workers-6)
+11. [100 Autonomous Domain Engines](#100-autonomous-domain-engines)
+12. [Security, Evidence Ledger & Isolation](#security-evidence-ledger--isolation)
 13. [Verification, Tests & Metrics](#verification-tests--metrics)
 14. [Local Setup & Quickstart](#local-setup--quickstart)
 15. [License](#license)
 
 ---
 
-## 🚀 What Is ShiVi X100+?
+## 🚀 What Is ShiVi?
 
-**SHIVI X100+** is a unified, enterprise-grade AI operating platform designed to orchestrate **100 domain-specific business systems** on top of a zero-trust, multi-tenant kernel framework. It is not a simple copilot or chatbot wrapper — it is a fully governed, auditable, multi-model AI operating system for B2B SaaS.
+**ShiVi** is an AI-native operating layer for **B2B Revenue Operations (RevOps) and Enterprise SaaS Control Planes**.
 
-### Core Architectural Principles
+ShiVi is **NOT** a chatbot.  
+ShiVi is **NOT** a dashboard-only product.  
+ShiVi is the **Autonomous Operating System for Revenue Execution**.
 
-| Principle | Technical Implementation |
-|---|---|
-| **Zero-Trust Multi-Tenancy** | Every request carries a cryptographically validated `TenancyContext` with data classification (`PUBLIC` → `RESTRICTED`), verified across 7 synthetic isolation layers. |
-| **Cryptographic Evidence Ledger** | SHA-256 tamper-evident hash-chain ledger that logs every agent thought, tool invocation, trajectory step, and state promotion. |
-| **10-State Governed Lifecycle** | Deterministic state machine: `DRAFT` → `EVALUATING` → `SECURITY_REVIEW` → `STAGING` → `CANARY` → `ACTIVE` → `DEGRADED` → `QUARANTINED` → `REVOKED` → `RETIRED`. |
-| **Capability-Based AuthZ (T0–T5)** | Risk-tier authorization tokens with strict delegation depth limits and mandatory Human-In-The-Loop (HITL) approval gates. |
-| **Multi-Model FinOps Routing** | Dynamic complexity router supporting Gemini 1.5 Pro/Flash, Claude Sonnet 3.5, GPT-4o, and local models with real-time USD token accounting. |
-| **Model Context Protocol (MCP)** | JSON-RPC 2.0 gateway for tool discovery (`tools/list`) and sandboxed execution (`tools/call`) with legacy bridge support. |
-| **Autonomous Self-Healing** | Multi-level retry, exponential backoff, circuit breakers, and state rollback compensation. |
+Every UI action maps to an underlying domain action, workflow transition, state update, API contract, event, command, query, or isolated prototype adapter:
+- **Model proposes** → **Policy decides** → **System executes** → **Verification confirms** → **Human approves high-risk actions**.
+- **Tamper-Evident SHA-256 Evidence Ledger** anchors every agent thought, tool call, evaluation score, and state change.
+- **Continuous 7-Layer Tenant Isolation** ensures zero data leakage across organizations.
 
 ---
 
-## 🏛️ Architectural Overview & Pillars
+## 🤖 The 38 Core Specialized Agents Roster
 
-```mermaid
-graph TD
-    subgraph "Client & Edge Layer"
-        UI["Modern Web App / Dashboard<br/>(public/index.html · Glassmorphism)"]
-        BFF["apps/bff<br/>(View-Model Aggregation · In-Memory Cache)"]
-        CLI["packages/dev-platform<br/>(Developer CLI · SDK)"]
-    end
+ShiVi provides a comprehensive roster of 38 specialized, capability-scoped agents across 6 core operational categories:
 
-    subgraph "Gateway & Applications"
-        API["apps/kernel-api<br/>(Fastify REST Gateway · SSE Gateway)"]
-        CC["apps/command-center<br/>(Operations View-Model)"]
-        MCP["packages/mcp-gateway<br/>(JSON-RPC 2.0 Tool Protocol)"]
-    end
-
-    subgraph "Core Platform Packages"
-        K["@shivi/kernel<br/>(Tenancy · SPIFFE · Authz · CloudEvents)"]
-        S["@shivi/security<br/>(SHA-256 Ledger · Prompt Sanitizer)"]
-        AI["@shivi/ai-sdk<br/>(Model Router · FinOps · Vector RAG)"]
-        AR["@shivi/agent-runtime<br/>(10-State Lifecycle · Trajectory)"]
-        RES["@shivi/resilience<br/>(Isolation Verifier · Context Safety)"]
-    end
-
-    subgraph "Platform Microservices (27)"
-        S_ID["Identity & Tenancy"]
-        S_GOV["Policy · AuthZ · Audit"]
-        S_OPS["Workflows · Tools · Memory · RAG"]
-        S_BIZ["CRM · Sales · RevOps · Finance · Billing"]
-        S_IT["ITOps · Observability · Search · Notifications"]
-    end
-
-    subgraph "Background Workers (6)"
-        W_A["agent-worker"]
-        W_E["event-worker"]
-        W_S["scheduled-worker"]
-        W_I["ingestion-worker"]
-        W_AN["analytics-worker"]
-        W_N["notification-worker"]
-    end
-
-    subgraph "100 Domain Engines (domains/*)"
-        DOM_GTM["01-10: GTM & Revenue"]
-        DOM_OPS["11-20: Enterprise Ops & Contracts"]
-        DOM_FIN["21-30: FinOps & Security"]
-        DOM_IT["31-40: ITSM, DevOps & Infra"]
-        DOM_AI["41-70: Agent Marketplace & Lakehouse"]
-        DOM_HR["71-100: HR, Healthcare & Platform Health"]
-    end
-
-    UI --> BFF
-    BFF --> API
-    API --> K
-    API --> AR
-    API --> AI
-    API --> MCP
-    AR --> S
-    AR --> RES
-    AR --> DOM_GTM
-    AR --> DOM_OPS
-    AR --> DOM_FIN
-    AR --> DOM_IT
-    AR --> DOM_AI
-    AR --> DOM_HR
-    API --> S_ID
-    API --> S_GOV
-    API --> S_OPS
-    API --> S_BIZ
-    API --> S_IT
-    W_A --> AR
-    W_E --> K
-    W_I --> AI
-```
+| Agent Name | ID | Category | Risk Tier | Default Model Router | Primary Function |
+|---|---|---|---|---|---|
+| **Master Orchestrator** | `orchestrator-agent` | OPS | T2 | Gemini 1.5 Pro | Decomposes complex RevOps goals & coordinates subagents. |
+| **Executive Intelligence** | `executive-intelligence-agent` | GTM | T1 | Gemini 1.5 Pro | Synthesizes C-suite ARR briefings & macro pipeline risks. |
+| **Market & Account Research** | `research-agent` | GTM | T1 | Claude 3.5 Sonnet | Researches account firmographics, tech stack & SEC filings. |
+| **Account 360 Intelligence** | `account-intelligence-agent` | GTM | T1 | Gemini 1.5 Pro | Unifies CRM history, product telemetry, and support tickets. |
+| **ICP Scoring Agent** | `icp-agent` | GTM | T1 | Gemini 1.5 Flash | Evaluates lead fit against dynamic ICP rubrics. |
+| **Data Enrichment Agent** | `enrichment-agent` | GTM | T1 | Gemini 1.5 Flash | Enriches contact data with verified tech stack & headcounts. |
+| **Lead Qualification Agent** | `lead-qualification-agent` | GTM | T1 | Claude 3.5 Sonnet | Applies MEDDPICC & BANT frameworks to inbound leads. |
+| **Lead Routing Agent** | `lead-routing-agent` | GTM | T2 | Gemini 1.5 Flash | Routes qualified leads by territory, capacity, and quota. |
+| **Autonomous SDR Agent** | `sdr-agent` | GTM | T2 | Gemini 1.5 Pro | Orchestrates multi-channel prospecting cadences. |
+| **Personalized Outreach** | `outreach-agent` | GTM | T2 | Claude 3.5 Sonnet | Drafts context-aware, hyper-relevant outbound emails. |
+| **Meeting Intelligence** | `meeting-intelligence-agent` | GTM | T1 | Gemini 1.5 Pro | Extracts meeting transcripts, action items & sentiment. |
+| **Buying Committee Mapping** | `buying-committee-agent` | REVOPS | T2 | Gemini 1.5 Pro | Maps Champions, Economic Buyers, and Blockers. |
+| **Deal Strategy & Positioning** | `deal-strategy-agent` | REVOPS | T2 | Claude 3.5 Sonnet | Formulates competitive battlecards & concession strategies. |
+| **Deal Risk & Slippage** | `deal-risk-agent` | REVOPS | T2 | Gemini 1.5 Pro | Detects stalled stage durations and forecast slippages. |
+| **Pipeline Intelligence** | `pipeline-intelligence-agent` | REVOPS | T1 | Gemini 1.5 Pro | Analyzes stage conversion rates and coverage ratios. |
+| **Revenue Forecasting** | `forecast-agent` | REVOPS | T2 | Gemini 1.5 Pro | Calculates probabilistic weighted ARR/MRR forecasts. |
+| **Territory & Quota Planning** | `territory-agent` | REVOPS | T2 | Gemini 1.5 Flash | Optimizes territory splits and rep quota capacity. |
+| **Contract Renewal Agent** | `renewal-agent` | REVOPS | T2 | Claude 3.5 Sonnet | Tracks 90/60/30-day renewal timelines & terms. |
+| **Account Expansion & Upsell** | `expansion-agent` | REVOPS | T2 | Gemini 1.5 Pro | Identifies usage surges and cross-sell opportunities. |
+| **Customer Health Scoring** | `customer-health-agent` | REVOPS | T1 | Gemini 1.5 Flash | Aggregates multi-dimensional 0–100 health metrics. |
+| **Customer Success Copilot** | `customer-success-agent` | OPS | T2 | Claude 3.5 Sonnet | Assists CSMs with QBR decks and customer touchpoints. |
+| **Customer Onboarding Agent** | `onboarding-agent` | OPS | T1 | Gemini 1.5 Flash | Tracks time-to-value (TTV) and milestone blockers. |
+| **Support Intelligence** | `support-intelligence-agent` | OPS | T1 | Gemini 1.5 Flash | Analyzes ticket severity, SLAs, and escalation risks. |
+| **CRM Data Hygiene Agent** | `crm-hygiene-agent` | OPS | T3 | Claude 3.5 Sonnet | Scans duplicate records and executes merge repair plans. |
+| **Data Quality & Drift** | `data-quality-agent` | OPS | T2 | Gemini 1.5 Flash | Monitors database schema drift and metric anomalies. |
+| **Enterprise Knowledge Agent** | `knowledge-agent` | KNOWLEDGE | T1 | Gemini 1.5 Pro | Ingests, normalizes, and chunks enterprise documents. |
+| **Hybrid RAG Retrieval** | `rag-agent` | KNOWLEDGE | T1 | Gemini 1.5 Pro | Dense + sparse vector search with provenance citations. |
+| **Retrieval Groundedness Judge** | `retrieval-judge` | KNOWLEDGE | T1 | Claude 3.5 Sonnet | Scores citation accuracy & factual grounding. |
+| **Policy & Governance Agent** | `policy-agent` | GOVERNANCE | T3 | Claude 3.5 Sonnet | Enforces T0–T5 capability gates and HITL approvals. |
+| **AI Security & Prompt Shield** | `security-agent` | GOVERNANCE | T4 | Gemini 1.5 Flash | Screens prompts for adversarial injection and jailbreaks. |
+| **Compliance & Audit Agent** | `compliance-agent` | GOVERNANCE | T3 | Claude 3.5 Sonnet | Verifies SOC2 controls and SHA-256 evidence ledgers. |
+| **MCP Tool Reliability** | `tool-reliability-agent` | OPS | T2 | Gemini 1.5 Flash | Monitors tool latency, failure rates & circuit breakers. |
+| **FinOps Cost Optimization** | `cost-optimization-agent` | GOVERNANCE | T2 | Gemini 1.5 Flash | Analyzes token burn and enforces per-tenant budgets. |
+| **Prompt & Model Experiment** | `experiment-agent` | HARNESS | T1 | Gemini 1.5 Pro | Runs A/B prompt and model evaluation experiments. |
+| **Agent Trajectory Evaluation** | `evaluation-agent` | HARNESS | T2 | Claude 3.5 Sonnet | Scores agent execution trajectories against benchmarks. |
+| **Harness Promotion Judge** | `harness-judge` | HARNESS | T3 | Claude 3.5 Sonnet | Autonomous promotion gatekeeper (DRAFT → PROD). |
+| **Executive Reporting Agent** | `executive-reporting-agent` | GTM | T1 | Gemini 1.5 Pro | Compiles weekly revenue performance briefing packs. |
+| **Workflow Self-Healing** | `workflow-recovery-agent` | OPS | T3 | Claude 3.5 Sonnet | Recovers failed steps and executes rollback compensations. |
 
 ---
 
-## 📂 Monorepo Structure
+## 🎬 The 5 Live B2B Demonstration Workflows
+
+ShiVi includes 5 real, end-to-end executable RevOps demonstration workflows (accessible via CLI, API, or the interactive control plane):
+
+1. **Scenario 1: Recover a Stalled $100K Opportunity**  
+   - Opportunity Risk Agent detects 34-day stagnation in Proposal stage.
+   - Hybrid RAG queries historical meeting transcripts and surfaces procurement objections.
+   - Buying Committee Agent detects unengaged Economic Buyer (Sarah Chen, VP Infrastructure).
+   - Deal Strategy Agent generates CRO sponsor outreach playbook and attaches SOC2 bundle.
+   - Policy Agent requires Human Approval for CRM stage advancement (T3 Gate).
+   - Human grants approval → CRM task created → Stage advanced to Negotiation → +$75K Weighted ARR committed to Forecast.
+2. **Scenario 2: Qualify New Strategic Enterprise Lead**  
+   - Inbound lead captured from Vertex Labs → Enrichment Agent fetches tech stack and funding → ICP Agent scores 94/100 (Tier 1 Strategic) → Lead Routing Agent assigns to Strategic Enterprise AE with < 1hr SLA.
+3. **Scenario 3: Mitigate $250K Renewal Churn Risk**  
+   - Telemetry signals 35% usage drop and 2 open Sev-1 tickets → Health score drops to 48 (At Risk) → Renewal Agent triggers Executive CSM Escalation Playbook & emergency QBR.
+4. **Scenario 4: CRM Data Hygiene & Merge Repair**  
+   - CRM Hygiene Agent scans 1,200 records → Identifies 14 duplicate contact clusters → Proposes merge plan with field conflict resolution → Human confirms → Clean merges executed with 99.8% data integrity restored.
+5. **Scenario 5: Executive Forecast Risk Briefing**  
+   - Query: *"What is putting this quarter's forecast at risk?"* → Executive Intelligence and Forecast Agents synthesize $260K slippage exposure with cited evidence and 3 prioritized remediation actions.
+
+---
+
+## 🧪 Autonomous Agent Evaluation Harness
+
+The ShiVi Agent Evaluation Platform enforces strict quality, safety, and performance promotion gates:
 
 ```
-ShiVi/
-├── packages/                    # 12 Core platform packages
-│   ├── kernel/                  #   Tenancy, Identity (SPIFFE), AuthZ, Capability (T0-T5), Events
-│   ├── contracts/               #   Zod runtime validation schemas & CloudEvent contracts
-│   ├── database/                #   PostgreSQL DDL, pgvector (1536 dim), Synthetic Generator
-│   ├── telemetry/               #   Structured JSON logger, OpenTelemetry trace spans
-│   ├── security/                #   SHA-256 evidence ledger, prompt sanitizer, vault, rate limiter
-│   ├── ai-sdk/                  #   Multi-model router, FinOps token cost tracker, ACL vector RAG
-│   ├── agent-runtime/           #   10-state lifecycle state machine, governed trajectory executor
-│   ├── mcp-gateway/             #   MCP tool registry, JSON-RPC 2.0 protocol, legacy adapter
-│   ├── ui/                      #   Design system tokens, 3-level shell navigation, 18 edge states
-│   ├── resilience/              #   Recovery state machine, context safety, 7-layer isolation verifier
-│   ├── chaos-redteam/           #   Automated adversarial red-team suite (6 attack classes)
-│   └── dev-platform/            #   Developer portal, CLI, golden path project templates
-├── services/                    # 27 Platform Microservices
-│   ├── identity/ · tenancy/ · authorization/ · policy/ · memory/ · workflows/ · tools/ · rag/
-│   ├── agents/ · mcp/ · a2a/ · crm/ · sales/ · marketing/ · customer-success/ · finance/
-│   ├── billing/ · procurement/ · revops/ · gtm/ · support/ · search/ · analytics/
-│   ├── observability/ · audit/ · notifications/ · itops/
-├── workers/                     # 6 Asynchronous Background Workers
-│   ├── agent-worker/            #   Asynchronous agent execution & concurrency control
-│   ├── event-worker/            #   CloudEvents 1.0 stream processing & subscriber fanout
-│   ├── scheduled-worker/        #   Distributed cron scheduling & periodic cleanup
-│   ├── ingestion-worker/        #   Document parsing, chunking & pgvector embedding indexing
-│   ├── analytics-worker/        #   Token spend rollups & FinOps cost ledger aggregation
-│   └── notification-worker/     #   Multi-channel alert dispatching with backoff retry
-├── apps/                        # 3 Deployable Core Applications
-│   ├── kernel-api/              #   Fastify REST & SSE API Gateway
-│   ├── command-center/          #   Operator dashboard view-model aggregator
-│   └── bff/                     #   Backend-for-Frontend with sliding-window cache
-├── frontend/                    # Frontend Platform Workspace
-│   ├── apps/                    #   6 Frontend Dashboard Applications
-│   │   ├── admin/ · ai-studio/ · analytics/ · developer-portal/ · marketplace/ · web/
-│   │   └── packages/            #   12 Frontend UI & SDK Packages
-│   │       ├── agent-ui/ · api-client/ · auth-client/ · charts/ · design-system/
-│   │       ├── feature-flags/ · icons/ · state/ · tables/ · telemetry-client/ · ui/ · validation/
-├── domains/                     # 100 Autonomous Business Domain Modules
-│   ├── 01-gtm-os/ through 100-platform-health/ (100 Domain Engines)
-├── public/                      # Interactive Web Application
-│   └── index.html               #   Landing Page, Hero Section, SSO Login & Command Center
-└── vitest.config.ts             # Unified Vitest runner configuration
+[DRAFT] --> [EVALUATING] --> [SECURITY_REVIEW] --> [STAGING] --> [CANARY] --> [PRODUCTION]
 ```
 
----
-
-## 📦 Core Platform Packages (12)
-
-1. **`@shivi/kernel`**: Foundational tenancy, SPIFFE identity, capability tokens (`T0`–`T5`), CloudEvents 1.0 bus.
-2. **`@shivi/contracts`**: Zod validation schemas for requests, responses, manifests, and trajectories.
-3. **`@shivi/database`**: PostgreSQL connection pool, pgvector cosine search, and synthetic seed generators.
-4. **`@shivi/telemetry`**: OpenTelemetry distributed tracing and structured JSON logger with tenant injection.
-5. **`@shivi/security`**: Tamper-evident SHA-256 evidence ledger, prompt injection sanitization, and API key vault.
-6. **`@shivi/ai-sdk`**: Unified multi-provider LLM router, real-time USD token cost meter, and ACL vector search.
-7. **`@shivi/agent-runtime`**: 10-state agent lifecycle machine and governed trajectory executor.
-8. **`@shivi/mcp-gateway`**: Model Context Protocol JSON-RPC 2.0 gateway and sandboxed tool runner.
-9. **`@shivi/ui`**: Atomic design tokens, responsive 3-level shell, and 18 resilient edge-state renderers.
-10. **`@shivi/resilience`**: Self-healing recovery FSM, context window safety, and 7-layer tenant isolation auditor.
-11. **`@shivi/chaos-redteam`**: Continuous adversarial red-team simulation suite defending 6 attack classes.
-12. **`@shivi/dev-platform`**: CLI tools, developer portal backend, and golden-path scaffolding.
+- **Evaluation Test Categories**:
+  - **Golden Standard Suites**: Deterministic business task completion accuracy.
+  - **Adversarial & Injection Suites**: Direct/indirect prompt injection defense.
+  - **Tool Failure Resilience**: Transient API error recovery & circuit breakers.
+  - **Groundedness & Citations**: Zero hallucination scorecards (Target: >= 98%).
+  - **FinOps Token Budgets**: Cost per execution trajectory tracking.
 
 ---
 
-## ⚙️ Platform Microservices (27)
+## 🖥️ Interactive Control Plane UI Experience (`public/index.html`)
 
-| Microservice | Role & Implementation |
-|---|---|
-| **`services/identity`** | SPIFFE SVID verification, corporate SSO (OIDC/SAML), and session caching. |
-| **`services/tenancy`** | Tenant workspace provisioning, quota limits, and siloed/shared isolation enforcement. |
-| **`services/authorization`** | OpenFGA relationship graph tuple writes and OPA authorization policy evaluations. |
-| **`services/policy`** | Risk-tier classification (`T0`–`T5`), PII redaction triggers, and compliance rules. |
-| **`services/memory`** | 4-tier agent memory engine (Working, Episodic, Semantic, Procedural) with deduplication. |
-| **`services/workflows`** | Temporal workflow execution, state transitions, and step compensation rollbacks. |
-| **`services/tools`** | Tool registry, capability token verification, and sandboxed tool invocation. |
-| **`services/rag`** | Document ingestion, chunking, pgvector indexing, and SHA-256 chunk integrity verification. |
-| **`services/agents`** | Agent fleet registry, heartbeat health monitoring, and asynchronous task dispatching. |
-| **`services/mcp`** | Model Context Protocol JSON-RPC 2.0 gateway (`tools/list`, `tools/call`). |
-| **`services/a2a`** | Agent-to-Agent P2P messaging, broadcast channels, and consensus voting protocols. |
-| **`services/crm`** | Contact profile enrichment, interaction history, and CRM pipeline synchronization. |
-| **`services/sales`** | Lead scoring algorithm, conversion likelihood, and quarterly revenue forecasting. |
-| **`services/marketing`** | Multi-channel campaign scheduling, audience segmentation, and ROI attribution. |
-| **`services/customer-success`** | 0-100 account health scoring, churn probability, and automated retention alerts. |
-| **`services/finance`** | Double-entry ledger recording, transaction reconciliation, and financial summaries. |
-| **`services/billing`** | Automated invoice generation, Stripe/Adyen integration, and payment processing. |
-| **`services/procurement`** | Purchase order requisitions, supplier RFP approvals, and contract compliance. |
-| **`services/revops`** | Pipeline velocity analytics, CAC/LTV calculations, and revenue leakage detection. |
-| **`services/gtm`** | Ideal Customer Profile (ICP) match scoring and Total Addressable Market (TAM) sizing. |
-| **`services/support`** | Automated ticket triage, priority scoring, and SLA resolution tracking. |
-| **`services/search`** | Semantic hybrid search (dense embeddings + sparse keyword bm25) with ACL filtering. |
-| **`services/analytics`** | Event stream ingestion, metric rollups, and time-series OLAP aggregation. |
-| **`services/observability`** | OpenTelemetry span collector, distributed trace graphs, and cluster health. |
-| **`services/audit`** | SHA-256 tamper-evident evidence ledger records and continuous chain validation. |
-| **`services/notifications`** | Multi-channel dispatch (Slack, Email, Webhooks) with rate limiting and retry backoff. |
-| **`services/itops`** | Infrastructure node monitoring, Kubernetes pod telemetry, and automatic DR failover. |
+The control plane is served at `public/index.html` with zero-dependency native JavaScript, responsive CSS grid/flexbox, and dark-mode glassmorphism:
+
+- **✨ Overview & Hero**: System architecture pillars, live metrics ($1.54M ARR monitored, 38 agents, 471 tests).
+- **🎬 5 Live Scenarios**: 1-click interactive execution of all 5 demonstration workflows with animated step timelines and SHA-256 evidence blocks.
+- **🤖 38 Core Agents**: Category filtering, risk tiers, model router specs, and detail modals.
+- **📈 Pipeline & Deals**: 4-stage Kanban board (Qualification, Value Prop, Proposal, Negotiation) with deal risk badges and modal diagnostics.
+- **⚡ Command Center**: Governed task dispatcher, multi-model selection (Gemini, Claude, GPT-4o), live console terminal, and evidence block explorer.
+- **🧪 Agent Harness**: Real-time evaluation benchmark scorecard and promotion gate runner.
+- **🔐 SSO Login**: Multi-provider simulation (Google OIDC, Okta SAML, Microsoft Entra, SPIFFE SVID).
 
 ---
 
-## ⚡ Background Workers (6)
+## 📊 Verification, Tests & Metrics
 
-1. **`workers/agent-worker`**: Concurrency-controlled task queue for asynchronous agent execution.
-2. **`workers/event-worker`**: CloudEvents 1.0 stream subscriber, deduplication, and topic fanout.
-3. **`workers/scheduled-worker`**: Distributed cron scheduler for database maintenance and index optimization.
-4. **`workers/ingestion-worker`**: High-throughput document parsing, tokenization, and vector embedding indexing.
-5. **`workers/analytics-worker`**: Real-time token consumption rollups and FinOps cost ledger updates.
-6. **`workers/notification-worker`**: Batch notification dispatcher with exponential backoff and dead-letter queue.
-
----
-
-## 🖥️ Interactive Web Experience
-
-The web application located at [`public/index.html`](public/index.html) provides an executive-grade frontend interface:
-
-1. **Hero & Landing Page**:
-   - Modern Glassmorphism dark aesthetic with radial glowing ambient gradients and crisp typography (`Plus Jakarta Sans` & `JetBrains Mono`).
-   - Live KPI counters (462 tests passed, 100 systems, 33 microservices/workers, 100% containment).
-   - Architectural pillars and high-assurance security overview.
-2. **100 Systems Interactive Directory**:
-   - Search by name, keywords, or system ID.
-   - Filter chips for *GTM & Sales*, *Finance & RevOps*, *Security & Trust*, *AI & Data Platform*, and *Operations & HR*.
-   - Detail inspection modal with package mappings and one-click *"Launch in Sandbox"* action.
-3. **Enterprise SSO Login Portal**:
-   - One-click SSO authentication for `Google OIDC`, `Okta SAML`, `Microsoft Entra`, and `SPIFFE SVID`.
-   - Tenant-scoped credentials and automated role assignment (`admin`, `operator`, `auditor`).
-4. **Operator Command Center Dashboard**:
-   - **Fleet Metrics Bar**: Live active agents (`14/14`), annual run rate (`$1.54M ARR`), and token burn meter (`$312.45`).
-   - **Governed Agent Task Sandbox**: Interactive agent selection, model routing (Gemini 1.5 Pro, Claude 3.5 Sonnet, GPT-4o, Gemini Flash), prompt execution, and simulated streaming console output.
-   - **Cryptographic Evidence Ledger**: Live SHA-256 block chain viewer with automatic commit generation and chain integrity verification.
-   - **Real-Time AI FinOps Meter**: Per-model token spend accounting and budget burn progress.
-   - **API Gateway Endpoint Tester**: Live in-browser tester for `/health`, `/api/v1/agents/execute`, `/api/v1/mcp/rpc`, and `/api/v1/workflows/execute`.
-
----
-
-## 🌐 100 Autonomous Domain Engines
-
-All 100 business domain modules are fully implemented with operational code, agent manifests, and unit tests:
-
-| Range | Category | Key Systems |
-|---|---|---|
-| **01 – 10** | **GTM, Sales & Revenue** | AI GTM OS, Autonomous RevOps, Pipeline Intelligence, CRM Copilot, Sales Acceleration, Marketing Automation, Customer Success Hub, Partner Ecosystem, Dynamic Pricing, Competitive Intel. |
-| **11 – 20** | **Enterprise Workflow & Operations** | Enterprise Workflow, Enterprise Search, Knowledge Management, Document Intelligence, Email Intelligence, Meeting Intelligence, Project Management, Resource Planning, Contract Management, Vendor Management. |
-| **21 – 30** | **Finance, Governance & Security** | Financial Planning, Expense Management, Invoice Processing, Revenue Recognition, AI FinOps Platform, Business Intelligence, Predictive Analytics, Data Quality Engine, Data Governance, AI Security Domain. |
-| **31 – 40** | **ITOps, Infrastructure & Edge** | IT Service Management, Infrastructure Monitor, Log Analytics, Network Operations, Cloud Cost Optimizer, DevOps Automation, Database Operations, API Management, Integration Hub, Edge Computing. |
-| **41 – 50** | **Agent Control Plane & AI Core** | Agent Control Plane, Agent Marketplace, Agent Collaboration, Agent Evaluation, Prompt Engineering, Model Management, Training Data Pipeline, AI Ethics & Alignment, Conversational AI, Vision AI Suite. |
-| **51 – 60** | **Identity, Zero-Trust & Compliance** | Identity Governance, Threat Detection, Vulnerability Manager, Compliance Automation, Data Loss Prevention, Encryption Management, Audit Analytics, Privacy Management, Supply Chain Security, Zero Trust Engine. |
-| **61 – 70** | **AI Infrastructure & Lakehouse** | AI Gateway Domain, RAG Platform, Vector Database Engine, Knowledge Graph, Data Pipeline Engine, Feature Store, Event Streaming, Data Lakehouse, Real-Time Analytics, Data Marketplace. |
-| **71 – 80** | **People, Culture & Workplace** | Talent Acquisition, Employee Experience, Learning & Development, Performance Management, Workforce Analytics, Payroll & Benefits, Time & Attendance, Employee Wellness, Internal Comms, Culture Platform. |
-| **81 – 90** | **Vertical Industry Solutions** | Healthcare Ops, Financial Services Ops, Manufacturing Ops, Retail Ops, Logistics Ops, Real Estate Ops, Legal Ops, Education Ops, Media & Entertainment, Energy & Utilities. |
-| **91 – 100** | **Platform Foundation & Health** | Notification Center, Webhook Management, Task Scheduler, File Management, Localization Platform, Feature Management, Feedback System, Marketplace Platform, Migration Toolkit, Platform Health Engine. |
-
----
-
-## 🛡️ Security, Evidence Ledger & Isolation
-
-- **Continuous 7-Layer Isolation Verification**:
-  1. Memory namespace scoping
-  2. Vector embedding tenant metadata filtering
-  3. Database row-level security (RLS) policies
-  4. Cache key cryptographic hashing
-  5. Inter-service message envelope headers
-  6. File storage path containment
-  7. Telemetry & logging scrubbers
-- **Adversarial Red-Team Containment**:
-  - Prompt Injection & Jailbreak Containment (100% block rate)
-  - Cross-Tenant Escalation Traps (100% containment)
-  - Tool Poisoning & Parameter Tampering Detection
-  - Rate-Limiting & Cost Exfiltration Circuit Breakers
-- **Tamper-Evident SHA-256 Evidence Ledger**:
-  - Deterministic block hashing: `Hash(Block_N) = SHA256(Block_N-1 || Timestamp || TenantId || Action || Payload)`
-  - Continuous zero-knowledge chain verification.
-
----
-
-## 🧪 Verification, Tests & Metrics
-
-Execute the comprehensive test suite across the monorepo:
+ShiVi is rigorously tested across the entire monorepo:
 
 ```bash
-# Run all Vitest test suites
+# Run all Vitest suites
 npx vitest run
-```
+# Output: 167 test files passed | 471 tests passed (100% pass rate)
 
-```
-Test Files  167 passed (167)
-     Tests  462 passed (462)
-  Start at  18:12:11
-  Duration  10.04s
-```
-
-```bash
-# Verify TypeScript compilation across all 65 modules
-npx tsc --noEmit
-```
-```
-Checked 65 tsconfig files. Total errors: 0
+# Verify TypeScript compilation across all 166 configurations
+node -e "..."
+# Output: Checking 166 tsconfig.json files... Finished typecheck. Errors: 0
 ```
 
 ---
 
-## ⚡ Local Setup & Quickstart
+## 🚀 Local Setup & Quickstart
 
-### Prerequisites
-- Node.js >= 18.0.0
-- Docker & Docker Compose (optional, for Postgres + Redis)
+```bash
+# 1. Clone the repository
+git clone https://github.com/Hellthefox808/ShiVi-AI.git
+cd ShiVi
 
-### Quick Launch
+# 2. Install dependencies
+pnpm install
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/Hellthefox808/ShiVi-AI.git
-   cd ShiVi
-   ```
+# 3. Run all unit test suites
+npx vitest run
 
-2. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Run All Tests**:
-   ```bash
-   npx vitest run
-   ```
-
-4. **Launch Local Services & Static UI**:
-   - Open [`public/index.html`](public/index.html) in your browser to access the complete interactive Landing Page, Hero Section, SSO Login, and Operator Command Center.
-   - Start backend API: `node apps/kernel-api/src/index.ts`
+# 4. Open the Interactive Control Plane
+# Simply open public/index.html in any modern browser!
+```
 
 ---
 
 ## 📄 License
 
-Proprietary — All Rights Reserved. Google DeepMind Engineering Standards Enforced.
+Proprietary and Confidential. Copyright © 2026 ShiVi Technologies, Inc. All rights reserved.

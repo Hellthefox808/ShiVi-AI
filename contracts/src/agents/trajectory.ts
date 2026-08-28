@@ -23,7 +23,7 @@ export type AgentStateContract = z.infer<typeof AgentStateSchema>;
 export const ToolExecutionContractSchema = z.object({
   toolCallId: z.string(),
   toolName: z.string(),
-  parameters: z.record(z.unknown()),
+  parameters: z.record(z.string(), z.unknown()),
   status: z.enum(['PENDING', 'EXECUTING', 'COMPLETED', 'FAILED']),
   result: z.unknown().optional(),
   executionTimeMs: z.number().optional(),

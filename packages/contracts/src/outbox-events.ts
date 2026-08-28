@@ -11,7 +11,7 @@ export const DomainEventSchema = z.object({
   tenantId: z.string(),
   aggregateId: z.string(),
   aggregateType: z.string(),
-  payload: z.record(z.unknown()),
+  payload: z.record(z.string(), z.unknown()),
   occurredAt: z.number(),
   status: z.enum(['PENDING', 'PUBLISHED', 'FAILED']),
 });
@@ -29,8 +29,9 @@ export const SSEEventPayloadSchema = z.object({
   ]),
   tenantId: z.string(),
   sessionId: z.string(),
-  data: z.record(z.unknown()),
+  data: z.record(z.string(), z.unknown()),
   timestamp: z.number(),
 });
+
 
 export type SSEEventPayload = z.infer<typeof SSEEventPayloadSchema>;
