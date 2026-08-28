@@ -7,6 +7,7 @@ import {
   AgentRosterManager,
   AgentEvaluationHarness,
   B2BRevOpsScenarioEngine,
+  MultiAgentWorkflowEngine,
 } from '../index.js';
 
 
@@ -240,7 +241,24 @@ describe('ShiVi Agent Runtime & Lifecycle Engine Suite', () => {
     expect(res.status).toBe('COMPLETED');
     expect(res.steps.length).toBe(1);
   });
+
+  it('should list and execute multi-agent durable workflow graphs', async () => {
+    const templates = MultiAgentWorkflowEngine.getWorkflowTemplates();
+    expect(templates.length).toBeGreaterThanOrEqual(3);
+
+    const leadWf = templates.find(t => t.workflowId === 'wf_inbound_lead_qualification');
+    expect(leadWf).toBeDefined();
+    expect(leadWf?.steps.length).toBe(4);
+
+    const executed = await MultiAgentWorkflowEngine.executeWorkflow(sampleTenant, 'wf_stalled_deal_recovery');
+    expect(executed.status).toBe('COMPLETED');
+    expect(executed.steps.length).toBe(6);
+    expect(executed.steps[0].status).toBe('COMPLETED');
+    expect(executed.steps[0].evidenceRecordHash).toBeDefined();
+    expect(executed.totalDurationMs).toBeGreaterThan(0);
+  });
 });
+
 
 
 

@@ -42,11 +42,7 @@
       --radius-xl: 24px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg-base);
@@ -222,7 +218,6 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    /* Page Views Layout */
     .page-view {
       display: none;
       opacity: 0;
@@ -429,6 +424,89 @@
       gap: 0.6rem;
     }
 
+    /* Workflows Studio Visual Graph */
+    .workflow-studio-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .workflow-studio-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .workflow-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .wf-template-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .wf-template-item:hover {
+      border-color: var(--cyan);
+      background: rgba(0, 242, 254, 0.05);
+    }
+
+    .wf-template-item.active {
+      border-color: var(--cyan);
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(0, 242, 254, 0.1));
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    }
+
+    .wf-node-canvas {
+      background: #04060a;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .wf-step-node {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--indigo);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .wf-step-node.running {
+      border-left-color: var(--cyan);
+      background: rgba(0, 242, 254, 0.05);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+    }
+
+    .wf-step-node.completed {
+      border-left-color: var(--green);
+      background: rgba(16, 185, 129, 0.04);
+    }
+
+    .wf-step-node.waiting-approval {
+      border-left-color: var(--amber);
+      background: rgba(245, 158, 11, 0.06);
+    }
+
+    .wf-connector-line {
+      width: 2px;
+      height: 20px;
+      background: var(--border);
+      margin: 0 auto;
+    }
+
     /* Scenarios Grid */
     .scenarios-grid {
       display: grid;
@@ -447,7 +525,6 @@
       justify-content: space-between;
       transition: all 0.25s ease;
       cursor: pointer;
-      position: relative;
     }
 
     .scenario-card:hover {
@@ -507,64 +584,6 @@
 
     .btn-run-scenario:hover {
       box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-    }
-
-    /* Live Scenario Execution Drawer / Modal */
-    .scenario-execution-box {
-      background: var(--bg-base);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .step-timeline-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      margin: 1rem 0;
-    }
-
-    .step-item-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--cyan);
-      border-radius: var(--radius-sm);
-      padding: 1rem 1.25rem;
-      font-size: 0.875rem;
-    }
-
-    .step-item-card.approval-needed {
-      border-left-color: var(--amber);
-      background: rgba(245, 158, 11, 0.05);
-    }
-
-    .step-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.4rem;
-    }
-
-    .step-agent-name {
-      font-weight: 700;
-      color: #ffffff;
-    }
-
-    .step-action-desc {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .step-output-box {
-      background: #04060a;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0.65rem 0.85rem;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: #a7f3d0;
     }
 
     /* 38 Agents Roster */
@@ -654,14 +673,10 @@
     }
 
     @media (max-width: 1200px) {
-      .kanban-board {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .kanban-board { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
-      .kanban-board {
-        grid-template-columns: 1fr;
-      }
+      .kanban-board { grid-template-columns: 1fr; }
     }
 
     .kanban-column {
@@ -672,7 +687,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      min-height: 400px;
+      min-height: 420px;
     }
 
     .kanban-col-header {
@@ -693,6 +708,7 @@
       padding: 0.9rem;
       cursor: pointer;
       transition: all 0.2s ease;
+      position: relative;
     }
 
     .kanban-card:hover {
@@ -712,6 +728,32 @@
       font-size: 0.85rem;
       color: var(--green);
       font-weight: 700;
+    }
+
+    .card-actions-quick {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+      border-top: 1px dashed var(--border);
+      padding-top: 0.5rem;
+    }
+
+    .btn-quick-action {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.55rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-quick-action:hover {
+      background: var(--indigo);
+      border-color: var(--indigo);
+      color: #fff;
     }
 
     /* Forms, Modals & Console */
@@ -787,7 +829,7 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-accent);
       border-radius: var(--radius-xl);
-      max-width: 700px;
+      max-width: 720px;
       width: 100%;
       padding: 2.25rem;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
@@ -805,7 +847,25 @@
       cursor: pointer;
     }
 
-    /* Footer */
+    .chip-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chip-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+    .chip-btn.active {
+      background: var(--indigo);
+      color: #fff;
+      border-color: var(--indigo);
+    }
+
     footer {
       border-top: 1px solid var(--border);
       background: var(--bg-surface);
@@ -833,14 +893,17 @@
         <button class="nav-tab-btn active" id="tab-landing" onclick="switchTab('landing')">
           <span>✨</span> Overview
         </button>
+        <button class="nav-tab-btn" id="tab-workflows" onclick="switchTab('workflows')">
+          <span>🔄</span> Workflows Studio
+        </button>
+        <button class="nav-tab-btn" id="tab-pipeline" onclick="switchTab('pipeline')">
+          <span>📈</span> Pipeline & Deals
+        </button>
         <button class="nav-tab-btn" id="tab-scenarios" onclick="switchTab('scenarios')">
           <span>🎬</span> 5 Live Scenarios
         </button>
         <button class="nav-tab-btn" id="tab-agents" onclick="switchTab('agents')">
           <span>🤖</span> 38 Core Agents
-        </button>
-        <button class="nav-tab-btn" id="tab-pipeline" onclick="switchTab('pipeline')">
-          <span>📈</span> Pipeline & Deals
         </button>
         <button class="nav-tab-btn" id="tab-dashboard" onclick="switchTab('dashboard')">
           <span>⚡</span> Command Center
@@ -861,7 +924,7 @@
         </select>
         <div class="status-badge-live">
           <div class="pulse-dot"></div>
-          <span>462 Tests (100% Pass)</span>
+          <span>471 Tests (100% Pass)</span>
         </div>
       </div>
     </div>
@@ -881,25 +944,25 @@
         </h1>
         <p class="hero-desc">
           Orchestrating 38 specialized revenue agents, hybrid RAG knowledge graphs, 
-          durable Temporal-backed workflows, cryptographic SHA-256 evidence ledgers, and continuous 7-layer tenant isolation.
+          durable multi-agent workflows, cryptographic SHA-256 evidence ledgers, and continuous 7-layer tenant isolation.
         </p>
 
         <div class="hero-cta-group">
-          <button class="btn-hero-primary" onclick="switchTab('scenarios')">
-            <span>🎬</span> Run 5 Live Demonstration Scenarios
+          <button class="btn-hero-primary" onclick="switchTab('workflows')">
+            <span>🔄</span> Open Multi-Agent Workflow Studio
           </button>
           <button class="btn-hero-secondary" onclick="switchTab('pipeline')">
             <span>📈</span> Inspect Deal Risk & Pipeline
           </button>
-          <button class="btn-hero-secondary" onclick="switchTab('agents')">
-            <span>🤖</span> View 38 Specialized Agents
+          <button class="btn-hero-secondary" onclick="switchTab('scenarios')">
+            <span>🎬</span> Run 5 Demonstration Workflows
           </button>
         </div>
 
         <div class="kpi-banner-grid">
           <div class="kpi-card">
             <div class="kpi-label">Active ARR Monitored</div>
-            <div class="kpi-val green">$1.54M</div>
+            <div class="kpi-val green" id="hero-arr-val">$1.54M</div>
             <div class="kpi-sub">99.4% Forecast Accuracy · 0 Stalled Deals</div>
           </div>
           <div class="kpi-card">
@@ -922,7 +985,217 @@
     </div>
 
     <!-- ─────────────────────────────────────────────────────────────
-         2. 5 LIVE DEMONSTRATION SCENARIOS
+         2. MULTI-AGENT WORKFLOW STUDIO (ENHANCEMENT)
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-workflows" class="page-view">
+      <div class="dash-card">
+        <div class="card-header-flex">
+          <div>
+            <h2 class="card-heading" style="font-size: 1.5rem;"><span>🔄</span> Multi-Agent Durable Workflow Studio</h2>
+            <p style="color:var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem;">
+              Visual graph execution, step state transitions, human approval gates, and automated compensation rollback.
+            </p>
+          </div>
+          <div style="display:flex; gap:0.6rem">
+            <button class="btn-hero-primary" onclick="triggerActiveWorkflow()">
+              <span>▶</span> Start Workflow Graph
+            </button>
+            <button class="btn-hero-secondary" onclick="triggerWorkflowCompensation()">
+              <span>🔄</span> Test Rollback Compensation
+            </button>
+          </div>
+        </div>
+
+        <div class="workflow-studio-layout">
+          <!-- Template Selection Column -->
+          <div class="workflow-nav-list">
+            <div class="form-label" style="text-transform:uppercase; letter-spacing:0.08em;">Enterprise Workflows</div>
+            
+            <div class="wf-template-item active" id="wft-stalled" onclick="selectWorkflowTemplate('stalled')">
+              <div style="font-weight:700; color:#fff; font-size:0.9rem">Stalled $100K Deal Recovery</div>
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem">6 Steps · RAG · Buying Committee · T3 HITL Gate</div>
+            </div>
+
+            <div class="wf-template-item" id="wft-lead" onclick="selectWorkflowTemplate('lead')">
+              <div style="font-weight:700; color:#fff; font-size:0.9rem">Inbound Enterprise Qualification</div>
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem">4 Steps · Tech Enrichment · ICP 94/100 · Auto Route</div>
+            </div>
+
+            <div class="wf-template-item" id="wft-renewal" onclick="selectWorkflowTemplate('renewal')">
+              <div style="font-weight:700; color:#fff; font-size:0.9rem">Renewal Churn Protection ($250K)</div>
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem">3 Steps · Telemetry Drop · Health Score · CSM Escalation</div>
+            </div>
+
+            <div class="wf-template-item" id="wft-hygiene" onclick="selectWorkflowTemplate('hygiene')">
+              <div style="font-weight:700; color:#fff; font-size:0.9rem">CRM Deduplication & Repair</div>
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem">3 Steps · 1,200 Scanned · Field Merge · 99.8% Integrity</div>
+            </div>
+          </div>
+
+          <!-- Visual Node Canvas -->
+          <div>
+            <div class="wf-node-canvas" id="wf-canvas-container">
+              <!-- Dynamically populated by JS -->
+            </div>
+
+            <!-- Workflow Execution Terminal -->
+            <div class="console-terminal" id="wf-execution-terminal">
+              <div class="term-line-info">[Workflow Engine] Ready. Select a workflow and click 'Start Workflow Graph'.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         3. REVENUE PIPELINE & DEALS KANBAN (FIX & ENHANCE)
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-pipeline" class="page-view">
+      <div class="dash-card">
+        <div class="card-header-flex">
+          <div>
+            <h2 class="card-heading" style="font-size: 1.5rem;"><span>📈</span> Enterprise Revenue Pipeline & Deal Risk Heatmap</h2>
+            <p style="color:var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem;">
+              Interactive 4-stage pipeline with real-time deal risk diagnostics, buying committee mapping, and live forecast rollups.
+            </p>
+          </div>
+          <div style="background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:0.6rem 1rem; display:flex; gap:1.5rem; font-family:var(--font-mono); font-size:0.85rem">
+            <div>Total Pipeline: <strong style="color:#fff" id="pipe-total-val">$1,940,000</strong></div>
+            <div>Weighted Forecast: <strong style="color:var(--cyan)" id="pipe-weighted-val">$1,498,000</strong></div>
+            <div>Committed ARR: <strong style="color:var(--green)" id="pipe-commit-val">$1,540,000</strong></div>
+          </div>
+        </div>
+
+        <div class="kanban-board">
+          <!-- Stage 1: Qualification -->
+          <div class="kanban-column" id="col-qual">
+            <div class="kanban-col-header">
+              <span>QUALIFICATION (2)</span>
+              <span id="col-qual-val">$140,000</span>
+            </div>
+            
+            <div class="kanban-card" id="deal-vertex" onclick="openDealDetail('Vertex Labs', 65000, 15, 'LOW', 'QUALIFICATION', 'CTO (Inbound)', 'None')">
+              <div class="kanban-card-title">Vertex Labs — Security Suite</div>
+              <div class="kanban-card-val">$65,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.4rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Low (15)</span>
+                <span style="color:var(--cyan)">CTO Engaged</span>
+              </div>
+              <div class="card-actions-quick">
+                <button class="btn-quick-action" onclick="event.stopPropagation(); advanceDealStage('deal-vertex', 'col-valprop', 65000)">Advance Stage →</button>
+              </div>
+            </div>
+
+            <div class="kanban-card" id="deal-cybershield" onclick="openDealDetail('CyberShield Corp', 75000, 20, 'LOW', 'QUALIFICATION', 'VP Eng (Champion)', 'None')">
+              <div class="kanban-card-title">CyberShield — Core OS</div>
+              <div class="kanban-card-val">$75,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.4rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Low (20)</span>
+                <span style="color:var(--green)">Champion Ready</span>
+              </div>
+              <div class="card-actions-quick">
+                <button class="btn-quick-action" onclick="event.stopPropagation(); advanceDealStage('deal-cybershield', 'col-valprop', 75000)">Advance Stage →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 2: Value Proposition -->
+          <div class="kanban-column" id="col-valprop">
+            <div class="kanban-col-header">
+              <span>VALUE PROPOSITION (2)</span>
+              <span id="col-valprop-val">$210,000</span>
+            </div>
+
+            <div class="kanban-card" id="deal-orion" onclick="openDealDetail('Orion Corp', 90000, 35, 'MEDIUM', 'VALUE_PROPOSITION', 'Dir of IT', 'Security Audit')">
+              <div class="kanban-card-title">Orion Corp — RevOps Copilot</div>
+              <div class="kanban-card-val">$90,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.4rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Med (35)</span>
+                <span style="color:var(--amber)">Arch Review Pending</span>
+              </div>
+              <div class="card-actions-quick">
+                <button class="btn-quick-action" onclick="event.stopPropagation(); advanceDealStage('deal-orion', 'col-prop', 90000)">Advance Stage →</button>
+              </div>
+            </div>
+
+            <div class="kanban-card" id="deal-nimbus" onclick="openDealDetail('Nimbus Data', 120000, 40, 'MEDIUM', 'VALUE_PROPOSITION', 'Head of Data', 'Legal Redline')">
+              <div class="kanban-card-title">Nimbus Data — Lakehouse AI</div>
+              <div class="kanban-card-val">$120,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.4rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Med (40)</span>
+                <span style="color:var(--purple)">Legal Initial</span>
+              </div>
+              <div class="card-actions-quick">
+                <button class="btn-quick-action" onclick="event.stopPropagation(); advanceDealStage('deal-nimbus', 'col-prop', 120000)">Advance Stage →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 3: Proposal & Quote -->
+          <div class="kanban-column" id="col-prop">
+            <div class="kanban-col-header">
+              <span>PROPOSAL / QUOTE (2)</span>
+              <span id="col-prop-val">$350,000</span>
+            </div>
+
+            <!-- Stalled Deal -->
+            <div class="kanban-card" id="deal-acme" style="border-left: 4px solid var(--red);" onclick="openDealDetail('Acme Corp', 100000, 78, 'CRITICAL', 'PROPOSAL_PRICE_QUOTE', 'David Miller (Champion)', 'Sarah Chen (Economic Buyer)')">
+              <div class="kanban-card-title">Acme Corp — Expansion Pack</div>
+              <div class="kanban-card-val">$100,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.4rem; font-size:0.75rem; color:var(--red); font-weight:700" id="acme-risk-tag">
+                <span>Risk: 78 (Stalled 34d)</span>
+                <span>Missing Econ Buyer</span>
+              </div>
+              <div class="card-actions-quick">
+                <button class="btn-quick-action" style="background:var(--red); color:#fff" onclick="event.stopPropagation(); openDealDetail('Acme Corp', 100000, 78, 'CRITICAL', 'PROPOSAL_PRICE_QUOTE', 'David Miller (Champion)', 'Sarah Chen (Economic Buyer)')">⚡ Recover Deal</button>
+                <button class="btn-quick-action" onclick="event.stopPropagation(); advanceDealStage('deal-acme', 'col-commit', 100000)">Advance →</button>
+              </div>
+            </div>
+
+            <div class="kanban-card" id="deal-logistics" onclick="openDealDetail('Global Logistics', 250000, 25, 'LOW', 'PROPOSAL_PRICE_QUOTE', 'VP Supply Chain', 'None')">
+              <div class="kanban-card-title">Global Logistics — Fleet Ops</div>
+              <div class="kanban-card-val">$250,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.4rem; font-size:0.75rem; color:var(--text-muted)">
+                <span>Risk: Low (25)</span>
+                <span style="color:var(--green)">Quote Sent</span>
+              </div>
+              <div class="card-actions-quick">
+                <button class="btn-quick-action" onclick="event.stopPropagation(); advanceDealStage('deal-logistics', 'col-commit', 250000)">Advance Stage →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 4: Negotiation / Commit -->
+          <div class="kanban-column" id="col-commit">
+            <div class="kanban-col-header">
+              <span>NEGOTIATION & COMMIT (2)</span>
+              <span id="col-commit-val">$1,240,000</span>
+            </div>
+
+            <div class="kanban-card" id="deal-northstar" onclick="openDealDetail('Northstar Tech', 250000, 15, 'LOW', 'NEGOTIATION_REVIEW', 'CIO & CFO', 'None')">
+              <div class="kanban-card-title">Northstar Tech — Enterprise Tier</div>
+              <div class="kanban-card-val">$250,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.4rem; font-size:0.75rem; color:var(--green)">
+                <span>Forecast: COMMIT</span>
+                <span>Final Redlines</span>
+              </div>
+            </div>
+
+            <div class="kanban-card" id="deal-apex" onclick="openDealDetail('Apex FinTech', 990000, 10, 'LOW', 'NEGOTIATION_REVIEW', 'CEO & Board', 'None')">
+              <div class="kanban-card-title">Apex FinTech — Platform Master</div>
+              <div class="kanban-card-val">$990,000 ARR</div>
+              <div style="display:flex; justify-content:space-between; margin-top:0.4rem; font-size:0.75rem; color:var(--green)">
+                <span>Forecast: COMMIT</span>
+                <span>Signature Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         4. 5 LIVE SCENARIOS
          ───────────────────────────────────────────────────────────── -->
     <div id="view-scenarios" class="page-view">
       <div class="dash-card">
@@ -936,7 +1209,6 @@
         </div>
 
         <div class="scenarios-grid">
-          <!-- Scenario 1 -->
           <div class="scenario-card" onclick="runScenario(1)">
             <div>
               <div style="display:flex; justify-content:space-between;">
@@ -952,7 +1224,6 @@
             <button class="btn-run-scenario"><span>⚡</span> Execute Live Trajectory</button>
           </div>
 
-          <!-- Scenario 2 -->
           <div class="scenario-card" onclick="runScenario(2)">
             <div>
               <div style="display:flex; justify-content:space-between;">
@@ -968,7 +1239,6 @@
             <button class="btn-run-scenario"><span>⚡</span> Execute Live Trajectory</button>
           </div>
 
-          <!-- Scenario 3 -->
           <div class="scenario-card" onclick="runScenario(3)">
             <div>
               <div style="display:flex; justify-content:space-between;">
@@ -984,7 +1254,6 @@
             <button class="btn-run-scenario"><span>⚡</span> Execute Live Trajectory</button>
           </div>
 
-          <!-- Scenario 4 -->
           <div class="scenario-card" onclick="runScenario(4)">
             <div>
               <div style="display:flex; justify-content:space-between;">
@@ -1000,7 +1269,6 @@
             <button class="btn-run-scenario"><span>⚡</span> Execute Live Trajectory</button>
           </div>
 
-          <!-- Scenario 5 -->
           <div class="scenario-card" onclick="runScenario(5)">
             <div>
               <div style="display:flex; justify-content:space-between;">
@@ -1017,8 +1285,8 @@
           </div>
         </div>
 
-        <!-- Live Scenario Execution Timeline Display -->
-        <div class="scenario-execution-box" id="scenario-execution-display" style="display: none;">
+        <!-- Live Scenario Execution Drawer -->
+        <div class="dash-card" id="scenario-execution-display" style="display: none; background:#05070a">
           <div class="card-header-flex">
             <div>
               <h3 id="active-scenario-title" style="color:var(--cyan); font-size:1.2rem;">Executing Scenario...</h3>
@@ -1027,12 +1295,10 @@
             <span class="status-badge-live" id="active-scenario-status">TRAJECTORY IN PROGRESS</span>
           </div>
 
-          <div class="step-timeline-list" id="active-scenario-steps">
-            <!-- Dynamically populated -->
-          </div>
+          <div class="step-timeline-list" id="active-scenario-steps"></div>
 
           <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1rem;">
-            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim);" id="scenario-evidence-summary">
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim);">
               Evidence Ledger: Verified SHA-256 Block Chain
             </div>
             <button class="btn-hero-primary" onclick="confirmScenarioCompletion()">
@@ -1044,7 +1310,7 @@
     </div>
 
     <!-- ─────────────────────────────────────────────────────────────
-         3. 38 CORE SPECIALIZED AGENTS ROSTER
+         5. 38 CORE AGENTS
          ───────────────────────────────────────────────────────────── -->
     <div id="view-agents" class="page-view">
       <div class="dash-card">
@@ -1065,131 +1331,12 @@
           </div>
         </div>
 
-        <div class="agents-roster-grid" id="agents-roster-container">
-          <!-- Populated by JavaScript -->
-        </div>
+        <div class="agents-roster-grid" id="agents-roster-container"></div>
       </div>
     </div>
 
     <!-- ─────────────────────────────────────────────────────────────
-         4. REVENUE PIPELINE & OPPORTUNITY KANBAN
-         ───────────────────────────────────────────────────────────── -->
-    <div id="view-pipeline" class="page-view">
-      <div class="dash-card">
-        <div class="card-header-flex">
-          <div>
-            <h2 class="card-heading" style="font-size: 1.5rem;"><span>📈</span> Enterprise Revenue Pipeline & Deal Risk Heatmap</h2>
-            <p style="color:var(--text-muted); font-size: 0.9rem; margin-top: 0.2rem;">
-              Active Q3 Opportunities with real-time deal risk scoring, buying committee status, and forecast categorization.
-            </p>
-          </div>
-          <div style="font-family:var(--font-mono); font-size:0.9rem; color:var(--green); font-weight:700">
-            Total Pipeline: $1.94M · Committed ARR: $1.54M
-          </div>
-        </div>
-
-        <div class="kanban-board">
-          <!-- Stage 1: Qualification -->
-          <div class="kanban-column">
-            <div class="kanban-col-header">
-              <span>QUALIFICATION (2)</span>
-              <span>$140,000</span>
-            </div>
-            <div class="kanban-card" onclick="openDealDetail('Vertex Labs', 65000, 15, 'LOW')">
-              <div class="kanban-card-title">Vertex Labs — Security Suite</div>
-              <div class="kanban-card-val">$65,000 ARR</div>
-              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
-                <span>Risk: Low (15)</span>
-                <span style="color:var(--cyan)">CTO Engaged</span>
-              </div>
-            </div>
-            <div class="kanban-card" onclick="openDealDetail('CyberShield Corp', 75000, 20, 'LOW')">
-              <div class="kanban-card-title">CyberShield — Core OS</div>
-              <div class="kanban-card-val">$75,000 ARR</div>
-              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
-                <span>Risk: Low (20)</span>
-                <span style="color:var(--green)">Champion Ready</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stage 2: Value Proposition -->
-          <div class="kanban-column">
-            <div class="kanban-col-header">
-              <span>VALUE PROPOSITION (2)</span>
-              <span>$210,000</span>
-            </div>
-            <div class="kanban-card" onclick="openDealDetail('Orion Corp', 90000, 35, 'MEDIUM')">
-              <div class="kanban-card-title">Orion Corp — RevOps Copilot</div>
-              <div class="kanban-card-val">$90,000 ARR</div>
-              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
-                <span>Risk: Med (35)</span>
-                <span style="color:var(--amber)">Arch Review Pending</span>
-              </div>
-            </div>
-            <div class="kanban-card" onclick="openDealDetail('Nimbus Data', 120000, 40, 'MEDIUM')">
-              <div class="kanban-card-title">Nimbus Data — Lakehouse AI</div>
-              <div class="kanban-card-val">$120,000 ARR</div>
-              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
-                <span>Risk: Med (40)</span>
-                <span style="color:var(--purple)">Legal Initial</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stage 3: Proposal & Quote -->
-          <div class="kanban-column">
-            <div class="kanban-col-header">
-              <span>PROPOSAL / QUOTE (2)</span>
-              <span>$350,000</span>
-            </div>
-            <div class="kanban-card" style="border-left: 4px solid var(--red);" onclick="openDealDetail('Acme Corp', 100000, 78, 'CRITICAL')">
-              <div class="kanban-card-title">Acme Corp — Expansion Pack</div>
-              <div class="kanban-card-val">$100,000 ARR</div>
-              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--red); font-weight:700">
-                <span>Risk: 78 (Stalled 34d)</span>
-                <span>Missing Econ Buyer</span>
-              </div>
-            </div>
-            <div class="kanban-card" onclick="openDealDetail('Global Logistics', 250000, 25, 'LOW')">
-              <div class="kanban-card-title">Global Logistics — Fleet Ops</div>
-              <div class="kanban-card-val">$250,000 ARR</div>
-              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--text-muted)">
-                <span>Risk: Low (25)</span>
-                <span style="color:var(--green)">Quote Sent</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stage 4: Negotiation / Commit -->
-          <div class="kanban-column">
-            <div class="kanban-col-header">
-              <span>NEGOTIATION & COMMIT (2)</span>
-              <span>$1,240,000</span>
-            </div>
-            <div class="kanban-card" onclick="openDealDetail('Northstar Tech', 250000, 15, 'LOW')">
-              <div class="kanban-card-title">Northstar Tech — Enterprise Tier</div>
-              <div class="kanban-card-val">$250,000 ARR</div>
-              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--green)">
-                <span>Forecast: COMMIT</span>
-                <span>Final Redlines</span>
-              </div>
-            </div>
-            <div class="kanban-card" onclick="openDealDetail('Apex FinTech', 990000, 10, 'LOW')">
-              <div class="kanban-card-title">Apex FinTech — Platform Master</div>
-              <div class="kanban-card-val">$990,000 ARR</div>
-              <div style="display:flex; justify-content:space-between; margin-top:0.5rem; font-size:0.75rem; color:var(--green)">
-                <span>Forecast: COMMIT</span>
-                <span>Signature Pending</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─────────────────────────────────────────────────────────────
-         5. COMMAND CENTER DASHBOARD
+         6. COMMAND CENTER
          ───────────────────────────────────────────────────────────── -->
     <div id="view-dashboard" class="page-view">
       <div class="dash-card">
@@ -1251,7 +1398,7 @@
     </div>
 
     <!-- ─────────────────────────────────────────────────────────────
-         6. AGENT HARNESS & EVALUATIONS
+         7. AGENT HARNESS
          ───────────────────────────────────────────────────────────── -->
     <div id="view-harness" class="page-view">
       <div class="dash-card">
@@ -1302,7 +1449,7 @@
     </div>
 
     <!-- ─────────────────────────────────────────────────────────────
-         7. SSO LOGIN
+         8. SSO LOGIN
          ───────────────────────────────────────────────────────────── -->
     <div id="view-login" class="page-view">
       <div style="max-width: 480px; margin: 3rem auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2.5rem; text-align: center;">
@@ -1333,7 +1480,7 @@
     </div>
   </main>
 
-  <!-- Detail Modal -->
+  <!-- Modal Overlay -->
   <div class="modal-overlay" id="detail-modal" onclick="closeModal(event)">
     <div class="modal-window" onclick="event.stopPropagation()">
       <button class="modal-close-btn" onclick="closeModalDirect()">×</button>
@@ -1390,6 +1537,52 @@
       { id: 'workflow-recovery-agent', name: 'Workflow Self-Healing & Recovery Agent', cat: 'OPS', risk: 'T3', desc: 'Recovers failed workflow steps, executes rollback compensations, and clears dead-letter queues.', tools: 'replay_workflow_step', model: 'claude-3-5-sonnet' }
     ];
 
+    // Multi-Agent Workflow Graphs Registry
+    const workflowsCatalog = {
+      stalled: {
+        id: 'wf_stalled_deal_recovery',
+        name: 'Stalled $100K Deal Recovery & Sponsor Engagement',
+        steps: [
+          { id: 's1', agent: 'Deal Risk Agent', name: '1. Detect Stage Stagnation & Risk Factors', out: 'Stage: Proposal (34 days) · Risk: 78 (Critical) · Missing Economic Buyer' },
+          { id: 's2', agent: 'Hybrid RAG Agent', name: '2. Retrieve Historical Transcripts & Objections', out: 'Retrieved notes: "Sarah Chen requested SOC2 security verification before budget release"' },
+          { id: 's3', agent: 'Buying Committee Agent', name: '3. Map Stakeholder Graph & Identify Gaps', out: 'Champion: David Miller · Missing Economic Buyer: Sarah Chen (VP Infrastructure)' },
+          { id: 's4', agent: 'Deal Strategy Agent', name: '4. Formulate Executive Sponsor Briefing', out: 'Action: CRO-to-VP briefing + SOC2 Type II packet · Win probability: +32%' },
+          { id: 's5', agent: 'Policy Agent', name: '5. Enforce T3 Gate & Human Approval', out: 'HITL Gate: Human approval required for CRM stage advance', approval: true },
+          { id: 's6', agent: 'Forecast Agent', name: '6. Mutate CRM Stage & Commit ARR', out: 'Opportunity moved to Negotiation · Task created · +$75,000 Weighted ARR committed' }
+        ]
+      },
+      lead: {
+        id: 'wf_inbound_lead',
+        name: 'Inbound Enterprise Lead Qualification & Routing',
+        steps: [
+          { id: 's1', agent: 'Data Enrichment Agent', name: '1. Enrich Inbound Lead & Tech Stack', out: 'Vertex Labs · 850 employees · $45M Series B · Stack: AWS, Kubernetes, Postgres' },
+          { id: 's2', agent: 'ICP Scoring Agent', name: '2. Evaluate Fit Against Enterprise ICP', out: 'ICP Score: 94/100 · Classification: TIER 1 STRATEGIC' },
+          { id: 's3', agent: 'Lead Routing Agent', name: '3. Territory & Rep Capacity Routing', out: 'Assigned to: Jordan Hayes (US-West Enterprise) · SLA: < 1 hour' },
+          { id: 's4', agent: 'Personalized Outreach Agent', name: '4. Generate Tailored Executive Sequence', out: 'Email sequence drafted referencing Kubernetes security architecture' }
+        ]
+      },
+      renewal: {
+        id: 'wf_renewal_protection',
+        name: 'Renewal Churn Risk Protection ($250K Contract)',
+        steps: [
+          { id: 's1', agent: 'Customer Health Agent', name: '1. Anomaly Detection in Product Telemetry', out: 'Health Score: 48 (At Risk) · Usage drop: -35% · Open Sev-1 tickets: 2' },
+          { id: 's2', agent: 'Contract Renewal Agent', name: '2. Trigger Executive CSM Intervention Playbook', out: 'Playbook EXEC_CSM_ESC initialized · Emergency QBR scheduled' },
+          { id: 's3', agent: 'Support Intelligence Agent', name: '3. Prioritize Engineering Escalation', out: 'Assigned dedicated support engineer to resolve Postgres query timeout blocker' }
+        ]
+      },
+      hygiene: {
+        id: 'wf_crm_hygiene',
+        name: 'CRM Data Deduplication & Schema Repair',
+        steps: [
+          { id: 's1', agent: 'CRM Hygiene Agent', name: '1. Scan Database for Stale & Duplicate Records', out: '1,200 records scanned · Found 14 duplicate clusters and 6 stale opportunities' },
+          { id: 's2', agent: 'Policy Agent', name: '2. Validate Deduplication Merge Plan', out: 'Field conflict resolution approved by RevOps policy rules' },
+          { id: 's3', agent: 'CRM Hygiene Agent', name: '3. Execute Database Merge & Audit Ledger', out: '14 clusters merged cleanly · 28 records cleaned · Data integrity: 99.8%' }
+        ]
+      }
+    };
+
+    let activeWorkflowKey = 'stalled';
+
     function switchTab(tabId) {
       document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.nav-tab-btn').forEach(el => el.classList.remove('active'));
@@ -1398,7 +1591,185 @@
       if (view) view.classList.add('active');
       if (btn) btn.classList.add('active');
       if (tabId === 'agents') renderAgents(coreAgents);
+      if (tabId === 'workflows') renderWorkflowCanvas(activeWorkflowKey);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectWorkflowTemplate(key) {
+      activeWorkflowKey = key;
+      document.querySelectorAll('.wf-template-item').forEach(el => el.classList.remove('active'));
+      const item = document.getElementById('wft-' + key);
+      if (item) item.classList.add('active');
+      renderWorkflowCanvas(key);
+    }
+
+    function renderWorkflowCanvas(key) {
+      const wf = workflowsCatalog[key];
+      if (!wf) return;
+      const canvas = document.getElementById('wf-canvas-container');
+      canvas.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:0.75rem; margin-bottom:1rem">
+          <div>
+            <h3 style="font-size:1.15rem; color:#fff">${wf.name}</h3>
+            <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dim)">ID: ${wf.id} · Multi-Agent Durable Graph</span>
+          </div>
+          <span class="status-badge-live" id="wf-graph-status">IDLE / READY</span>
+        </div>
+      ` + wf.steps.map((s, idx) => `
+        ${idx > 0 ? '<div class="wf-connector-line"></div>' : ''}
+        <div class="wf-step-node" id="wf-node-${s.id}">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem">
+            <span style="font-weight:700; color:#fff; font-size:0.95rem">${s.name}</span>
+            <span class="agent-cat-tag" style="font-size:0.7rem">${s.agent}</span>
+          </div>
+          <div style="font-size:0.825rem; color:var(--text-muted); line-height:1.4">${s.out}</div>
+        </div>
+      `).join('');
+    }
+
+    function triggerActiveWorkflow() {
+      const wf = workflowsCatalog[activeWorkflowKey];
+      if (!wf) return;
+
+      const term = document.getElementById('wf-execution-terminal');
+      const statusBadge = document.getElementById('wf-graph-status');
+      statusBadge.innerText = 'EXECUTING WORKFLOW';
+      statusBadge.style.color = 'var(--cyan)';
+
+      term.innerHTML = `<div class="term-line-info">[${new Date().toISOString()}] Initializing durable execution for graph '${wf.id}'...</div>`;
+
+      wf.steps.forEach((s, idx) => {
+        setTimeout(() => {
+          const node = document.getElementById('wf-node-' + s.id);
+          if (node) {
+            node.className = 'wf-step-node running';
+          }
+          const hash = 'blk_' + Math.random().toString(36).substring(2, 10);
+          term.innerHTML += `
+            <div class="term-line-success">✔ [Step ${idx + 1}/${wf.steps.length}] ${s.name} (Agent: ${s.agent})</div>
+            <div class="term-line-evidence">  ↳ SHA-256 Ledger Hash: ${hash} | Duration: ${150 + idx * 30}ms</div>
+          `;
+          term.scrollTop = term.scrollHeight;
+
+          setTimeout(() => {
+            if (node) {
+              node.className = 'wf-step-node completed';
+            }
+            if (idx === wf.steps.length - 1) {
+              statusBadge.innerText = 'COMPLETED & AUDITED';
+              statusBadge.style.color = 'var(--green)';
+              term.innerHTML += `<div class="term-line-info">[${new Date().toISOString()}] Graph '${wf.id}' completed with 100% verification. State committed.</div>`;
+            }
+          }, 350);
+        }, idx * 450);
+      });
+    }
+
+    function triggerWorkflowCompensation() {
+      const wf = workflowsCatalog[activeWorkflowKey];
+      const term = document.getElementById('wf-execution-terminal');
+      const statusBadge = document.getElementById('wf-graph-status');
+      statusBadge.innerText = 'COMPENSATING / ROLLBACK';
+      statusBadge.style.color = 'var(--amber)';
+
+      term.innerHTML += `
+        <div class="term-line-warning">[Workflow Engine] Simulated step failure triggered. Initiating reverse compensation rollback...</div>
+      `;
+
+      wf.steps.slice().reverse().forEach((s, idx) => {
+        setTimeout(() => {
+          const node = document.getElementById('wf-node-' + s.id);
+          if (node) {
+            node.className = 'wf-step-node waiting-approval';
+          }
+          term.innerHTML += `
+            <div class="term-line-warning">⤺ Rollback compensated: ${s.name}</div>
+          `;
+          term.scrollTop = term.scrollHeight;
+
+          if (idx === wf.steps.length - 1) {
+            statusBadge.innerText = 'RESTORED CLEANLY';
+            statusBadge.style.color = 'var(--green)';
+            term.innerHTML += `<div class="term-line-success">[Workflow Engine] System state restored to genesis. Zero drift.</div>`;
+          }
+        }, idx * 300);
+      });
+    }
+
+    // Pipeline Stage & Deal Interactivity
+    function advanceDealStage(cardId, targetColId, amount) {
+      const card = document.getElementById(cardId);
+      const targetCol = document.getElementById(targetColId);
+      if (!card || !targetCol) return;
+
+      targetCol.appendChild(card);
+
+      // Trigger dynamic forecast recalculation
+      if (cardId === 'deal-acme' && targetColId === 'col-commit') {
+        const riskTag = document.getElementById('acme-risk-tag');
+        if (riskTag) {
+          riskTag.innerHTML = `
+            <span style="color:var(--green)">Risk: 15 (Mitigated)</span>
+            <span style="color:var(--green)">Sarah Chen Engaged</span>
+          `;
+          card.style.borderLeftColor = 'var(--green)';
+        }
+        document.getElementById('pipe-commit-val').innerText = '$1,640,000';
+        document.getElementById('pipe-weighted-val').innerText = '$1,598,000';
+        document.getElementById('hero-arr-val').innerText = '$1.64M';
+      }
+
+      alert(`[ShiVi RevOps Pipeline Engine]\n\nOpportunity advanced successfully!\nNew Stage: ${targetColId.replace('col-', '').toUpperCase()}\nForecast Rollup & Weighted ARR recalculated dynamically.`);
+    }
+
+    function openDealDetail(name, arr, risk, level, stage, champion, missingBuyer) {
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem">
+          <span style="font-family:var(--font-mono); font-size:0.85rem; color:var(--green); font-weight:700">$${arr.toLocaleString()} ARR</span>
+          <span class="agent-risk-pill" id="modal-risk-pill" style="background:${risk > 50 ? 'rgba(239,68,68,0.2)' : 'rgba(16,185,129,0.2)'}; color:${risk > 50 ? 'var(--red)' : 'var(--green)'}">
+            Risk Score: ${risk}/100 (${level})
+          </span>
+        </div>
+        <h2 style="font-size:1.6rem; color:#fff; margin-bottom:0.5rem">${name}</h2>
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1rem">
+          Stage: <strong>${stage}</strong> · Champion: <strong>${champion}</strong>
+        </p>
+
+        <div style="background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem; font-size:0.85rem; margin-bottom:1.25rem">
+          <div style="font-weight:700; color:#fff; margin-bottom:0.4rem">Buying Committee & Risk Assessment:</div>
+          <div style="color:var(--text-muted); line-height:1.5" id="modal-risk-desc">
+            ${missingBuyer !== 'None' 
+              ? `<span style="color:var(--red); font-weight:700">⚠️ Missing Stakeholder: ${missingBuyer}</span><br/>Stage duration > 30 days. No communication recorded from Economic Buyer in 24 days.` 
+              : `<span style="color:var(--green)">✔ All key stakeholders engaged. Healthy deal velocity.</span>`}
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:0.8rem">
+          <button class="btn-hero-secondary" onclick="closeModalDirect()">Close</button>
+          ${missingBuyer !== 'None' ? `
+            <button class="btn-hero-primary" onclick="resolveBuyerRisk('${name}')">Engage Sarah Chen & Mitigate Risk</button>
+          ` : `
+            <button class="btn-hero-primary" onclick="closeModalDirect()">View CRM History</button>
+          `}
+        </div>
+      `;
+      document.getElementById('detail-modal').classList.add('active');
+    }
+
+    function resolveBuyerRisk(name) {
+      const desc = document.getElementById('modal-risk-desc');
+      const pill = document.getElementById('modal-risk-pill');
+      if (desc && pill) {
+        desc.innerHTML = `<span style="color:var(--green); font-weight:700">✔ Economic Buyer Sarah Chen Engaged via CRO Sponsor Call.</span><br/>SOC2 Type II security packet delivered. Deal risk reduced to 15 (Low).`;
+        pill.innerText = 'Risk Score: 15/100 (LOW)';
+        pill.style.background = 'rgba(16,185,129,0.2)';
+        pill.style.color = 'var(--green)';
+      }
+      advanceDealStage('deal-acme', 'col-commit', 100000);
+      setTimeout(() => {
+        closeModalDirect();
+      }, 1200);
     }
 
     function renderAgents(data) {
@@ -1450,35 +1821,6 @@
         <div style="display:flex; justify-content:flex-end; gap:0.8rem">
           <button class="btn-hero-secondary" onclick="closeModalDirect()">Close</button>
           <button class="btn-hero-primary" onclick="launchAgentInDashboard('${a.name}')">Launch in Command Center</button>
-        </div>
-      `;
-      document.getElementById('detail-modal').classList.add('active');
-    }
-
-    function openDealDetail(name, arr, risk, level) {
-      const content = document.getElementById('modal-content');
-      content.innerHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem">
-          <span style="font-family:var(--font-mono); font-size:0.85rem; color:var(--green); font-weight:700">$${arr.toLocaleString()} ARR</span>
-          <span class="agent-risk-pill" style="background:${risk > 50 ? 'rgba(239,68,68,0.2)' : 'rgba(16,185,129,0.2)'}; color:${risk > 50 ? 'var(--red)' : 'var(--green)'}">
-            Risk Score: ${risk}/100 (${level})
-          </span>
-        </div>
-        <h2 style="font-size:1.6rem; color:#fff; margin-bottom:0.5rem">${name}</h2>
-        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem">
-          Stage: <strong>Proposal & Quote</strong> · Buying Committee: <strong>Sarah Chen (VP Infra)</strong>
-        </p>
-        <div style="background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem; font-size:0.85rem; margin-bottom:1.5rem">
-          <div style="font-weight:700; color:#fff; margin-bottom:0.4rem">AI Deal Strategy Recommendation:</div>
-          <div style="color:var(--text-muted); line-height:1.5">
-            ${risk > 50 
-              ? 'Stage stagnation detected (>30 days). Missing Economic Buyer approval. Trigger CRO sponsor outreach and attach SOC2 compliance packet.' 
-              : 'Deal velocity healthy. Next scheduled touchpoint: Contract final review on Friday.'}
-          </div>
-        </div>
-        <div style="display:flex; justify-content:flex-end; gap:0.8rem">
-          <button class="btn-hero-secondary" onclick="closeModalDirect()">Close</button>
-          <button class="btn-hero-primary" onclick="closeModalDirect(); runScenario(1)">Execute Recovery Scenario</button>
         </div>
       `;
       document.getElementById('detail-modal').classList.add('active');
@@ -1559,18 +1901,18 @@
       scen.steps.forEach((s, idx) => {
         setTimeout(() => {
           const div = document.createElement('div');
-          div.className = 'step-item-card' + (s.approval ? ' approval-needed' : '');
+          div.className = 'wf-step-node' + (s.approval ? ' waiting-approval' : ' completed');
           div.innerHTML = `
-            <div class="step-header">
-              <span class="step-agent-name">[Step ${idx + 1}] ${s.agent}</span>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem">
+              <span style="font-weight:700; color:#fff">[Step ${idx + 1}] ${s.agent}</span>
               <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan)">SHA-256 Block #${1430 + idx}</span>
             </div>
-            <div class="step-action-desc">${s.action}</div>
-            <div class="step-output-box">${s.out}</div>
+            <div style="color:var(--text-muted); font-size:0.85rem; margin-bottom:0.4rem">${s.action}</div>
+            <div style="background:#04060a; border:1px solid var(--border); border-radius:6px; padding:0.55rem; font-family:var(--font-mono); font-size:0.8rem; color:#a7f3d0">${s.out}</div>
           `;
           stepsContainer.appendChild(div);
           display.scrollIntoView({ behavior: 'smooth' });
-        }, idx * 400);
+        }, idx * 350);
       });
     }
 
@@ -1613,21 +1955,22 @@
 
     function simulateLogin(p) {
       alert(`[ShiVi Identity Service]\n\nAuthenticated via ${p}.\nTenant: Acme Corp\nRoles: [Admin, RevOps Operator, Auditor]`);
-      switchTab('scenarios');
+      switchTab('workflows');
     }
 
     function handleDirectLogin(e) {
       e.preventDefault();
       alert('[ShiVi Identity Service]\n\nSession authenticated. Launching workspace...');
-      switchTab('scenarios');
+      switchTab('workflows');
     }
 
     function handleTenantChange(val) {
       alert(`[ShiVi Multi-Tenant Context]\n\nSwitched active tenant context to: ${val}\n7-Layer isolation barrier established.`);
     }
 
-    // Init
+    // Initialize default tab
     renderAgents(coreAgents);
+    renderWorkflowCanvas('stalled');
   </script>
 </body>
 </html>
