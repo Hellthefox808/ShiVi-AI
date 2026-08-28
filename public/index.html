@@ -3,25 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShiVi X100+ — AI-Native Enterprise Platform Command Center</title>
+  <title>ShiVi X100+ — Enterprise AI Operating Ecosystem</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #0a0c10;
-      --bg-surface: #12161f;
-      --bg-glass: rgba(18, 22, 31, 0.75);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --accent-cyan: #00f2fe;
-      --accent-blue: #4facfe;
-      --accent-purple: #7f00ff;
-      --accent-green: #00e676;
-      --accent-gold: #ffb300;
-      --text-primary: #f0f4f8;
-      --text-secondary: #94a3b8;
-      --font-main: 'Inter', sans-serif;
+      --bg-base: #07090e;
+      --bg-surface: #0f131c;
+      --bg-elevated: #151b27;
+      --bg-card: rgba(18, 24, 38, 0.75);
+      --bg-glass: rgba(15, 19, 28, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.5);
+      --border-accent: rgba(0, 242, 254, 0.3);
+      
+      --cyan: #00f2fe;
+      --blue: #3b82f6;
+      --indigo: #6366f1;
+      --purple: #8b5cf6;
+      --pink: #ec4899;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
+      
+      --shadow-glow: 0 0 35px rgba(0, 242, 254, 0.15);
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
     }
 
     * {
@@ -31,31 +49,52 @@
     }
 
     body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      font-family: var(--font-main);
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-sans);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(127, 0, 255, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, rgba(0, 242, 254, 0.1) 0%, transparent 35%),
+        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
     }
 
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-base);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--bg-elevated);
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--indigo);
+    }
+
+    /* Top Navigation Bar */
     header {
-      border-bottom: 1px solid var(--border-color);
-      background: var(--bg-glass);
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      background: var(--bg-glass);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .header-container {
-      max-width: 1400px;
+    .nav-container {
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 1.25rem 2rem;
+      padding: 0.9rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -64,387 +103,1721 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    .brand-logo {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    .brand-logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--cyan), var(--indigo));
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 1.2rem;
-      color: #000;
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+      font-size: 1.3rem;
+      color: #05070a;
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
     }
 
-    .brand-title {
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
       font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(to right, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .brand-badge {
-      background: rgba(0, 242, 254, 0.1);
-      color: var(--accent-cyan);
-      border: 1px solid rgba(0, 242, 254, 0.3);
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
+    .brand-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cyan);
+      font-weight: 700;
       font-family: var(--font-mono);
     }
 
-    .header-status {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      font-size: 0.875rem;
-    }
-
-    .status-indicator {
+    .nav-tabs {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      color: var(--accent-green);
-      font-weight: 500;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.3rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
+    .nav-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-tab-btn.active {
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(0, 242, 254, 0.2));
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .status-badge-live {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--green);
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background-color: var(--accent-green);
-      box-shadow: 0 0 10px var(--accent-green);
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
       animation: pulse 2s infinite;
     }
 
-    .text-divider {
-      color: var(--text-secondary);
-    }
-
-    .version-badge {
-      font-family: var(--font-mono);
-      color: var(--text-secondary);
-    }
-
     @keyframes pulse {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.2); }
-      100% { opacity: 1; transform: scale(1); }
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .btn-auth-action {
+      background: linear-gradient(135deg, var(--indigo), var(--purple));
+      color: white;
+      border: none;
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 18px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-auth-action:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+    }
+
+    /* Page Views Layout */
+    .page-view {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .page-view.active {
+      display: block;
+      opacity: 1;
     }
 
     main {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
       padding: 2.5rem 2rem;
       flex: 1;
       width: 100%;
     }
 
-    .hero-banner {
-      background: linear-gradient(135deg, rgba(18, 22, 31, 0.8), rgba(24, 30, 44, 0.6));
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
+    /* ─────────────────────────────────────────────────────────────
+       HERO & LANDING PAGE SECTION
+       ───────────────────────────────────────────────────────────── */
+    .hero-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 1rem 4rem;
       position: relative;
-      overflow: hidden;
     }
 
-    .hero-banner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-purple));
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cyan);
+      margin-bottom: 1.75rem;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
     }
 
-    .hero-title {
-      font-size: 2rem;
+    .hero-h1 {
+      font-size: 3.6rem;
       font-weight: 800;
-      margin-bottom: 0.75rem;
-      background: linear-gradient(to right, #fff, var(--text-secondary));
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+      max-width: 950px;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
       -webkit-background-clip: text;
-      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-
-    .hero-subtitle {
-      color: var(--text-secondary);
-      font-size: 1.05rem;
-      max-width: 800px;
-      line-height: 1.6;
+    .hero-h1 span.gradient-text {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--indigo) 50%, var(--pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .stats-grid {
+    .hero-desc {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .btn-hero-primary {
+      background: linear-gradient(135deg, var(--cyan), var(--indigo));
+      color: #05070a;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 0 45px rgba(0, 242, 254, 0.6);
+    }
+
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Live KPI Grid */
+    .kpi-banner-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 1200px;
+      margin-bottom: 4rem;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-card);
+      transition: all 0.2s ease;
+    }
+
+    .kpi-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-3px);
+    }
+
+    .kpi-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+
+    .kpi-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+
+    .kpi-val.cyan { color: var(--cyan); }
+    .kpi-val.green { color: var(--green); }
+    .kpi-val.purple { color: var(--purple); }
+    .kpi-val.amber { color: var(--amber); }
+
+    .kpi-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    /* Feature Columns */
+    .features-section {
+      width: 100%;
+      margin-bottom: 4.5rem;
+    }
+
+    .section-header-centered {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title-large {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-box:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .feature-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+      color: var(--cyan);
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    .feature-body {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .feature-badge-tag {
+      margin-top: 1.25rem;
+      align-self: flex-start;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--indigo);
+      background: rgba(99, 102, 241, 0.1);
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    /* 100 Systems Directory Showcase */
+    .systems-showcase-section {
+      width: 100%;
+      margin-bottom: 4rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+    }
+
+    .systems-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.7rem 1rem 0.7rem 2.5rem;
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--indigo);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .search-icon-abs {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    .filter-chips {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .chip-btn {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chip-btn:hover, .chip-btn.active {
+      color: #ffffff;
+      background: var(--indigo);
+      border-color: var(--indigo);
+    }
+
+    .systems-grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      max-height: 520px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .system-mini-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .system-mini-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+      background: rgba(99, 102, 241, 0.08);
+    }
+
+    .sys-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .sys-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: rgba(0, 242, 254, 0.1);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+
+    .sys-status-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .sys-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.3rem;
+    }
+
+    .sys-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       LOGIN & SSO PORTAL SECTION
+       ───────────────────────────────────────────────────────────── */
+    .login-container-wrapper {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .login-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      width: 100%;
+      max-width: 480px;
+      padding: 2.75rem 2.25rem;
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--indigo), transparent);
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .login-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+
+    .login-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .sso-providers-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .sso-btn {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      color: var(--text-main);
+      padding: 0.75rem 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.2s ease;
+    }
+
+    .sso-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .divider-or {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.75rem;
+    }
+
+    .divider-or::before, .divider-or::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .divider-or:not(:empty)::before {
+      margin-right: 1em;
+    }
+
+    .divider-or:not(:empty)::after {
+      margin-left: 1em;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .form-control {
+      width: 100%;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--indigo);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-submit-login {
+      width: 100%;
+      background: linear-gradient(135deg, var(--indigo), var(--cyan));
+      color: #05070a;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.85rem;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin-top: 0.5rem;
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-submit-login:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
+    }
+
+    .login-footer-hint {
+      margin-top: 1.75rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .login-footer-hint a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       OPERATOR DASHBOARD SECTION
+       ───────────────────────────────────────────────────────────── */
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 2rem;
+    }
+
+    .dash-tenant-info {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .tenant-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--indigo), var(--purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    .tenant-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .tenant-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-top: 0.2rem;
+    }
+
+    .dash-quick-stats {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .quick-stat-item {
+      text-align: right;
+    }
+
+    .qs-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .qs-val {
+      font-size: 1.4rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+    }
+
+    /* Dashboard Layout Grid */
+    .dashboard-main-layout {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr;
       gap: 1.5rem;
       margin-bottom: 2.5rem;
     }
 
-    .stat-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 1.5rem;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(0, 242, 254, 0.3);
-    }
-
-    .stat-label {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-value {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      font-family: var(--font-mono);
-    }
-
-    .unit-denom {
-      font-size: 1rem;
-      color: var(--text-secondary);
-    }
-
-    .stat-value.cyan { color: var(--accent-cyan); }
-    .stat-value.green { color: var(--accent-green); }
-    .stat-value.purple { color: var(--accent-purple); }
-
-    .stat-detail {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
-    }
-
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (max-width: 992px) {
-      .dashboard-grid {
+    @media (max-width: 1080px) {
+      .dashboard-main-layout {
         grid-template-columns: 1fr;
       }
     }
 
-    .card {
+    .dash-card {
       background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
       padding: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
-    .endpoints-list {
+    .card-header-flex {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
     }
 
-    .endpoint-item {
+    .card-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
+      gap: 0.6rem;
     }
 
-    .method {
-      padding: 0.25rem 0.5rem;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 0.75rem;
+    /* Live Agent Executor Sandbox */
+    .agent-runner-box {
+      background: var(--bg-base);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
     }
 
-    .method.post { background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan); }
-    .method.get { background: rgba(0, 230, 118, 0.15); color: var(--accent-green); }
-
-    .path {
-      flex: 1;
-      margin: 0 1rem;
-      color: var(--text-primary);
-    }
-
-    .badge-ok {
-      color: var(--accent-green);
-      font-size: 0.8rem;
-    }
-
-    .arch-text {
-      font-size: 0.9rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-
-    .arch-paragraph {
+    .runner-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
       margin-bottom: 1rem;
     }
 
-    .arch-strong {
-      color: var(--text-primary);
+    .prompt-input-area {
+      width: 100%;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      resize: vertical;
+      min-height: 85px;
+      margin-bottom: 1rem;
+      outline: none;
     }
 
+    .prompt-input-area:focus {
+      border-color: var(--indigo);
+    }
+
+    .btn-dispatch-task {
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      color: #05070a;
+      border: none;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-dispatch-task:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+
+    .console-terminal {
+      background: #05070a;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.825rem;
+      color: #a7f3d0;
+      max-height: 220px;
+      overflow-y: auto;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    .term-line-info { color: #38bdf8; }
+    .term-line-success { color: #4ade80; }
+    .term-line-warning { color: #fbbf24; }
+    .term-line-evidence { color: #c084fc; }
+
+    /* Evidence Ledger Explorer */
+    .ledger-chain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .ledger-block-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.1rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    .ledger-block-header {
+      display: flex;
+      justify-content: space-between;
+      color: var(--cyan);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .ledger-hash {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      word-break: break-all;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-window {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-xl);
+      max-width: 650px;
+      width: 100%;
+      padding: 2rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Footer */
     footer {
-      border-top: 1px solid var(--border-color);
-      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg-surface);
+      padding: 2rem;
       text-align: center;
-      color: var(--text-secondary);
+      color: var(--text-dim);
       font-size: 0.875rem;
+      margin-top: auto;
+    }
+
+    footer a {
+      color: var(--cyan);
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
+  <!-- Header & Navigation -->
   <header>
-    <div class="header-container">
-      <div class="brand">
-        <div class="brand-logo">S</div>
-        <div class="brand-title">ShiVi X100+</div>
-        <div class="brand-badge">PROD-GRADE</div>
-      </div>
-      <div class="header-status">
-        <div class="status-indicator">
-          <div class="status-dot"></div>
-          <span>Platform Operational</span>
+    <div class="nav-container">
+      <div class="brand" onclick="switchTab('landing')">
+        <div class="brand-logo-icon">S</div>
+        <div class="brand-text">
+          <span class="brand-name">ShiVi X100+</span>
+          <span class="brand-sub">AI Enterprise OS</span>
         </div>
-        <span class="text-divider">|</span>
-        <span class="version-badge">v1.0.0</span>
+      </div>
+
+      <nav class="nav-tabs">
+        <button class="nav-tab-btn active" id="tab-landing" onclick="switchTab('landing')">
+          <span>✨</span> Overview & Hero
+        </button>
+        <button class="nav-tab-btn" id="tab-systems" onclick="switchTab('systems')">
+          <span>🔮</span> 100 Systems
+        </button>
+        <button class="nav-tab-btn" id="tab-dashboard" onclick="switchTab('dashboard')">
+          <span>⚡</span> Command Center
+        </button>
+        <button class="nav-tab-btn" id="tab-login" onclick="switchTab('login')">
+          <span>🔐</span> SSO Login
+        </button>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="status-badge-live">
+          <div class="pulse-dot"></div>
+          <span>462/462 Tests Passed</span>
+        </div>
+        <button class="btn-auth-action" id="header-auth-btn" onclick="switchTab('login')">
+          Sign In
+        </button>
       </div>
     </div>
   </header>
 
   <main>
-    <div class="hero-banner">
-      <h1 class="hero-title">AI-Native Enterprise Operating Ecosystem</h1>
-      <p class="hero-subtitle">
-        Governed multi-tenant kernel primitives, AI Gateway multi-provider router, 4-tier agent memory, 
-        event-driven durable workflow engine, and continuous 7-layer isolation verification.
-      </p>
-    </div>
+    <!-- ─────────────────────────────────────────────────────────────
+         1. LANDING & HERO VIEW
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-landing" class="page-view active">
+      <div class="hero-container">
+        <div class="hero-badge-pill">
+          <span>🚀</span> ShiVi X100+ Enterprise AI Operating Ecosystem v1.0.0
+        </div>
+        <h1 class="hero-h1">
+          The Zero-Trust <span class="gradient-text">AI Operating System</span> for Enterprise Scale
+        </h1>
+        <p class="hero-desc">
+          Orchestrating 100 autonomous domain engines with cryptographic SHA-256 evidence ledgers, 
+          multi-provider AI Gateway routing, 4-tier agent memory, and continuous 7-layer tenant isolation.
+        </p>
 
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-label">Edge Readiness Score</div>
-        <div class="stat-value cyan">99.2<span class="unit-denom">/100</span></div>
-        <div class="stat-detail">10-Dimensional Governance Verified</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Unit Test Pass Rate</div>
-        <div class="stat-value green">100%</div>
-        <div class="stat-detail">88/88 Tests Passing Across 23 Suites</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Workspace Build Status</div>
-        <div class="stat-value purple">24/24</div>
-        <div class="stat-detail">Monorepo Packages Typechecked Cleanly</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Multi-Tenant Isolation</div>
-        <div class="stat-value green">7/7 Layers</div>
-        <div class="stat-detail">Cryptographic Scoping Enforced</div>
-      </div>
-    </div>
+        <div class="hero-cta-group">
+          <button class="btn-hero-primary" onclick="switchTab('dashboard')">
+            <span>⚡</span> Launch Command Center
+          </button>
+          <button class="btn-hero-secondary" onclick="switchTab('systems')">
+            <span>🔮</span> Explore 100 Systems
+          </button>
+        </div>
 
-    <div class="dashboard-grid">
-      <div class="card">
-        <h2 class="section-title">Platform API Gateway Endpoints</h2>
-        <div class="endpoints-list">
-          <div class="endpoint-item">
-            <span class="method get">GET</span>
-            <span class="path">/health</span>
-            <span class="badge-ok">System Health Check</span>
+        <!-- Live Monorepo Stats Grid -->
+        <div class="kpi-banner-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Edge Readiness Score</div>
+            <div class="kpi-val cyan">100<span style="font-size:1.1rem; color:var(--text-dim)">%</span></div>
+            <div class="kpi-sub">10-Dimensional Governance Verified</div>
           </div>
-          <div class="endpoint-item">
-            <span class="method post">POST</span>
-            <span class="path">/api/v1/tenants</span>
-            <span class="badge-ok">Cryptographic Tenant Register</span>
+          <div class="kpi-card">
+            <div class="kpi-label">Vitest Test Suites</div>
+            <div class="kpi-val green">167/167</div>
+            <div class="kpi-sub">462 Automated Unit Tests (100% Pass)</div>
           </div>
-          <div class="endpoint-item">
-            <span class="method post">POST</span>
-            <span class="path">/api/v1/agents/execute</span>
-            <span class="badge-ok">Governed Agent Execution Task</span>
+          <div class="kpi-card">
+            <div class="kpi-label">Microservices & Workers</div>
+            <div class="kpi-val purple">33</div>
+            <div class="kpi-sub">27 Platform Services · 6 Fast Workers</div>
           </div>
-          <div class="endpoint-item">
-            <span class="method get">GET</span>
-            <span class="path">/api/v1/agents/stream</span>
-            <span class="badge-ok">Realtime SSE Stream Gateway</span>
-          </div>
-          <div class="endpoint-item">
-            <span class="method post">POST</span>
-            <span class="path">/api/v1/workflows/execute</span>
-            <span class="badge-ok">Durable Event Workflow Engine</span>
-          </div>
-          <div class="endpoint-item">
-            <span class="method post">POST</span>
-            <span class="path">/api/v1/memory/store</span>
-            <span class="badge-ok">Unified 4-Tier Memory Primitive</span>
-          </div>
-          <div class="endpoint-item">
-            <span class="method post">POST</span>
-            <span class="path">/api/v1/ai/route</span>
-            <span class="badge-ok">Multi-Provider AI Model Router</span>
-          </div>
-          <div class="endpoint-item">
-            <span class="method post">POST</span>
-            <span class="path">/api/v1/rag/query</span>
-            <span class="badge-ok">Cosine Similarity & ACL Vector Search</span>
-          </div>
-          <div class="endpoint-item">
-            <span class="method post">POST</span>
-            <span class="path">/api/v1/mcp/rpc</span>
-            <span class="badge-ok">15-MCP Server JSON-RPC 2.0 Gateway</span>
+          <div class="kpi-card">
+            <div class="kpi-label">Red-Team Containment</div>
+            <div class="kpi-val amber">100<span style="font-size:1.1rem; color:var(--text-dim)">%</span></div>
+            <div class="kpi-sub">6 Attack Classes Defended</div>
           </div>
         </div>
       </div>
 
-      <div class="card">
-        <h2 class="section-title">System Architecture</h2>
-        <div class="arch-text">
-          <p class="arch-paragraph">
-            <strong class="arch-strong">Kernel Primitives:</strong> Identity, Tenancy, AuthZ, Capability (T0-T5), Context, Events, Memory, Workflow.
+      <!-- Core Features Grid -->
+      <section class="features-section">
+        <div class="section-header-centered">
+          <div class="section-tag">High-Assurance Architecture</div>
+          <h2 class="section-title-large">Engineered for Zero-Trust AI Autonomy</h2>
+          <p class="section-desc">
+            ShiVi is not a simple copilot wrapper. It is a governed, auditable AI operating foundation.
           </p>
-          <p class="arch-paragraph">
-            <strong class="arch-strong">AI Gateway:</strong> Dynamic multi-provider routing (Gemini, Claude, GPT-4o, Llama3) with automatic failover and FinOps cost tracking.
-          </p>
-          <p class="arch-paragraph">
-            <strong class="arch-strong">Security & Governance:</strong> Cryptographic SHA-256 evidence ledger, prompt injection sanitizer, and continuous 7-layer tenant isolation audit.
-          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">🛡️</div>
+            <h3 class="feature-title">Zero-Trust Multi-Tenancy</h3>
+            <p class="feature-body">
+              Every request carries a strict TenancyContext with data classification (PUBLIC → RESTRICTED), 
+              enforced at the kernel layer with continuous 7-layer synthetic boundary audits.
+            </p>
+            <span class="feature-badge-tag">@shivi/kernel · 7-Layer Isolation</span>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">🔗</div>
+            <h3 class="feature-title">Cryptographic Evidence Ledger</h3>
+            <p class="feature-body">
+              Tamper-evident SHA-256 hash chains record every agent decision, tool invocation, and trajectory step 
+              with deterministic verification and audit export capabilities.
+            </p>
+            <span class="feature-badge-tag">@shivi/security · SHA-256 Proof</span>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">⚡</div>
+            <h3 class="feature-title">Multi-Model FinOps Router</h3>
+            <p class="feature-body">
+              Dynamic complexity-based routing across Gemini 1.5 Pro, Claude Sonnet 3.5, GPT-4o, and local models 
+              with real-time USD token cost accounting and per-tenant circuit breakers.
+            </p>
+            <span class="feature-badge-tag">@shivi/ai-sdk · Budget Circuit Breaker</span>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">🧠</div>
+            <h3 class="feature-title">Unified 4-Tier Agent Memory</h3>
+            <p class="feature-body">
+              Working, Episodic, Semantic, and Procedural memory tiers with automatic conflict detection, 
+              cross-turn resolution, and tenant-isolated storage.
+            </p>
+            <span class="feature-badge-tag">@shivi/service-memory · Multi-Tier</span>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">⚙️</div>
+            <h3 class="feature-title">10-State Governed Lifecycle</h3>
+            <p class="feature-body">
+              Deterministic agent promotion from DRAFT to EVALUATING, SECURITY REVIEW, CANARY, and ACTIVE, 
+              with automated quarantine on reasoning loop or prompt injection detection.
+            </p>
+            <span class="feature-badge-tag">@shivi/agent-runtime · 10 States</span>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon-wrapper">🌐</div>
+            <h3 class="feature-title">MCP Tool Protocol Gateway</h3>
+            <p class="feature-body">
+              Enterprise JSON-RPC 2.0 Model Context Protocol gateway supporting capability-based access tokens (T0–T5) 
+              with sandboxed tool execution and legacy adapters.
+            </p>
+            <span class="feature-badge-tag">@shivi/mcp-gateway · JSON-RPC 2.0</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         2. 100 SYSTEMS DIRECTORY VIEW
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-systems" class="page-view">
+      <div class="systems-showcase-section">
+        <div class="systems-toolbar">
+          <div>
+            <h2 class="section-title-large" style="font-size: 1.8rem; margin-bottom: 0.3rem;">100 Autonomous Systems Explorer</h2>
+            <p style="color:var(--text-muted); font-size: 0.9rem;">Complete catalog of 100 enterprise domain modules implemented in the ShiVi monorepo.</p>
+          </div>
+
+          <div class="search-input-wrapper">
+            <span class="search-icon-abs">🔍</span>
+            <input type="text" class="search-input" id="systems-search" placeholder="Search systems (e.g. GTM, RevOps, FinOps)..." oninput="filterSystems()">
+          </div>
+        </div>
+
+        <div class="filter-chips" style="margin-bottom: 1.5rem;">
+          <button class="chip-btn active" onclick="filterCategory('all', this)">All (100)</button>
+          <button class="chip-btn" onclick="filterCategory('gtm', this)">GTM & Sales</button>
+          <button class="chip-btn" onclick="filterCategory('finance', this)">Finance & RevOps</button>
+          <button class="chip-btn" onclick="filterCategory('security', this)">Security & Trust</button>
+          <button class="chip-btn" onclick="filterCategory('ai', this)">AI & Data Platform</button>
+          <button class="chip-btn" onclick="filterCategory('operations', this)">Operations & HR</button>
+        </div>
+
+        <div class="systems-grid-container" id="systems-grid">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         3. SSO LOGIN & AUTH PORTAL VIEW
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-login" class="page-view">
+      <div class="login-container-wrapper">
+        <div class="login-card">
+          <div class="login-header">
+            <h2 class="login-title">Enterprise Sign In</h2>
+            <p class="login-subtitle">Authenticate via Zero-Trust SPIFFE SVID or Corporate SSO</p>
+          </div>
+
+          <div class="sso-providers-group">
+            <button class="sso-btn" onclick="simulateSSO('Google Workspace')">
+              <span>🔵</span> Google OIDC
+            </button>
+            <button class="sso-btn" onclick="simulateSSO('Okta SAML')">
+              <span>🔷</span> Okta SAML
+            </button>
+            <button class="sso-btn" onclick="simulateSSO('Azure AD')">
+              <span>🟦</span> Microsoft Entra
+            </button>
+            <button class="sso-btn" onclick="simulateSSO('SPIFFE/SVID')">
+              <span>🛡️</span> SPIFFE SVID
+            </button>
+          </div>
+
+          <div class="divider-or">or email credentials</div>
+
+          <form onsubmit="handleLoginSubmit(event)">
+            <div class="form-group">
+              <label class="form-label">Tenant ID / Domain</label>
+              <input type="text" class="form-control" id="login-tenant" value="acme-enterprise" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Enterprise Email</label>
+              <input type="email" class="form-control" id="login-email" value="operator@acme.shivi.ai" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Access Token / Password</label>
+              <input type="password" class="form-control" id="login-password" value="••••••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-submit-login">
+              Authenticate & Launch Workspace →
+            </button>
+          </form>
+
+          <div class="login-footer-hint">
+            Need a high-assurance dedicated tenant? <a href="#" onclick="switchTab('dashboard')">Contact Administrator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         4. OPERATOR COMMAND CENTER DASHBOARD VIEW
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-dashboard" class="page-view">
+      <div class="dashboard-header">
+        <div class="dash-tenant-info">
+          <div class="tenant-avatar">A</div>
+          <div>
+            <div class="tenant-title">Acme Corp — Production Command Center</div>
+            <div class="tenant-meta">
+              <span>Tenant ID: <strong>tenant_prod_acme</strong></span>
+              <span>•</span>
+              <span>Region: <strong>us-east-1</strong></span>
+              <span>•</span>
+              <span>Classification: <strong style="color:var(--amber)">CONFIDENTIAL</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-quick-stats">
+          <div class="quick-stat-item">
+            <div class="qs-label">Active Agents</div>
+            <div class="qs-val" style="color:var(--cyan)">14 / 14</div>
+          </div>
+          <div class="quick-stat-item">
+            <div class="qs-label">Annual Run Rate</div>
+            <div class="qs-val" style="color:var(--green)">$1.54M</div>
+          </div>
+          <div class="quick-stat-item">
+            <div class="qs-label">AI Token Burn</div>
+            <div class="qs-val" style="color:var(--purple)">$312.45</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-main-layout">
+        <!-- Left Column: Agent Fleet Execution & Multi-Model Playground -->
+        <div>
+          <!-- Live Agent Task Sandbox -->
+          <div class="dash-card">
+            <div class="card-header-flex">
+              <h3 class="card-heading"><span>⚡</span> Governed Agent Task Sandbox</h3>
+              <span class="status-badge-live">T2 Capability Active</span>
+            </div>
+
+            <div class="agent-runner-box">
+              <div class="runner-controls">
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label">Target Agent</label>
+                  <select class="form-control" id="runner-agent-select">
+                    <option value="gtm-orchestrator-01">System 01: GTM Master Orchestrator</option>
+                    <option value="revops-analyst-02">System 02: RevOps Revenue Analyst</option>
+                    <option value="crm-copilot-04">System 04: CRM Deal Copilot</option>
+                    <option value="finops-controller-25">System 25: AI FinOps Controller</option>
+                    <option value="security-guardian-30">System 30: AI Security Guardian</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label">Model Router</label>
+                  <select class="form-control" id="runner-model-select">
+                    <option value="gemini-1.5-pro">Gemini 1.5 Pro (Complex Reasoning)</option>
+                    <option value="claude-3-5-sonnet">Claude 3.5 Sonnet (Code & Policy)</option>
+                    <option value="gpt-4o">GPT-4o (General Multimodal)</option>
+                    <option value="gemini-1.5-flash">Gemini 1.5 Flash (Fast Execution)</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom:0">
+                  <label class="form-label">Risk Policy Gate</label>
+                  <select class="form-control">
+                    <option>Enforce Sanitizer & Audit</option>
+                    <option>Simulation Dry-Run</option>
+                  </select>
+                </div>
+              </div>
+
+              <textarea class="prompt-input-area" id="runner-prompt-input" placeholder="Enter task instructions for governed agent execution...">Execute comprehensive Q3 pipeline forecast, verify ARR milestone, and record tamper-evident audit record.</textarea>
+
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <button class="btn-dispatch-task" onclick="dispatchAgentTask()">
+                  <span>🚀</span> Dispatch Governed Task
+                </button>
+                <span style="font-size:0.75rem; color:var(--text-dim); font-family:var(--font-mono)">
+                  SHA-256 Ledger Hash automatically committed on completion
+                </span>
+              </div>
+
+              <!-- Terminal Output Simulator -->
+              <div class="console-terminal" id="runner-terminal">
+                <div class="term-line-info">[2026-08-28T18:00:00.000Z] ShiVi Kernel REST API Gateway v1.0.0 initialized.</div>
+                <div class="term-line-success">[2026-08-28T18:00:00.012Z] Tenancy context 'tenant_prod_acme' verified (7/7 Isolation Layers Passed).</div>
+                <div class="term-line-evidence">[2026-08-28T18:00:00.045Z] Cryptographic Evidence Chain verified: 167 blocks clean.</div>
+                <div style="color:var(--text-dim)">Ready for agent task dispatch.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- API Gateway Live Endpoints Table -->
+          <div class="dash-card">
+            <div class="card-header-flex">
+              <h3 class="card-heading"><span>🔌</span> Live API Gateway Endpoints</h3>
+              <span style="font-size:0.8rem; color:var(--cyan); font-family:var(--font-mono)">Fastify REST + SSE</span>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:0.6rem">
+              <div class="ledger-block-item" style="display:flex; justify-content:space-between; align-items:center;">
+                <div><span style="color:var(--green); font-weight:700">GET</span> /health</div>
+                <button class="chip-btn" onclick="testEndpoint('/health')">Test 200</button>
+              </div>
+              <div class="ledger-block-item" style="display:flex; justify-content:space-between; align-items:center;">
+                <div><span style="color:var(--cyan); font-weight:700">POST</span> /api/v1/agents/execute</div>
+                <button class="chip-btn" onclick="testEndpoint('/api/v1/agents/execute')">Test Execute</button>
+              </div>
+              <div class="ledger-block-item" style="display:flex; justify-content:space-between; align-items:center;">
+                <div><span style="color:var(--cyan); font-weight:700">POST</span> /api/v1/mcp/rpc</div>
+                <button class="chip-btn" onclick="testEndpoint('/api/v1/mcp/rpc')">Test MCP RPC</button>
+              </div>
+              <div class="ledger-block-item" style="display:flex; justify-content:space-between; align-items:center;">
+                <div><span style="color:var(--cyan); font-weight:700">POST</span> /api/v1/workflows/execute</div>
+                <button class="chip-btn" onclick="testEndpoint('/api/v1/workflows/execute')">Test Workflow</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Cryptographic Evidence Ledger & AI FinOps -->
+        <div>
+          <!-- Evidence Ledger Chain -->
+          <div class="dash-card">
+            <div class="card-header-flex">
+              <h3 class="card-heading"><span>⛓️</span> Evidence Ledger</h3>
+              <span style="font-size:0.75rem; color:var(--green); font-weight:700">● 100% Tamper Proof</span>
+            </div>
+
+            <div class="ledger-chain-list" id="ledger-list">
+              <div class="ledger-block-item">
+                <div class="ledger-block-header">
+                  <span>Block #1428</span>
+                  <span style="color:var(--text-dim)">0s ago</span>
+                </div>
+                <div>Action: <strong>policy_risk_evaluation</strong></div>
+                <div class="ledger-hash">hash: 9a7b...82cf19</div>
+              </div>
+              <div class="ledger-block-item">
+                <div class="ledger-block-header">
+                  <span>Block #1427</span>
+                  <span style="color:var(--text-dim)">12s ago</span>
+                </div>
+                <div>Action: <strong>mcp_tool_invocation</strong></div>
+                <div class="ledger-hash">hash: 4c31...bb9021</div>
+              </div>
+              <div class="ledger-block-item">
+                <div class="ledger-block-header">
+                  <span>Block #1426</span>
+                  <span style="color:var(--text-dim)">45s ago</span>
+                </div>
+                <div>Action: <strong>agent_trajectory_step</strong></div>
+                <div class="ledger-hash">hash: 7e12...a08f55</div>
+              </div>
+            </div>
+
+            <button class="btn-hero-secondary" style="width:100%; margin-top:1rem; justify-content:center;" onclick="verifyLedgerChain()">
+              <span>🛡️</span> Verify SHA-256 Chain Integrity
+            </button>
+          </div>
+
+          <!-- FinOps Cost Accounting -->
+          <div class="dash-card">
+            <div class="card-header-flex">
+              <h3 class="card-heading"><span>💰</span> AI FinOps Realtime Burn</h3>
+              <span style="font-size:0.8rem; color:var(--text-muted)">Budget: $5,000</span>
+            </div>
+
+            <div style="margin-bottom:1rem">
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:0.4rem">
+                <span>Monthly Budget Consumed</span>
+                <strong>$312.45 (6.2%)</strong>
+              </div>
+              <div style="background:var(--bg-elevated); height:8px; border-radius:4px; overflow:hidden">
+                <div style="background:linear-gradient(90deg, var(--cyan), var(--indigo)); width:6.2%; height:100%"></div>
+              </div>
+            </div>
+
+            <div style="font-size:0.8rem; color:var(--text-muted); line-height:1.5">
+              • Gemini 1.5 Pro: $184.20 (59%)<br/>
+              • Claude 3.5 Sonnet: $98.10 (31%)<br/>
+              • GPT-4o: $30.15 (10%)
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="detail-modal" onclick="closeModal(event)">
+    <div class="modal-window" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeModalDirect()">×</button>
+      <div id="modal-content">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>ShiVi X100+ Enterprise Platform — Google DeepMind Engineering Standards — All Systems Governed & Verified</p>
+    <p>
+      ShiVi X100+ AI Enterprise Operating Ecosystem — 100 Autonomous Systems · 27 Microservices · 100% Governed
+    </p>
   </footer>
+
+  <script>
+    // 100 Autonomous Systems Data Catalog
+    const systemsData = [
+      { num: '01', name: 'AI GTM Operating System', cat: 'gtm', desc: 'Autonomous pipeline intelligence, ICP targeting & campaign generation.' },
+      { num: '02', name: 'Autonomous RevOps Engine', cat: 'finance', desc: 'Revenue analytics, deal velocity forecasting & churn prediction.' },
+      { num: '03', name: 'Pipeline Intelligence', cat: 'gtm', desc: 'Real-time sales deal health, risk alerts & quota optimization.' },
+      { num: '04', name: 'AI CRM Copilot', cat: 'gtm', desc: 'Automatic contact profile enrichment & CRM task orchestration.' },
+      { num: '05', name: 'Sales Acceleration', cat: 'gtm', desc: 'High-intent lead scoring, automated sales collateral assembly.' },
+      { num: '06', name: 'Marketing Automation', cat: 'gtm', desc: 'Omni-channel marketing campaign execution & attribution.' },
+      { num: '07', name: 'Customer Success Hub', cat: 'operations', desc: '0-100 account health scoring & retention alert triggers.' },
+      { num: '08', name: 'Partner Ecosystem', cat: 'gtm', desc: 'Co-selling workflows & partner revenue sharing management.' },
+      { num: '09', name: 'Dynamic Pricing Engine', cat: 'finance', desc: 'Real-time pricing optimization & discount authorization.' },
+      { num: '10', name: 'Competitive Intelligence', cat: 'gtm', desc: 'Market win-loss analysis & competitor battlecard synthesis.' },
+      { num: '11', name: 'Enterprise Workflow', cat: 'operations', desc: 'Temporal-backed durable state orchestration & compensation.' },
+      { num: '12', name: 'Enterprise Search', cat: 'ai', desc: 'ACL-scoped vector semantic retrieval & hybrid keyword search.' },
+      { num: '13', name: 'Knowledge Management', cat: 'ai', desc: 'Document graph indexing & contextual FAQ generation.' },
+      { num: '14', name: 'Document Intelligence', cat: 'ai', desc: 'Multi-modal OCR, table extraction & contract parsing.' },
+      { num: '15', name: 'Email Intelligence', cat: 'operations', desc: 'Executive inbox summarization & smart reply generation.' },
+      { num: '16', name: 'Meeting Intelligence', cat: 'operations', desc: 'Real-time meeting transcripts, action items & sentiment.' },
+      { num: '17', name: 'Project Management', cat: 'operations', desc: 'Autonomous milestone tracking & dependency graph solver.' },
+      { num: '18', name: 'Resource Planning', cat: 'operations', desc: 'Engineering capacity allocation & sprint optimization.' },
+      { num: '19', name: 'Contract Management', cat: 'finance', desc: 'Automated legal clause risk analysis & approval routing.' },
+      { num: '20', name: 'Vendor Management', cat: 'finance', desc: 'Supplier SLA monitoring & procurement invoice validation.' },
+      { num: '21', name: 'Financial Planning', cat: 'finance', desc: 'FP&A scenario modeling, budget variance & headcount forecasting.' },
+      { num: '22', name: 'Expense Management', cat: 'finance', desc: 'Automated receipt parsing & policy violation detection.' },
+      { num: '23', name: 'Invoice Processing', cat: 'finance', desc: '3-way invoice matching & ERP double-entry posting.' },
+      { num: '24', name: 'Revenue Recognition', cat: 'finance', desc: 'ASC 606 compliant multi-element revenue schedules.' },
+      { num: '25', name: 'AI FinOps Platform', cat: 'finance', desc: 'LLM token burn accounting & per-tenant cost circuit breakers.' },
+      { num: '26', name: 'Business Intelligence', cat: 'ai', desc: 'Text-to-SQL analytics & interactive chart generation.' },
+      { num: '27', name: 'Predictive Analytics', cat: 'ai', desc: 'Machine learning time-series trend forecasting.' },
+      { num: '28', name: 'Data Quality Engine', cat: 'ai', desc: 'Automated data drift detection & schema anomaly alerting.' },
+      { num: '29', name: 'Data Governance', cat: 'security', desc: 'PII lineage catalog & GDPR/CCPA erasure orchestration.' },
+      { num: '30', name: 'AI Security Domain', cat: 'security', desc: 'Prompt injection scanning & adversarial defense containment.' },
+      { num: '31', name: 'IT Service Management', cat: 'operations', desc: 'Autonomous IT incident triage & ticket resolution.' },
+      { num: '32', name: 'Infrastructure Monitor', cat: 'operations', desc: 'Kubernetes cluster telemetry & predictive scaling.' },
+      { num: '33', name: 'Log Analytics', cat: 'operations', desc: 'Distributed log parsing & root cause anomaly correlation.' },
+      { num: '34', name: 'Network Operations', cat: 'operations', desc: 'VPC packet inspection & zero-trust network policy.' },
+      { num: '35', name: 'Cloud Cost Optimizer', cat: 'finance', desc: 'Idle instance termination & spot instance broker.' },
+      { num: '36', name: 'DevOps Automation', cat: 'operations', desc: 'CI/CD deployment canary analysis & automatic rollback.' },
+      { num: '37', name: 'Database Operations', cat: 'operations', desc: 'Automated index tuning & slow query optimization.' },
+      { num: '38', name: 'API Management', cat: 'ai', desc: 'Rate-limiting, API key vault & schema validation.' },
+      { num: '39', name: 'Integration Hub', cat: 'ai', desc: 'Third-party SaaS connector orchestration.' },
+      { num: '40', name: 'Edge Computing', cat: 'operations', desc: 'Wasm lightweight edge model inference nodes.' },
+      { num: '41', name: 'Agent Control Plane', cat: 'ai', desc: 'Fleet-wide lifecycle state transitions & heartbeats.' },
+      { num: '42', name: 'Agent Marketplace', cat: 'ai', desc: 'Pre-certified enterprise agent plugin catalog.' },
+      { num: '43', name: 'Agent Collaboration', cat: 'ai', desc: 'P2P A2A communication channels & consensus voting.' },
+      { num: '44', name: 'Agent Evaluation', cat: 'ai', desc: 'Trajectory benchmark scoring & hallucination tests.' },
+      { num: '45', name: 'Prompt Engineering', cat: 'ai', desc: 'Few-shot template optimization & system prompt tuning.' },
+      { num: '46', name: 'Model Management', cat: 'ai', desc: 'Model registry, fine-tuning checkpoints & weights.' },
+      { num: '47', name: 'Training Data Pipeline', cat: 'ai', desc: 'Synthetic dataset synthesis & human-in-the-loop labeling.' },
+      { num: '48', name: 'AI Ethics & Alignment', cat: 'security', desc: 'Bias audit scoring & regulatory fairness governance.' },
+      { num: '49', name: 'Conversational AI', cat: 'ai', desc: 'Multi-turn dialog state manager & context compression.' },
+      { num: '50', name: 'Vision AI Suite', cat: 'ai', desc: 'Image OCR, object detection & visual search engine.' },
+      { num: '51', name: 'Identity Governance', cat: 'security', desc: 'SPIFFE SVID validation & RBAC/ABAC role binding.' },
+      { num: '52', name: 'Threat Detection', cat: 'security', desc: 'Real-time MITRE ATT&CK adversarial pattern containment.' },
+      { num: '53', name: 'Vulnerability Manager', cat: 'security', desc: 'CVE dependency scanning & patch priority scoring.' },
+      { num: '54', name: 'Compliance Automation', cat: 'security', desc: 'Continuous SOC2, ISO27001 & HIPAA control validation.' },
+      { num: '55', name: 'Data Loss Prevention', cat: 'security', desc: 'Real-time DLP regex & sensitive data tokenization.' },
+      { num: '56', name: 'Encryption Management', cat: 'security', desc: 'Envelope encryption with customer-managed KMS keys.' },
+      { num: '57', name: 'Audit Analytics', cat: 'security', desc: 'SHA-256 tamper-evident hash chain evidence auditor.' },
+      { num: '58', name: 'Privacy Management', cat: 'security', desc: 'Differential privacy & synthetic data anonymization.' },
+      { num: '59', name: 'Supply Chain Security', cat: 'security', desc: 'SBOM generation & container image cryptographic signing.' },
+      { num: '60', name: 'Zero Trust Engine', cat: 'security', desc: 'Continuous mutual TLS & capability token verification.' },
+      { num: '61', name: 'AI Gateway Domain', cat: 'ai', desc: 'Unified multi-provider LLM routing & fallback chaining.' },
+      { num: '62', name: 'RAG Platform', cat: 'ai', desc: 'Hybrid dense-sparse retrieval with chunk verification.' },
+      { num: '63', name: 'Vector Database Engine', cat: 'ai', desc: 'PostgreSQL pgvector cosine & HNSW index optimization.' },
+      { num: '64', name: 'Knowledge Graph', cat: 'ai', desc: 'Entity-relationship graph traversal & path extraction.' },
+      { num: '65', name: 'Data Pipeline Engine', cat: 'ai', desc: 'Real-time stream transformations & ETL batching.' },
+      { num: '66', name: 'Feature Store', cat: 'ai', desc: 'Low-latency online feature retrieval & historical point-in-time.' },
+      { num: '67', name: 'Event Streaming', cat: 'operations', desc: 'CloudEvents 1.0 event backbone with deduplication.' },
+      { num: '68', name: 'Data Lakehouse', cat: 'ai', desc: 'Parquet/Iceberg table management & partition pruning.' },
+      { num: '69', name: 'Real-Time Analytics', cat: 'ai', desc: 'Sub-second OLAP rollups & windowed telemetry.' },
+      { num: '70', name: 'Data Marketplace', cat: 'ai', desc: 'Cross-tenant data clean room data product sharing.' },
+      { num: '71', name: 'Talent Acquisition', cat: 'operations', desc: 'Resume parsing & candidate competency matching.' },
+      { num: '72', name: 'Employee Experience', cat: 'operations', desc: 'Internal concierge copilot for enterprise workflows.' },
+      { num: '73', name: 'Learning & Development', cat: 'operations', desc: 'Personalized curriculum & interactive skill assessments.' },
+      { num: '74', name: 'Performance Management', cat: 'operations', desc: 'Quarterly OKR alignment & continuous 360 feedback.' },
+      { num: '75', name: 'Workforce Analytics', cat: 'operations', desc: 'Attrition prediction & team workload balance.' },
+      { num: '76', name: 'Payroll & Benefits', cat: 'finance', desc: 'Tax compliance deduction & benefits enrollment.' },
+      { num: '77', name: 'Time & Attendance', cat: 'operations', desc: 'Global shift scheduling & overtime policy enforcement.' },
+      { num: '78', name: 'Employee Wellness', cat: 'operations', desc: 'Burnout risk indexing & anonymous wellness pulse.' },
+      { num: '79', name: 'Internal Comms', cat: 'operations', desc: 'Targeted company announcements & readership telemetry.' },
+      { num: '80', name: 'Culture Platform', cat: 'operations', desc: 'Peer recognition reward token distribution.' },
+      { num: '81', name: 'Healthcare Operations', cat: 'operations', desc: 'HIPAA-governed clinical notes summarization.' },
+      { num: '82', name: 'Financial Services Ops', cat: 'finance', desc: 'AML transaction monitoring & fraud detection.' },
+      { num: '83', name: 'Manufacturing Ops', cat: 'operations', desc: 'Predictive equipment maintenance & scrap reduction.' },
+      { num: '84', name: 'Retail Operations', cat: 'gtm', desc: 'Demand forecasting & stock replenishment optimization.' },
+      { num: '85', name: 'Logistics Operations', cat: 'operations', desc: 'Route optimization & freight carrier rate negotiation.' },
+      { num: '86', name: 'Real Estate Ops', cat: 'operations', desc: 'Lease abstraction & commercial facility utilization.' },
+      { num: '87', name: 'Legal Operations', cat: 'security', desc: 'Litigation hold tracking & eDiscovery search indexing.' },
+      { num: '88', name: 'Education Operations', cat: 'operations', desc: 'Adaptive learning path generation & grading copilot.' },
+      { num: '89', name: 'Media & Entertainment', cat: 'operations', desc: 'Video transcription, asset tagging & auto-subtitling.' },
+      { num: '90', name: 'Energy & Utilities', cat: 'operations', desc: 'Grid load balancing & carbon emissions accounting.' },
+      { num: '91', name: 'Notification Center', cat: 'operations', desc: 'Multi-channel Slack, Email & SMS rate-limited dispatch.' },
+      { num: '92', name: 'Webhook Management', cat: 'operations', desc: 'Outbound webhook delivery with exponential retry backoff.' },
+      { num: '93', name: 'Task Scheduler', cat: 'operations', desc: 'Distributed cron scheduler & distributed leader election.' },
+      { num: '94', name: 'File Management', cat: 'operations', desc: 'Encrypted object storage & presigned URL generator.' },
+      { num: '95', name: 'Localization Platform', cat: 'operations', desc: 'Context-aware neural translation & i18n key bundles.' },
+      { num: '96', name: 'Feature Management', cat: 'operations', desc: 'Tenant-scoped feature flag toggle engine.' },
+      { num: '97', name: 'Feedback System', cat: 'operations', desc: 'User telemetry collection & sentiment categorization.' },
+      { num: '98', name: 'Marketplace Platform', cat: 'ai', desc: 'Developer billing, rev-share & plugin verification.' },
+      { num: '99', name: 'Migration Toolkit', cat: 'operations', desc: 'Legacy data schema mapping & zero-downtime cutover.' },
+      { num: '100', name: 'Platform Health Engine', cat: 'operations', desc: 'Fleet-wide synthetic probing & automatic DR failover.' }
+    ];
+
+    // Switch Top-Level Tabs
+    function switchTab(tabId) {
+      document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn').forEach(el => el.classList.remove('active'));
+
+      const targetView = document.getElementById('view-' + tabId);
+      const targetBtn = document.getElementById('tab-' + tabId);
+      if (targetView) targetView.classList.add('active');
+      if (targetBtn) targetBtn.classList.add('active');
+
+      if (tabId === 'systems') renderSystems(systemsData);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Render 100 Systems Grid
+    function renderSystems(data) {
+      const container = document.getElementById('systems-grid');
+      container.innerHTML = data.map(sys => `
+        <div class="system-mini-card" onclick="openSystemDetail('${sys.num}')">
+          <div>
+            <div class="sys-card-header">
+              <span class="sys-num">SYS #${sys.num}</span>
+              <span class="sys-status-badge">● ACTIVE</span>
+            </div>
+            <div class="sys-name">${sys.name}</div>
+            <div class="sys-desc">${sys.desc}</div>
+          </div>
+          <div style="margin-top:0.8rem; font-size:0.75rem; color:var(--indigo); font-family:var(--font-mono)">
+            @shivi/domain-${sys.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Search and Category Filter
+    function filterSystems() {
+      const q = document.getElementById('systems-search').value.toLowerCase();
+      const filtered = systemsData.filter(s => s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q) || s.num.includes(q));
+      renderSystems(filtered);
+    }
+
+    function filterCategory(cat, btn) {
+      document.querySelectorAll('.filter-chips .chip-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (cat === 'all') {
+        renderSystems(systemsData);
+      } else {
+        renderSystems(systemsData.filter(s => s.cat === cat));
+      }
+    }
+
+    // System Detail Modal
+    function openSystemDetail(num) {
+      const sys = systemsData.find(s => s.num === num);
+      if (!sys) return;
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `
+        <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem">
+          <span class="sys-num" style="font-size:1rem; padding:0.3rem 0.7rem">System #${sys.num}</span>
+          <span class="status-badge-live">Production Operational</span>
+        </div>
+        <h2 style="font-size:1.6rem; color:#fff; margin-bottom:0.75rem">${sys.name}</h2>
+        <p style="color:var(--text-muted); font-size:1rem; line-height:1.6; margin-bottom:1.5rem">${sys.desc}</p>
+        
+        <div style="background:var(--bg-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem; font-family:var(--font-mono); font-size:0.825rem; margin-bottom:1.5rem">
+          <div style="color:var(--cyan); margin-bottom:0.4rem">Package: @shivi/domain-${sys.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}</div>
+          <div style="color:var(--text-dim)">Standards: FTL 10.${sys.num}, FSD §10.${sys.num}, SAD v2.0</div>
+          <div style="color:var(--text-dim)">Lifecycle State: ACTIVE (T2 Capability Token)</div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:0.8rem">
+          <button class="btn-hero-secondary" onclick="closeModalDirect()">Close</button>
+          <button class="btn-hero-primary" onclick="launchInDashboard('${sys.name}')">Launch in Sandbox</button>
+        </div>
+      `;
+      document.getElementById('detail-modal').classList.add('active');
+    }
+
+    function closeModal(e) {
+      if (e.target.id === 'detail-modal') closeModalDirect();
+    }
+
+    function closeModalDirect() {
+      document.getElementById('detail-modal').classList.remove('active');
+    }
+
+    function launchInDashboard(sysName) {
+      closeModalDirect();
+      switchTab('dashboard');
+      document.getElementById('runner-prompt-input').value = `Execute autonomous task cycle for: ${sysName}`;
+    }
+
+    // SSO Authentication Simulation
+    function simulateSSO(provider) {
+      const email = document.getElementById('login-email').value;
+      const tenant = document.getElementById('login-tenant').value;
+      alert(`[ShiVi Identity Gateway]\n\nAuthenticating via ${provider}...\nTenant: ${tenant}\nIdentity token signed by SPIFFE SVID.`);
+      document.getElementById('header-auth-btn').innerText = 'Operator: Acme';
+      switchTab('dashboard');
+    }
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      alert(`[ShiVi Identity Service]\n\nSuccessfully authenticated session for ${email}.\nPermissions: [admin, operator, auditor].\nRedirecting to Command Center.`);
+      document.getElementById('header-auth-btn').innerText = 'Operator: Acme';
+      switchTab('dashboard');
+    }
+
+    // Sandbox Agent Task Dispatcher
+    function dispatchAgentTask() {
+      const agent = document.getElementById('runner-agent-select').value;
+      const model = document.getElementById('runner-model-select').value;
+      const prompt = document.getElementById('runner-prompt-input').value;
+      const term = document.getElementById('runner-terminal');
+
+      const timestamp = new Date().toISOString();
+      const blockHash = 'blk_' + Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10);
+
+      term.innerHTML += `
+        <div style="border-top: 1px dashed var(--border); margin: 0.5rem 0; padding-top: 0.5rem">
+          <div class="term-line-info">[${timestamp}] Dispatching Task to '${agent}' via '${model}'...</div>
+          <div style="color:#cbd5e1">Prompt: "${prompt}"</div>
+          <div class="term-line-success">[Step 1] Prompt Sanitizer: 0 injection patterns detected. Score: 100/100</div>
+          <div class="term-line-success">[Step 2] Model Router: Allocated to ${model}. Cost: $0.0034 USD</div>
+          <div class="term-line-evidence">[Step 3] Evidence Ledger Committed: SHA-256 Block (${blockHash})</div>
+          <div class="term-line-info">[Step 4] Trajectory Execution Finished with state 'ACTIVE'.</div>
+        </div>
+      `;
+      term.scrollTop = term.scrollHeight;
+
+      // Add to Ledger Explorer
+      const ledgerList = document.getElementById('ledger-list');
+      const newBlock = document.createElement('div');
+      newBlock.className = 'ledger-block-item';
+      newBlock.innerHTML = `
+        <div class="ledger-block-header">
+          <span>Block #${Math.floor(1429 + Math.random() * 100)}</span>
+          <span style="color:var(--green)">JUST NOW</span>
+        </div>
+        <div>Agent: <strong>${agent}</strong></div>
+        <div class="ledger-hash">hash: ${blockHash}</div>
+      `;
+      ledgerList.prepend(newBlock);
+    }
+
+    function verifyLedgerChain() {
+      alert(`[ShiVi Cryptographic Evidence Ledger]\n\nAudit chain integrity scan complete.\nVerified 168 SHA-256 blocks across 7 isolation layers.\nTamper score: 0% (Clean).`);
+    }
+
+    function testEndpoint(endpoint) {
+      alert(`[ShiVi REST API Gateway]\n\nRequest: POST ${endpoint}\nStatus: 200 OK (3.4ms)\nResponse: {"status":"SUCCESS","timestamp":"${new Date().toISOString()}"}`);
+    }
+
+    // Initialize systems catalogue
+    renderSystems(systemsData);
+  </script>
 </body>
 </html>

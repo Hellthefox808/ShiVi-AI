@@ -34,3 +34,25 @@ export interface WorkflowCanvasProps extends ComponentProps { nodes: unknown[]; 
 export interface AgentCanvasProps extends ComponentProps { agents: unknown[]; connections: unknown[]; }
 export interface KnowledgeGraphProps extends ComponentProps { nodes: unknown[]; edges: unknown[]; layout: 'force' | 'tree' | 'radial'; }
 export interface TraceViewerProps extends ComponentProps { traceId: string; spans: unknown[]; }
+
+export class DesignSystemTokens {
+  static colors = {
+    primary: '#6366f1',
+    background: '#090d16',
+    surface: '#111827',
+    border: '#1f2937',
+    textPrimary: '#f9fafb',
+    textSecondary: '#9ca3af',
+    accentSuccess: '#10b981',
+    accentWarning: '#f59e0b',
+    accentDanger: '#ef4444',
+  };
+
+  static spacing = {
+    xs: '4px',
+    sm: '8px',
+    md: '16px',
+    lg: '24px',
+    xl: '32px',
+  };
+}

@@ -2,7 +2,7 @@
   "name": "@shivi/service-audit",
   "version": "1.0.0",
   "type": "module",
-  "description": "Audit Service — Audit trails, compliance logs",
+  "description": "Audit trail management",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

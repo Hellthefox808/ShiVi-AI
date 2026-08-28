@@ -2,7 +2,7 @@
   "name": "@shivi/service-analytics",
   "version": "1.0.0",
   "type": "module",
-  "description": "Analytics Service — Metrics, KPIs, dashboards",
+  "description": "Analytics processing",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

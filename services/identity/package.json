@@ -2,7 +2,7 @@
   "name": "@shivi/service-identity",
   "version": "1.0.0",
   "type": "module",
-  "description": "Identity Service — SPIFFE, SSO, MFA",
+  "description": "Identity management, SPIFFE SVID, SSO",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

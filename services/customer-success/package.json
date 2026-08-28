@@ -2,7 +2,7 @@
   "name": "@shivi/service-customer-success",
   "version": "1.0.0",
   "type": "module",
-  "description": "Customer Success Service — Health scores, churn",
+  "description": "CS workflows",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

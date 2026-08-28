@@ -2,7 +2,7 @@
   "name": "@shivi/service-workflows",
   "version": "1.0.0",
   "type": "module",
-  "description": "Workflow Service — Temporal orchestration",
+  "description": "Temporal workflow orchestration",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

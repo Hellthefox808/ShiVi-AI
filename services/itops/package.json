@@ -2,7 +2,7 @@
   "name": "@shivi/service-itops",
   "version": "1.0.0",
   "type": "module",
-  "description": "IT Ops Service — Incidents, changes, CMDB",
+  "description": "IT operations",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

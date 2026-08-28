@@ -2,7 +2,7 @@
   "name": "@shivi/service-authorization",
   "version": "1.0.0",
   "type": "module",
-  "description": "Authorization Service — OpenFGA/OPA policy evaluation",
+  "description": "Policy-based authorization, OpenFGA/OPA",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

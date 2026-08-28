@@ -2,7 +2,7 @@
   "name": "@shivi/service-gtm",
   "version": "1.0.0",
   "type": "module",
-  "description": "GTM Service — Campaigns, ICP, pipeline",
+  "description": "GTM operations, campaigns",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

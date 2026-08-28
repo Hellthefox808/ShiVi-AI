@@ -2,7 +2,7 @@
   "name": "@shivi/worker-scheduled",
   "version": "1.0.0",
   "type": "module",
-  "description": "Scheduled Worker — Cron jobs, recurring tasks",
+  "description": "Scheduled/cron job worker",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

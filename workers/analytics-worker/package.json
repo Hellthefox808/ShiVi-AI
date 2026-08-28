@@ -2,7 +2,7 @@
   "name": "@shivi/worker-analytics",
   "version": "1.0.0",
   "type": "module",
-  "description": "Analytics Worker — Aggregation, rollups, reports",
+  "description": "Analytics aggregation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

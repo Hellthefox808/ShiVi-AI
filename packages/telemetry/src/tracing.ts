@@ -240,8 +240,8 @@ export class ShiViTracer {
   startTenantSpan(name: string, tenant: TenancyContext, parentContext: TraceContext, kind?: SpanKind): TraceSpan {
     return this.startSpan(name, parentContext, kind, {
       [ShiViSemanticConventions.TENANT_ID]: tenant.tenantId,
-      [ShiViSemanticConventions.TENANT_PLAN]: tenant.plan,
-      [ShiViSemanticConventions.TENANT_DATA_CLASSIFICATION]: tenant.dataClassification,
+      [ShiViSemanticConventions.TENANT_PLAN]: (tenant as any).plan || tenant.environment,
+      [ShiViSemanticConventions.TENANT_DATA_CLASSIFICATION]: tenant.policy?.dataClassificationLimit || 'CONFIDENTIAL',
     });
   }
 

@@ -2,7 +2,7 @@
   "name": "@shivi/service-mcp",
   "version": "1.0.0",
   "type": "module",
-  "description": "MCP Protocol Service — JSON-RPC 2.0 routing",
+  "description": "MCP protocol service",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

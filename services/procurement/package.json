@@ -2,7 +2,7 @@
   "name": "@shivi/service-procurement",
   "version": "1.0.0",
   "type": "module",
-  "description": "Procurement Service — Vendors, POs, approvals",
+  "description": "Procurement",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

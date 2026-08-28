@@ -2,7 +2,7 @@
   "name": "@shivi/service-memory",
   "version": "1.0.0",
   "type": "module",
-  "description": "Memory Service — Agent memory, context windows",
+  "description": "Agent memory management",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

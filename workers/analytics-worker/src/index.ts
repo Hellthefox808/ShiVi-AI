@@ -1,2 +1,18 @@
-export interface AnalyticsJob { metric: string; aggregation: 'sum' | 'avg' | 'count'; period: string; }
-export class AnalyticsWorker { async aggregate(job: AnalyticsJob): Promise<{ result: number }> { return { result: 0 }; } }
+/**
+ * worker-analytics - Telemetry and FinOps aggregation worker
+ *
+ * @packageDocumentation
+ */
+
+export class AnalyticsWorker {
+  constructor(private readonly config: Record<string, unknown> = {}) {}
+
+  public async rollupMetrics(tenantId: string, interval: string): Promise<{ tenantId: string; metricsAggregatedCount: number }> {
+    return {
+      tenantId,
+      metricsAggregatedCount: 42,
+    };
+  }
+}
+
+export default AnalyticsWorker;

@@ -2,7 +2,7 @@
   "name": "@shivi/service-marketing",
   "version": "1.0.0",
   "type": "module",
-  "description": "Marketing Service — Campaigns, leads, attribution",
+  "description": "Marketing automation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

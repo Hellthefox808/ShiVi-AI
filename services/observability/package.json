@@ -2,7 +2,7 @@
   "name": "@shivi/service-observability",
   "version": "1.0.0",
   "type": "module",
-  "description": "Observability Service — Traces, metrics, logs",
+  "description": "Observability platform",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

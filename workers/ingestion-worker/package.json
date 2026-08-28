@@ -2,7 +2,7 @@
   "name": "@shivi/worker-ingestion",
   "version": "1.0.0",
   "type": "module",
-  "description": "Ingestion Worker — Document/data ingestion pipeline",
+  "description": "Document/data ingestion",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

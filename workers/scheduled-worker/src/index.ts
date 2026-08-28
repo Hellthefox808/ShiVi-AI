@@ -1,2 +1,19 @@
-export interface ScheduledJob { name: string; cron: string; handler: string; enabled: boolean; }
-export class ScheduledWorker { async execute(job: ScheduledJob): Promise<{ success: boolean }> { return { success: true }; } }
+/**
+ * worker-scheduled - Cron maintenance worker
+ *
+ * @packageDocumentation
+ */
+
+export class ScheduledWorker {
+  constructor(private readonly config: Record<string, unknown> = {}) {}
+
+  public async executeTask(taskName: string): Promise<{ taskName: string; status: string; executedAt: string }> {
+    return {
+      taskName,
+      status: 'completed',
+      executedAt: new Date().toISOString(),
+    };
+  }
+}
+
+export default ScheduledWorker;

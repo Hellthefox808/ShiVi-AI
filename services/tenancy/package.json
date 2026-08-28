@@ -2,7 +2,7 @@
   "name": "@shivi/service-tenancy",
   "version": "1.0.0",
   "type": "module",
-  "description": "Tenancy Service — Tenant provisioning, isolation, plans",
+  "description": "Tenant provisioning, isolation, plans",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

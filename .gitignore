@@ -7,3 +7,6 @@ dist/
 .env.local
 .env.production
 coverage/
+.gemini/
+.jolli/
+

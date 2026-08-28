@@ -2,7 +2,7 @@
   "name": "@shivi/service-agents",
   "version": "1.0.0",
   "type": "module",
-  "description": "Agent Service — Fleet management, lifecycle",
+  "description": "Agent fleet management",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

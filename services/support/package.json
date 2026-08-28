@@ -2,7 +2,7 @@
   "name": "@shivi/service-support",
   "version": "1.0.0",
   "type": "module",
-  "description": "Support Service — Tickets, SLA, escalation",
+  "description": "Support ticketing",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

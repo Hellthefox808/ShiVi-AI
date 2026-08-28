@@ -2,7 +2,7 @@
   "name": "@shivi/service-tools",
   "version": "1.0.0",
   "type": "module",
-  "description": "Tool Service — Registry, execution, ACL",
+  "description": "Tool registry and execution",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

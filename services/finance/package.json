@@ -2,7 +2,7 @@
   "name": "@shivi/service-finance",
   "version": "1.0.0",
   "type": "module",
-  "description": "Finance Service — Billing, invoicing, revenue",
+  "description": "Finance, billing",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

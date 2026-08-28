@@ -2,7 +2,7 @@
   "name": "@shivi/service-revops",
   "version": "1.0.0",
   "type": "module",
-  "description": "RevOps Service — Revenue analytics, attribution",
+  "description": "Revenue operations",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

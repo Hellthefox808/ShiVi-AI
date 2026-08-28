@@ -2,7 +2,7 @@
   "name": "@shivi/service-notifications",
   "version": "1.0.0",
   "type": "module",
-  "description": "Notification Service — Multi-channel dispatch",
+  "description": "Notification dispatch",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
