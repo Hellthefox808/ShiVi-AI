@@ -9,4 +9,7 @@ dist/
 coverage/
 .gemini/
 .jolli/
+*.pdf
+*.pptx
+*.docx
 
