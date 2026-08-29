@@ -3,7 +3,7 @@
  * Verifies executable policy-as-code evaluation, risk tier calculation,
  * and data governance primitives (source tracking, lineage, quality, freshness, schema drift).
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { PolicyEngine } from '@shivi/service-policy';
 
 describe('Policy Engine', () => {

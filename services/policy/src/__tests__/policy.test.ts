@@ -9,7 +9,12 @@ describe('PolicyService Governance Suite', () => {
       tenantId: 'tenant_prod',
       agentId: 'agent_sql_exec',
       actionType: 'database_write',
-      payload: { sql: 'SELECT * FROM users' },
+      dataSensitivity: 5,
+      autonomy: 5,
+      externalEffects: 5,
+      financialImpact: 5,
+      customerImpact: 5,
+      reversibility: 5,
     });
     expect(result.tier).toBeDefined();
     expect(result.allowed).toBe(true);
