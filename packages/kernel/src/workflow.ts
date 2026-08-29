@@ -57,9 +57,9 @@ export class WorkflowEngine {
     const idemKey = `tenant:${tenantId}:${idempotencyKey}`;
 
     // Idempotency check
-    const existingWorkflowId = await RedisClientAdapter.get(idemKey);
+    const existingWorkflowId = await RedisClientAdapter.get(tenantId, idemKey);
     if (existingWorkflowId) {
-      const existingInstanceStr = await RedisClientAdapter.get(existingWorkflowId);
+      const existingInstanceStr = await RedisClientAdapter.get(tenantId, existingWorkflowId);
       if (existingInstanceStr) {
         return JSON.parse(existingInstanceStr);
       }
@@ -81,8 +81,8 @@ export class WorkflowEngine {
       updatedAt: now,
     };
 
-    await RedisClientAdapter.set(workflowId, JSON.stringify(instance));
-    await RedisClientAdapter.set(idemKey, workflowId);
+    await RedisClientAdapter.set(tenantId, workflowId, JSON.stringify(instance));
+    await RedisClientAdapter.set(tenantId, idemKey, workflowId);
 
     let currentInput = { ...input };
 
@@ -121,14 +121,14 @@ export class WorkflowEngine {
         }
       }
 
-      await RedisClientAdapter.set(workflowId, JSON.stringify(instance));
+      await RedisClientAdapter.set(tenantId, workflowId, JSON.stringify(instance));
 
       if (!stepSuccess) {
         // Workflow failure: Trigger compensation sequence for completed steps in reverse order
         instance.status = 'FAILED';
         instance.error = `Workflow failed at step '${step.stepId}': ${lastStepError?.message}`;
         instance.updatedAt = Date.now();
-        await RedisClientAdapter.set(workflowId, JSON.stringify(instance));
+        await RedisClientAdapter.set(tenantId, workflowId, JSON.stringify(instance));
 
         await this.rollbackWorkflow(instance, steps, i - 1, currentInput);
         return instance;
@@ -138,7 +138,7 @@ export class WorkflowEngine {
     instance.status = 'COMPLETED';
     instance.output = currentInput;
     instance.updatedAt = Date.now();
-    await RedisClientAdapter.set(workflowId, JSON.stringify(instance));
+    await RedisClientAdapter.set(tenantId, workflowId, JSON.stringify(instance));
     return instance;
   }
 
@@ -175,7 +175,7 @@ export class WorkflowEngine {
       }
     }
     instance.status = 'COMPENSATED';
-    await RedisClientAdapter.set(instance.workflowId, JSON.stringify(instance));
+    await RedisClientAdapter.set(instance.tenantId, instance.workflowId, JSON.stringify(instance));
   }
 
   /**
@@ -183,7 +183,7 @@ export class WorkflowEngine {
    */
   public static async getWorkflowInstance(requestTenantId: string, workflowId: string): Promise<WorkflowExecutionInstance | undefined> {
     const { RedisClientAdapter } = await import('@shivi/database');
-    const instanceStr = await RedisClientAdapter.get(workflowId);
+    const instanceStr = await RedisClientAdapter.get(requestTenantId, workflowId);
     if (!instanceStr) return undefined;
 
     const instance: WorkflowExecutionInstance = JSON.parse(instanceStr);

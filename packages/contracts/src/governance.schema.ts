@@ -82,7 +82,7 @@ export const ShadowAIClassificationSchema = z.enum([
   'SHADOW',
 ]);
 
-export const RiskFactorSchema = z.object({
+export const GovRiskFactorSchema = z.object({
   factor: z.string(),
   weight: z.number(),
   score: z.number(),
@@ -94,7 +94,7 @@ export const AIRiskAssessmentSchema = z.object({
   riskTier: RiskLevelSchema,
   riskScore: z.number(),
   classification: z.enum(['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']),
-  factors: z.array(RiskFactorSchema),
+  factors: z.array(GovRiskFactorSchema),
   assessedAt: z.number(),
   assessedBy: z.string(),
 });

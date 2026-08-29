@@ -58,19 +58,19 @@ export class AgentMemoryEngine {
     };
 
     const { RedisClientAdapter } = await import('@shivi/database');
-    const redisKey = `memory:${item.tenantId}:${item.agentId}:${id}`;
+    const redisKey = `agent:${item.agentId}:${id}`;
     
     // Store main record
-    await RedisClientAdapter.set(redisKey, JSON.stringify(memoryItem));
+    await RedisClientAdapter.set(item.tenantId, redisKey, JSON.stringify(memoryItem));
     
     // Maintain an index set for the agent's memories
-    const indexKey = `memory_index:${item.tenantId}:${item.agentId}`;
+    const indexKey = `memory_index:${item.agentId}`;
     
     // For simplicity with basic ioredis wrapper, we can fetch index, append, and save
-    let indexStr = await RedisClientAdapter.get(indexKey);
+    let indexStr = await RedisClientAdapter.get(item.tenantId, indexKey);
     let indexArr: string[] = indexStr ? JSON.parse(indexStr) : [];
     indexArr.push(redisKey);
-    await RedisClientAdapter.set(indexKey, JSON.stringify(indexArr));
+    await RedisClientAdapter.set(item.tenantId, indexKey, JSON.stringify(indexArr));
 
     return memoryItem;
   }
@@ -88,14 +88,14 @@ export class AgentMemoryEngine {
     const now = Date.now();
     
     const { RedisClientAdapter } = await import('@shivi/database');
-    const indexKey = `memory_index:${requestTenantId}:${agentId}`;
-    let indexStr = await RedisClientAdapter.get(indexKey);
+    const indexKey = `memory_index:${agentId}`;
+    let indexStr = await RedisClientAdapter.get(requestTenantId, indexKey);
     if (!indexStr) return [];
     
     const keys: string[] = JSON.parse(indexStr);
     
     for (const key of keys) {
-      const memStr = await RedisClientAdapter.get(key);
+      const memStr = await RedisClientAdapter.get(requestTenantId, key);
       if (!memStr) continue;
       
       const item: AgentMemoryItem = JSON.parse(memStr);

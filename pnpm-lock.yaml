@@ -54,6 +54,9 @@ importers:
       '@shivi/contracts':
         specifier: workspace:*
         version: link:../../packages/contracts
+      '@shivi/database':
+        specifier: workspace:*
+        version: link:../../packages/database
       '@shivi/kernel':
         specifier: workspace:*
         version: link:../../packages/kernel

@@ -10,13 +10,14 @@
     "start": "node dist/server.js"
   },
   "dependencies": {
-    "@shivi/kernel": "workspace:*",
-    "@shivi/contracts": "workspace:*",
-    "@shivi/telemetry": "workspace:*",
-    "@shivi/security": "workspace:*",
-    "@shivi/ai-sdk": "workspace:*",
     "@shivi/agent-runtime": "workspace:*",
+    "@shivi/ai-sdk": "workspace:*",
+    "@shivi/contracts": "workspace:*",
+    "@shivi/database": "workspace:*",
+    "@shivi/kernel": "workspace:*",
     "@shivi/mcp-gateway": "workspace:*",
+    "@shivi/security": "workspace:*",
+    "@shivi/telemetry": "workspace:*",
     "fastify": "^4.28.1"
   },
   "devDependencies": {
