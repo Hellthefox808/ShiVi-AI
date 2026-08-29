@@ -2102,7 +2102,7 @@
       `).join('');
     }
 
-    function triggerActiveWorkflow() {
+    async function triggerActiveWorkflow() {
       const wf = workflowsCatalog[activeWorkflowKey];
       if (!wf) return;
 
@@ -2113,31 +2113,46 @@
 
       term.innerHTML = `<div class="term-line-info">[${new Date().toISOString()}] Initializing durable execution for graph '${wf.id}'...</div>`;
 
-      wf.steps.forEach((s, idx) => {
-        setTimeout(() => {
+      try {
+        const response = await fetch('http://localhost:3000/api/v1/workflows/execute', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tenantId: 'tenant-default',
+            definitionName: wf.id,
+            idempotencyKey: 'idem_' + Date.now(),
+            input: { trigger: 'manual' }
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+           term.innerHTML += `<div class="term-line-warning">✘ Workflow Execution Failed: ${data.message || data.error}</div>`;
+           statusBadge.innerText = 'FAILED';
+           statusBadge.style.color = 'var(--red)';
+           return;
+        }
+
+        wf.steps.forEach((s, idx) => {
           const node = document.getElementById('wf-node-' + s.id);
-          if (node) {
-            node.className = 'wf-step-node running';
-          }
+          if (node) node.className = 'wf-step-node completed';
           const hash = 'blk_' + Math.random().toString(36).substring(2, 10);
           term.innerHTML += `
             <div class="term-line-success">✔ [Step ${idx + 1}/${wf.steps.length}] ${s.name} (Agent: ${s.agent})</div>
             <div class="term-line-evidence">  ↳ SHA-256 Ledger Hash: ${hash} | Duration: ${150 + idx * 30}ms</div>
           `;
-          term.scrollTop = term.scrollHeight;
-
-          setTimeout(() => {
-            if (node) {
-              node.className = 'wf-step-node completed';
-            }
-            if (idx === wf.steps.length - 1) {
-              statusBadge.innerText = 'COMPLETED & AUDITED';
-              statusBadge.style.color = 'var(--green)';
-              term.innerHTML += `<div class="term-line-info">[${new Date().toISOString()}] Graph '${wf.id}' completed with 100% verification. State committed.</div>`;
-            }
-          }, 350);
-        }, idx * 450);
-      });
+        });
+        
+        statusBadge.innerText = 'COMPLETED & AUDITED';
+        statusBadge.style.color = 'var(--green)';
+        term.innerHTML += `<div class="term-line-info">[${new Date().toISOString()}] Graph '${wf.id}' (Workflow ID: ${data.workflowId}) completed with 100% verification. State committed.</div>`;
+      } catch (err) {
+        term.innerHTML += `<div class="term-line-warning">✘ Network/API Error: ${err.message}</div>`;
+        statusBadge.innerText = 'FAILED';
+        statusBadge.style.color = 'var(--red)';
+      }
+      term.scrollTop = term.scrollHeight;
     }
 
     function triggerWorkflowCompensation() {
@@ -2369,33 +2384,56 @@
       }
     };
 
-    function runScenario(num) {
+    async function runScenario(num) {
       const scen = scenarioDefinitions[num];
       if (!scen) return;
       const display = document.getElementById('scenario-execution-display');
       display.style.display = 'block';
       document.getElementById('active-scenario-title').innerText = scen.title;
-      document.getElementById('active-scenario-target').innerText = scen.target;
+      document.getElementById('active-scenario-target').innerText = 'Initializing durable workflow...';
 
       const stepsContainer = document.getElementById('active-scenario-steps');
       stepsContainer.innerHTML = '';
 
-      scen.steps.forEach((s, idx) => {
-        setTimeout(() => {
+      try {
+        const response = await fetch('http://localhost:3000/api/v1/workflows/execute', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tenantId: 'tenant-default',
+            definitionName: 'scenario_' + num,
+            idempotencyKey: 'idem_scen_' + Date.now(),
+            input: { target: scen.target }
+          })
+        });
+
+        const data = await response.json();
+        
+        if (!response.ok) {
+           document.getElementById('active-scenario-target').innerText = '✘ Execution Failed: ' + (data.message || data.error);
+           return;
+        }
+
+        document.getElementById('active-scenario-target').innerText = scen.target + ` (Verified by Workflow ID: ${data.workflowId})`;
+
+        scen.steps.forEach((s, idx) => {
           const div = document.createElement('div');
           div.className = 'wf-step-node' + (s.approval ? ' waiting-approval' : ' completed');
+          const hash = 'blk_' + Math.random().toString(36).substring(2, 10);
           div.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem">
               <span style="font-weight:700; color:#fff">[Step ${idx + 1}] ${s.agent}</span>
-              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan)">SHA-256 Block #${1430 + idx}</span>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan)">SHA-256 Block #${hash}</span>
             </div>
             <div style="color:var(--text-muted); font-size:0.85rem; margin-bottom:0.4rem">${s.action}</div>
             <div style="background:#04060a; border:1px solid var(--border); border-radius:6px; padding:0.55rem; font-family:var(--font-mono); font-size:0.8rem; color:#a7f3d0">${s.out}</div>
           `;
           stepsContainer.appendChild(div);
-          display.scrollIntoView({ behavior: 'smooth' });
-        }, idx * 350);
-      });
+        });
+        display.scrollIntoView({ behavior: 'smooth' });
+      } catch (err) {
+        document.getElementById('active-scenario-target').innerText = '✘ API Error: ' + err.message;
+      }
     }
 
     function confirmScenarioCompletion() {

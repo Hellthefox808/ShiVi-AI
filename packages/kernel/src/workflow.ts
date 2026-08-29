@@ -39,9 +39,6 @@ export interface WorkflowExecutionInstance {
 }
 
 export class WorkflowEngine {
-  private static activeInstances = new Map<string, WorkflowExecutionInstance>();
-  private static idempotencyMap = new Map<string, string>(); // idempotencyKey -> workflowId
-
   /**
    * Execute a durable multi-step workflow with state checkpointing and compensation support
    */
@@ -56,12 +53,15 @@ export class WorkflowEngine {
       throw new Error('Workflow execution failed: tenantId, definitionName, and idempotencyKey are required.');
     }
 
+    const { RedisClientAdapter } = await import('@shivi/database');
+    const idemKey = `tenant:${tenantId}:${idempotencyKey}`;
+
     // Idempotency check
-    const existingWorkflowId = this.idempotencyMap.get(`tenant:${tenantId}:${idempotencyKey}`);
+    const existingWorkflowId = await RedisClientAdapter.get(idemKey);
     if (existingWorkflowId) {
-      const existingInstance = this.activeInstances.get(existingWorkflowId);
-      if (existingInstance) {
-        return existingInstance;
+      const existingInstanceStr = await RedisClientAdapter.get(existingWorkflowId);
+      if (existingInstanceStr) {
+        return JSON.parse(existingInstanceStr);
       }
     }
 
@@ -81,8 +81,8 @@ export class WorkflowEngine {
       updatedAt: now,
     };
 
-    this.activeInstances.set(workflowId, instance);
-    this.idempotencyMap.set(`tenant:${tenantId}:${idempotencyKey}`, workflowId);
+    await RedisClientAdapter.set(workflowId, JSON.stringify(instance));
+    await RedisClientAdapter.set(idemKey, workflowId);
 
     let currentInput = { ...input };
 
@@ -121,11 +121,14 @@ export class WorkflowEngine {
         }
       }
 
+      await RedisClientAdapter.set(workflowId, JSON.stringify(instance));
+
       if (!stepSuccess) {
         // Workflow failure: Trigger compensation sequence for completed steps in reverse order
         instance.status = 'FAILED';
         instance.error = `Workflow failed at step '${step.stepId}': ${lastStepError?.message}`;
         instance.updatedAt = Date.now();
+        await RedisClientAdapter.set(workflowId, JSON.stringify(instance));
 
         await this.rollbackWorkflow(instance, steps, i - 1, currentInput);
         return instance;
@@ -135,6 +138,7 @@ export class WorkflowEngine {
     instance.status = 'COMPLETED';
     instance.output = currentInput;
     instance.updatedAt = Date.now();
+    await RedisClientAdapter.set(workflowId, JSON.stringify(instance));
     return instance;
   }
 
@@ -147,6 +151,7 @@ export class WorkflowEngine {
     fromStepIndex: number,
     context: Record<string, unknown>
   ): Promise<void> {
+    const { RedisClientAdapter } = await import('@shivi/database');
     for (let i = fromStepIndex; i >= 0; i--) {
       const step = steps[i];
       if (step.compensation) {
@@ -170,15 +175,18 @@ export class WorkflowEngine {
       }
     }
     instance.status = 'COMPENSATED';
+    await RedisClientAdapter.set(instance.workflowId, JSON.stringify(instance));
   }
 
   /**
    * Get workflow instance by ID with tenant isolation check
    */
-  public static getWorkflowInstance(requestTenantId: string, workflowId: string): WorkflowExecutionInstance | undefined {
-    const instance = this.activeInstances.get(workflowId);
-    if (!instance) return undefined;
+  public static async getWorkflowInstance(requestTenantId: string, workflowId: string): Promise<WorkflowExecutionInstance | undefined> {
+    const { RedisClientAdapter } = await import('@shivi/database');
+    const instanceStr = await RedisClientAdapter.get(workflowId);
+    if (!instanceStr) return undefined;
 
+    const instance: WorkflowExecutionInstance = JSON.parse(instanceStr);
     if (instance.tenantId !== requestTenantId) {
       throw new Error(`Cross-tenant workflow violation: Tenant '${requestTenantId}' cannot view workflow '${workflowId}'`);
     }
@@ -190,7 +198,6 @@ export class WorkflowEngine {
    * Reset store (testing only)
    */
   public static resetStore(): void {
-    this.activeInstances.clear();
-    this.idempotencyMap.clear();
+    // Requires Redis keyspace flush which is handled in DB adapter for tests.
   }
 }

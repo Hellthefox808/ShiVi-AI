@@ -98,7 +98,7 @@ export function buildServer() {
   server.post('/api/v1/memory/store', async (request, reply) => {
     const body = request.body as any;
     try {
-      const item = AgentMemoryEngine.storeMemory(body);
+      const item = await AgentMemoryEngine.storeMemory(body);
       return reply.status(201).send({ status: 'STORED', memoryItem: item });
     } catch (err: any) {
       return reply.status(400).send({ error: 'MEMORY_STORE_FAILED', message: err.message });
@@ -111,7 +111,7 @@ export function buildServer() {
     if (!query.tenantId || !query.agentId) {
       return reply.status(400).send({ error: 'MISSING_PARAMS', message: 'tenantId and agentId are required.' });
     }
-    const items = AgentMemoryEngine.queryMemory(query.tenantId, query.agentId, query.tier as any, query.key);
+    const items = await AgentMemoryEngine.queryMemory(query.tenantId, query.agentId, query.tier as any, query.key);
     return reply.send({ tenantId: query.tenantId, agentId: query.agentId, count: items.length, items });
   });
 
@@ -170,7 +170,7 @@ export function buildServer() {
       TenancyManager.registerTenant(tenant);
     }
 
-    const results = VectorRetrievalEngine.queryVectorIndex(tenant, body.userRoles || [], body.queryVector || [], body.topK || 5);
+    const results = await VectorRetrievalEngine.queryVectorIndex(tenant, body.userRoles || [], body.queryVector || [], body.topK || 5);
     return reply.send({ tenantId: body.tenantId, count: results.length, results });
   });
 
