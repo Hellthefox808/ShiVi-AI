@@ -923,6 +923,9 @@
         <button class="nav-tab-btn" id="tab-harness" onclick="switchTab('harness')">
           <span>🧪</span> Harness & Drift
         </button>
+        <button class="nav-tab-btn" id="tab-login" onclick="switchTab('login')">
+          <span>🔐</span> SSO Login
+        </button>
       </nav>
 
       <div class="nav-actions">
@@ -1477,6 +1480,16 @@
             <label class="form-label">Enterprise Email</label>
             <input type="email" class="form-control" value="operator@acme.shivi.ai" required>
           </div>
+          <div class="form-group">
+            <label class="form-label">Access Token / Password</label>
+            <input type="password" class="form-control" value="••••••••••••" required>
+          </div>
+          <button type="submit" class="btn-hero-primary" style="width:100%; justify-content:center;">
+            Launch Authenticated Workspace →
+          </button>
+        </form>
+      </div>
+    </div>
     <!-- ─────────────────────────────────────────────────────────────
          9. EXECUTIVE AI ANSWERS: "WHY IS FORECAST DOWN?"
          ───────────────────────────────────────────────────────────── -->
