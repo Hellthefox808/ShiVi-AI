@@ -10,9 +10,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@google/genai": "^2.19.0",
     "@shivi/kernel": "workspace:*",
-    "@shivi/telemetry": "workspace:*",
-    "@shivi/security": "workspace:*"
+    "@shivi/security": "workspace:*",
+    "@shivi/telemetry": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.5.4"

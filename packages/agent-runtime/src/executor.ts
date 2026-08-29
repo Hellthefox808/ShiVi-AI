@@ -7,6 +7,7 @@ import { TenancyContext, CapabilityBroker, CapabilityViolationError } from '@shi
 import { PromptSanitizer, EvidenceLedger } from '@shivi/security';
 import { ModelRouter, ModelCostTracker } from '@shivi/ai-sdk';
 import { AgentLifecycleManager, AgentManifest } from './lifecycle.js';
+import { GoogleGenAI } from '@google/genai';
 
 export interface AgentExecutionTask {
   taskId: string;
@@ -124,7 +125,27 @@ export class AgentExecutor {
         };
       }
 
-      // Simulated tool call for step
+      // Real LLM call using @google/genai
+      let llmOutput = '';
+      let llmTokens = { prompt: 250, completion: 150 };
+      
+      try {
+        const apiKey = process.env.GEMINI_API_KEY;
+        if (apiKey) {
+          const ai = new GoogleGenAI({ apiKey });
+          const response = await ai.models.generateContent({
+            model: route.primaryModel.startsWith('gemini') ? route.primaryModel : 'gemini-2.5-flash',
+            contents: [{ role: 'user', parts: [{ text: `System: You are ${agent.name}. ${agent.description}.\nTask: ${task.inputPrompt}` }] }]
+          });
+          llmOutput = response.text || '';
+        } else {
+          // Fallback if no API key is provided during testing
+          llmOutput = `[SIMULATED REAL-MODE - NO API KEY] Agent '${agent.name}' processed: ${task.inputPrompt}`;
+        }
+      } catch (err: any) {
+        llmOutput = `LLM Execution Error: ${err.message}`;
+      }
+
       const toolCallName = agent.allowedTools.length > 0 ? agent.allowedTools[0] : 'default_analyzer';
       const callSignature = `${toolCallName}:${JSON.stringify({ query: task.inputPrompt })}`;
 
@@ -156,7 +177,7 @@ export class AgentExecutor {
 
       trajectory.push({
         stepIndex: stepIdx,
-        thought: `[Step ${stepIdx}] Processing query via model '${route.primaryModel}' and tool '${toolCallName}'.`,
+        thought: llmOutput ? llmOutput.substring(0, 100) + '...' : `Processing query via model '${route.primaryModel}'`,
         toolCall: {
           toolName: toolCallName,
           arguments: { query: task.inputPrompt },
@@ -165,14 +186,33 @@ export class AgentExecutor {
         timestamp: Date.now(),
       });
 
-      // Break loop if complete (for standard 2-step single execution demo)
-      if (stepIdx >= 2) break;
+      // Stream to Redis PubSub for real-time frontend
+      try {
+        const { RedisClientAdapter } = await import('@shivi/database');
+        await RedisClientAdapter.publish(`agent-stream:${task.tenantId}:sess-stream-01`, JSON.stringify({
+          eventType: 'AGENT_STEP',
+          tenantId: task.tenantId,
+          sessionId: 'sess-stream-01',
+          data: {
+            stepIndex: stepIdx,
+            thoughtStatus: llmOutput ? llmOutput.substring(0, 150) + '...' : 'Processing via real model...',
+            confidenceScore: 0.95
+          },
+          timestamp: Date.now()
+        }));
+      } catch(e) {}
+
+      // For this phase, we do a single generation step and exit the loop.
+      // True multi-step ReAct requires parsing tool calls from the LLM response.
+      break;
     }
 
     // Record FinOps usage
     ModelCostTracker.recordUsage(task.tenantId, task.agentId, route.primaryModel, 500, 300);
 
-    const finalOutput = `Agent '${agent.name}' successfully completed task '${task.taskId}' for query: "${task.inputPrompt}"`;
+    const finalOutput = trajectory.length > 0 && trajectory[0].thought && !trajectory[0].thought.includes('[SIMULATED') 
+      ? trajectory.map(t => t.thought).join('\n')
+      : `Agent '${agent.name}' successfully completed task '${task.taskId}' for query: "${task.inputPrompt}"`;
 
     // 6. Cryptographic Evidence Ledger Recording
     const evidence = EvidenceLedger.appendEvidence(

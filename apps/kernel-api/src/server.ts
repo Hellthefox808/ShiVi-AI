@@ -10,6 +10,7 @@ import { McpGatewayServer, ToolRegistry, McpJsonRpcRequest } from '@shivi/mcp-ga
 import { ModelRouter, VectorRetrievalEngine } from '@shivi/ai-sdk';
 import { TenancyContextSchema, AgentExecutionTaskSchema, McpJsonRpcRequestSchema } from '@shivi/contracts';
 import { registerSSERoutes } from './sse.js';
+import { PostgresPoolAdapter, RedisClientAdapter } from '@shivi/database';
 
 export function buildServer() {
   const server = Fastify({ logger: false });
@@ -23,7 +24,13 @@ export function buildServer() {
 
   // Health Check
   server.get('/health', async () => {
-    return { status: 'HEALTHY', system: 'ShiVi X100+ Kernel API', timestamp: new Date().toISOString() };
+    return { 
+      status: 'HEALTHY', 
+      system: 'ShiVi X100+ Kernel API', 
+      dbConnected: PostgresPoolAdapter.isConnected,
+      redisConnected: RedisClientAdapter.isConnected,
+      timestamp: new Date().toISOString() 
+    };
   });
 
   // Register Tenant Context
@@ -202,13 +209,20 @@ export function buildServer() {
 }
 
 if (process.env.NODE_ENV !== 'test') {
-  const server = buildServer();
   const PORT = parseInt(process.env.PORT || '3000', 10);
-  server.listen({ port: PORT, host: '0.0.0.0' }, (err, address) => {
-    if (err) {
-      console.error(err);
-      process.exit(1);
-    }
-    console.log(`[ShiVi Kernel REST API] Server listening on ${address}`);
-  });
+  
+  (async () => {
+    console.log('[ShiVi Kernel] Connecting to Database & Cache...');
+    await PostgresPoolAdapter.connect();
+    await RedisClientAdapter.connect();
+    
+    const server = buildServer();
+    server.listen({ port: PORT, host: '0.0.0.0' }, (err, address) => {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+      console.log(`[ShiVi Kernel REST API] Server listening on ${address}`);
+    });
+  })();
 }

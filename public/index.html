@@ -2403,7 +2403,7 @@
       document.getElementById('scenario-execution-display').style.display = 'none';
     }
 
-    function dispatchCustomTask() {
+    async function dispatchCustomTask() {
       const agent = document.getElementById('cmd-agent-select').value;
       const model = document.getElementById('cmd-model-select').value;
       const prompt = document.getElementById('cmd-prompt-input').value;
@@ -2412,14 +2412,40 @@
       const hash = 'blk_' + Math.random().toString(36).substring(2, 10);
       term.innerHTML += `
         <div style="border-top:1px dashed var(--border); margin:0.5rem 0; padding-top:0.5rem">
-          <div class="term-line-info">[${new Date().toISOString()}] Executing '${agent}' via '${model}'...</div>
+          <div class="term-line-info">[${new Date().toISOString()}] Routing '${agent}' via '${model}' to ShiVi Kernel...</div>
           <div style="color:#cbd5e1">Prompt: "${prompt}"</div>
-          <div class="term-line-success">✔ Prompt Sanitizer: Safe (0 injection patterns)</div>
-          <div class="term-line-success">✔ Model Allocated: ${model} ($0.0031 USD)</div>
-          <div class="term-line-evidence">✔ Evidence Hash: ${hash} committed to chain</div>
-          <div class="term-line-info">✔ Trajectory status: COMPLETED</div>
         </div>
       `;
+      term.scrollTop = term.scrollHeight;
+
+      try {
+        const response = await fetch('http://localhost:3000/api/v1/agents/execute', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            taskId: 'task_' + Date.now(),
+            tenantId: 'tenant-default',
+            agentId: agent,
+            agentVersion: 'v1',
+            inputPrompt: prompt,
+            capabilityTokenId: 'cap-admin-1',
+            maxCostUSD: 1.0
+          })
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+           term.innerHTML += `<div class="term-line-warning">✘ Execution Failed: ${data.message || data.error}</div>`;
+        } else {
+           term.innerHTML += `
+             <div class="term-line-success">✔ Output: ${data.finalOutput}</div>
+             <div class="term-line-evidence">✔ Evidence Hash: ${data.evidenceRecordId || hash} (Cost: $${data.totalCostUSD})</div>
+           `;
+        }
+      } catch (err) {
+        term.innerHTML += `<div class="term-line-warning">✘ Network/API Error: ${err.message}</div>`;
+      }
       term.scrollTop = term.scrollHeight;
     }
 

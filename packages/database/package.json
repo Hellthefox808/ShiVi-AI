@@ -10,10 +10,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@shivi/kernel": "workspace:*",
-    "@shivi/contracts": "workspace:*"
+    "@shivi/contracts": "workspace:*",
+    "@shivi/kernel": "workspace:*"
   },
   "devDependencies": {
+    "@types/pg": "^8.23.1",
     "typescript": "^5.5.4"
   }
 }

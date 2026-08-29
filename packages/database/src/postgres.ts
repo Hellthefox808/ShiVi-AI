@@ -3,12 +3,11 @@
  * Standard: SAD v2.0 §24, TDA v1.1 §155
  */
 
+import { Pool, PoolConfig } from 'pg';
 import { DatabaseSchemaRepository, TenantRecord, UserRecord } from './schema.js';
 
-export interface PostgresConfig {
+export interface PostgresConfig extends PoolConfig {
   connectionString?: string;
-  maxPoolSize?: number;
-  ssl?: boolean;
 }
 
 export interface VectorSearchResult {
@@ -20,28 +19,45 @@ export interface VectorSearchResult {
 }
 
 export class PostgresPoolAdapter {
-  private static isConnected = false;
-  private static vectorStorage: Array<{
-    embeddingId: string;
-    tenantId: string;
-    documentId: string;
-    classification: string;
-    allowedRoles: string[];
-    content: string;
-    vector: number[];
-  }> = [];
+  private static pool: Pool | null = null;
+  public static isConnected = false;
 
   public static async connect(config?: PostgresConfig): Promise<boolean> {
-    this.isConnected = true;
-    return true;
+    if (this.pool) return true;
+    
+    this.pool = new Pool({
+      connectionString: process.env.DATABASE_URL || config?.connectionString,
+      max: config?.max || 20,
+      ssl: config?.ssl,
+    });
+
+    try {
+      await this.pool.query('SELECT 1');
+      this.isConnected = true;
+      return true;
+    } catch (err) {
+      console.error('ShiVi DB Error: Failed to connect to PostgreSQL', err);
+      return false;
+    }
   }
 
   public static async runMigrations(): Promise<{ success: boolean; executedDDL: string }> {
+    if (!this.pool) await this.connect();
+    
     const ddl = DatabaseSchemaRepository.getPostgresDDL();
-    return {
-      success: true,
-      executedDDL: ddl,
-    };
+    try {
+      await this.pool!.query(ddl);
+      return {
+        success: true,
+        executedDDL: ddl,
+      };
+    } catch (err) {
+      console.error('ShiVi DB Error: Migration failed', err);
+      return {
+        success: false,
+        executedDDL: '',
+      };
+    }
   }
 
   /**
@@ -56,15 +72,16 @@ export class PostgresPoolAdapter {
     content: string,
     vector: number[]
   ): Promise<void> {
-    this.vectorStorage.push({
-      embeddingId,
-      tenantId,
-      documentId,
-      classification,
-      allowedRoles,
-      content,
-      vector,
-    });
+    if (!this.pool) await this.connect();
+    
+    const vectorStr = `[${vector.join(',')}]`;
+    
+    await this.pool!.query(
+      `INSERT INTO vector_embeddings 
+       (embedding_id, tenant_id, document_id, classification, allowed_roles, content, embedding)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+      [embeddingId, tenantId, documentId, classification, allowedRoles, content, vectorStr]
+    );
   }
 
   /**
@@ -76,42 +93,36 @@ export class PostgresPoolAdapter {
     userRoles: string[],
     topK: number = 5
   ): Promise<VectorSearchResult[]> {
-    const tenantVectors = this.vectorStorage.filter((item) => {
-      if (item.tenantId !== tenantId) return false;
-      const roleAllowed = item.allowedRoles.some((role) => userRoles.includes(role));
-      return roleAllowed;
-    });
+    if (!this.pool) await this.connect();
 
-    const results: VectorSearchResult[] = tenantVectors.map((item) => {
-      const score = this.cosineSimilarity(queryVector, item.vector);
-      return {
-        embeddingId: item.embeddingId,
-        tenantId: item.tenantId,
-        documentId: item.documentId,
-        content: item.content,
-        similarityScore: Number(score.toFixed(4)),
-      };
-    });
+    const vectorStr = `[${queryVector.join(',')}]`;
+    
+    const result = await this.pool!.query(
+      `SELECT 
+         embedding_id, 
+         tenant_id, 
+         document_id, 
+         content, 
+         1 - (embedding <=> $1) as similarity_score
+       FROM vector_embeddings
+       WHERE tenant_id = $2
+         AND allowed_roles && $3
+       ORDER BY embedding <=> $1
+       LIMIT $4`,
+      [vectorStr, tenantId, userRoles, topK]
+    );
 
-    results.sort((a, b) => b.similarityScore - a.similarityScore);
-    return results.slice(0, topK);
+    return result.rows.map(row => ({
+      embeddingId: row.embedding_id,
+      tenantId: row.tenant_id,
+      documentId: row.document_id,
+      content: row.content,
+      similarityScore: Number(row.similarity_score.toFixed(4)),
+    }));
   }
 
-  private static cosineSimilarity(a: number[], b: number[]): number {
-    if (a.length === 0 || b.length === 0 || a.length !== b.length) return 0;
-    let dot = 0;
-    let normA = 0;
-    let normB = 0;
-    for (let i = 0; i < a.length; i++) {
-      dot += a[i] * b[i];
-      normA += a[i] * a[i];
-      normB += b[i] * b[i];
-    }
-    if (normA === 0 || normB === 0) return 0;
-    return dot / (Math.sqrt(normA) * Math.sqrt(normB));
-  }
-
-  public static resetVectorStorage(): void {
-    this.vectorStorage = [];
+  public static async resetVectorStorage(): Promise<void> {
+    if (!this.pool) await this.connect();
+    await this.pool!.query(`TRUNCATE TABLE vector_embeddings`);
   }
 }
