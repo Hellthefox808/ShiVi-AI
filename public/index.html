@@ -893,26 +893,35 @@
         <button class="nav-tab-btn active" id="tab-landing" onclick="switchTab('landing')">
           <span>✨</span> Overview
         </button>
+        <button class="nav-tab-btn" id="tab-executive" onclick="switchTab('executive')">
+          <span>📊</span> Executive AI
+        </button>
+        <button class="nav-tab-btn" id="tab-governance" onclick="switchTab('governance')">
+          <span>🛡️</span> AI Inventory
+        </button>
+        <button class="nav-tab-btn" id="tab-data" onclick="switchTab('data')">
+          <span>🌐</span> Data & Lineage
+        </button>
+        <button class="nav-tab-btn" id="tab-security" onclick="switchTab('security')">
+          <span>🔒</span> Security & PII
+        </button>
+        <button class="nav-tab-btn" id="tab-oversight" onclick="switchTab('oversight')">
+          <span>👤</span> Human Oversight
+        </button>
+        <button class="nav-tab-btn" id="tab-compliance" onclick="switchTab('compliance')">
+          <span>📜</span> Compliance & Audit
+        </button>
         <button class="nav-tab-btn" id="tab-workflows" onclick="switchTab('workflows')">
           <span>🔄</span> Workflows Studio
         </button>
         <button class="nav-tab-btn" id="tab-pipeline" onclick="switchTab('pipeline')">
           <span>📈</span> Pipeline & Deals
         </button>
-        <button class="nav-tab-btn" id="tab-scenarios" onclick="switchTab('scenarios')">
-          <span>🎬</span> 5 Live Scenarios
-        </button>
         <button class="nav-tab-btn" id="tab-agents" onclick="switchTab('agents')">
-          <span>🤖</span> 38 Core Agents
-        </button>
-        <button class="nav-tab-btn" id="tab-dashboard" onclick="switchTab('dashboard')">
-          <span>⚡</span> Command Center
+          <span>🤖</span> 38 Agents
         </button>
         <button class="nav-tab-btn" id="tab-harness" onclick="switchTab('harness')">
-          <span>🧪</span> Agent Harness
-        </button>
-        <button class="nav-tab-btn" id="tab-login" onclick="switchTab('login')">
-          <span>🔐</span> SSO Login
+          <span>🧪</span> Harness & Drift
         </button>
       </nav>
 
@@ -1468,14 +1477,467 @@
             <label class="form-label">Enterprise Email</label>
             <input type="email" class="form-control" value="operator@acme.shivi.ai" required>
           </div>
-          <div class="form-group">
-            <label class="form-label">Access Token / Password</label>
-            <input type="password" class="form-control" value="••••••••••••" required>
+    <!-- ─────────────────────────────────────────────────────────────
+         9. EXECUTIVE AI ANSWERS: "WHY IS FORECAST DOWN?"
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-executive" class="page-view">
+      <div style="margin-bottom: 2rem">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem">
+          <div>
+            <div style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(99,102,241,0.15); border:1px solid rgba(99,102,241,0.3); padding:0.35rem 0.85rem; border-radius:20px; font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan); margin-bottom:0.75rem">
+              <span>🤖</span> Executive Decision Intelligence Engine · Grounded in Live Evidence
+            </div>
+            <h1 style="font-size:2.2rem; font-weight:800; color:#fff; letter-spacing:-0.03em">Executive AI Answer: "Why is forecast down?"</h1>
+            <p style="color:var(--text-muted); font-size:1.05rem; margin-top:0.35rem">
+              Deterministic driver decomposition combining CRM stage velocity, buying committee signals, and historical cohort patterns.
+            </p>
           </div>
-          <button type="submit" class="btn-hero-primary" style="width:100%; justify-content:center;">
-            Launch Authenticated Workspace →
+          <button class="btn-hero-primary" onclick="rerunExecutiveAnalysis()">
+            <span>⚡</span> Re-Analyze Live Forecast
           </button>
-        </form>
+        </div>
+      </div>
+
+      <!-- Key Gap Summary Card -->
+      <div class="card" style="background:linear-gradient(135deg, rgba(239,68,68,0.08), rgba(16,22,34,0.9)); border-color:rgba(239,68,68,0.3); margin-bottom:1.5rem">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem">
+          <div>
+            <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--red); font-weight:700; font-family:var(--font-mono)">Forecast Variance Analysis</span>
+            <h2 style="font-size:1.5rem; color:#fff; margin-top:0.25rem">Q3 Committed Forecast adjusted down -$310K (-16.8%)</h2>
+            <p style="color:var(--text-muted); font-size:0.9rem; margin-top:0.3rem">
+              Baseline Target: <strong>$1.85M</strong> · Current Committed ARR: <strong>$1.54M</strong> · Weighted Pipeline: <strong>$1.50M</strong>
+            </p>
+          </div>
+          <div style="display:flex; gap:2rem">
+            <div style="text-align:right">
+              <div style="font-size:0.75rem; color:var(--text-dim); text-transform:uppercase">Variance Delta</div>
+              <div style="font-size:1.8rem; font-weight:800; color:var(--red); font-family:var(--font-mono)">-$310,000</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:0.75rem; color:var(--text-dim); text-transform:uppercase">Recovery Potential</div>
+              <div style="font-size:1.8rem; font-weight:800; color:var(--green); font-family:var(--font-mono)">+$310,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Primary Drivers Grid -->
+      <h3 style="font-size:1.2rem; color:#fff; margin-bottom:1rem">1. Primary Root Cause Drivers (Data-Backed)</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1.25rem; margin-bottom:2rem">
+        <div class="card" style="border-left:4px solid var(--red)">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem">
+            <span class="agent-cat-tag" style="color:var(--red); background:rgba(239,68,68,0.15)">Driver 1 · 38.7% Gap</span>
+            <span style="font-family:var(--font-mono); font-weight:700; color:var(--red)">-$120,000</span>
+          </div>
+          <h4 style="font-size:1.05rem; color:#fff; margin-bottom:0.4rem">CyberDyne Systems Stagnation</h4>
+          <p style="color:var(--text-muted); font-size:0.85rem; line-height:1.4">
+            Deal remained in Proposal stage for <strong>34 days</strong> (threshold: 21d) with zero Economic Buyer (VP Infrastructure) engagement in 16 days.
+          </p>
+        </div>
+
+        <div class="card" style="border-left:4px solid var(--amber)">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem">
+            <span class="agent-cat-tag" style="color:var(--amber); background:rgba(245,158,11,0.15)">Driver 2 · 35.5% Gap</span>
+            <span style="font-family:var(--font-mono); font-weight:700; color:var(--amber)">-$110,000</span>
+          </div>
+          <h4 style="font-size:1.05rem; color:#fff; margin-bottom:0.4rem">Nexus BioMed Procurement Delay</h4>
+          <p style="color:var(--text-muted); font-size:0.85rem; line-height:1.4">
+            Enterprise procurement cycle delayed pending formal SOC2 Type II compliance pack and HIPAA data processing addendum.
+          </p>
+        </div>
+
+        <div class="card" style="border-left:4px solid var(--blue)">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem">
+            <span class="agent-cat-tag" style="color:var(--blue); background:rgba(59,130,246,0.15)">Driver 3 · 25.8% Gap</span>
+            <span style="font-family:var(--font-mono); font-weight:700; color:var(--blue)">-$80,000</span>
+          </div>
+          <h4 style="font-size:1.05rem; color:#fff; margin-bottom:0.4rem">Stage Velocity Compression</h4>
+          <p style="color:var(--text-muted); font-size:0.85rem; line-height:1.4">
+            Proposal/Price Quote velocity compressed from $52K/day historical average down to <strong>$42.5K/day</strong> across 6 mid-market opportunities.
+          </p>
+        </div>
+      </div>
+
+      <!-- Actionable RevOps Recovery Playbook -->
+      <h3 style="font-size:1.2rem; color:#fff; margin-bottom:1rem">2. Autonomous AI Mitigation Playbook (Actionable)</h3>
+      <div class="card" style="margin-bottom:2rem">
+        <div style="display:flex; flex-direction:column; gap:1rem">
+          <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-elevated); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border)">
+            <div style="display:flex; align-items:center; gap:1rem">
+              <span style="width:32px; height:32px; border-radius:50%; background:rgba(0,242,254,0.15); color:var(--cyan); display:flex; align-items:center; justify-content:center; font-weight:800">1</span>
+              <div>
+                <div style="font-weight:700; color:#fff">Dispatch Executive Sponsor Outreach to CyberDyne CIO</div>
+                <div style="color:var(--text-muted); font-size:0.8rem">Assigned Agent: <strong>Executive Intelligence Agent</strong> · Model: Gemini 1.5 Pro</div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:1rem">
+              <span style="font-family:var(--font-mono); color:var(--green); font-weight:700">+$120,000 ARR</span>
+              <button class="btn-hero-primary" style="padding:0.4rem 0.8rem; font-size:0.8rem" onclick="executePlaybookStep(1)">Execute Step</button>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-elevated); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border)">
+            <div style="display:flex; align-items:center; gap:1rem">
+              <span style="width:32px; height:32px; border-radius:50%; background:rgba(99,102,241,0.15); color:var(--indigo); display:flex; align-items:center; justify-content:center; font-weight:800">2</span>
+              <div>
+                <div style="font-weight:700; color:#fff">Transmit Verified SOC2 Compliance Pack to Nexus Procurement</div>
+                <div style="color:var(--text-muted); font-size:0.8rem">Assigned Agent: <strong>Compliance Agent</strong> · Model: Claude 3.5 Sonnet</div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:1rem">
+              <span style="font-family:var(--font-mono); color:var(--green); font-weight:700">+$110,000 ARR</span>
+              <button class="btn-hero-primary" style="padding:0.4rem 0.8rem; font-size:0.8rem" onclick="executePlaybookStep(2)">Execute Step</button>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-elevated); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border)">
+            <div style="display:flex; align-items:center; gap:1rem">
+              <span style="width:32px; height:32px; border-radius:50%; background:rgba(16,185,129,0.15); color:var(--green); display:flex; align-items:center; justify-content:center; font-weight:800">3</span>
+              <div>
+                <div style="font-weight:700; color:#fff">Run Deal Strategy Positioning Review on 6 Proposal Deals</div>
+                <div style="color:var(--text-muted); font-size:0.8rem">Assigned Agent: <strong>Deal Strategy Agent</strong> · Model: Gemini 1.5 Pro</div>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; gap:1rem">
+              <span style="font-family:var(--font-mono); color:var(--green); font-weight:700">+$80,000 ARR</span>
+              <button class="btn-hero-primary" style="padding:0.4rem 0.8rem; font-size:0.8rem" onclick="executePlaybookStep(3)">Execute Step</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decision Provenance Box -->
+      <div style="background:var(--bg-surface); border:1px dashed var(--border-focus); border-radius:var(--radius-lg); padding:1.25rem; font-family:var(--font-mono); font-size:0.8rem; color:var(--text-dim)">
+        <div style="color:var(--cyan); font-weight:700; margin-bottom:0.4rem">📌 DECISION PROVENANCE & LINEAGE AUDIT PROOF</div>
+        <div>Model: <strong>gemini-1.5-pro (002)</strong> · Agent: <strong>executive-intelligence-agent (v1.0.0)</strong></div>
+        <div>Governing Policy: <strong>pol_revops_forecast_provenance_v2</strong> · Evidence Freshness: <strong>45,000ms (Fresh)</strong></div>
+        <div>Distributed Trace ID: <strong>trc_exec_fcst_9941a8</strong> · Verification State: <strong>VERIFIED (100% Deterministic)</strong></div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         10. AI INVENTORY & SHADOW AI & AI BOM
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-governance" class="page-view">
+      <div style="margin-bottom: 2rem">
+        <h1 style="font-size:2.2rem; font-weight:800; color:#fff; letter-spacing:-0.03em">Layer 1 — AI Inventory & Governance Fabric</h1>
+        <p style="color:var(--text-muted); font-size:1.05rem; margin-top:0.35rem">
+          Complete inventory of agents, models, prompts, tools, MCP servers, 5-way ownership, AI Bill of Materials (BOM), and Shadow AI detection.
+        </p>
+      </div>
+
+      <!-- Inventory Stat Cards -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.25rem; margin-bottom:2rem">
+        <div class="card stat-card">
+          <span class="stat-label">Total AI Assets</span>
+          <span class="stat-value" style="color:var(--cyan)">46</span>
+          <span class="stat-sub">38 Agents · 4 Models · 4 Tools</span>
+        </div>
+        <div class="card stat-card">
+          <span class="stat-label">5-Way Ownership</span>
+          <span class="stat-value" style="color:var(--green)">100%</span>
+          <span class="stat-sub">0 Orphaned AI Systems</span>
+        </div>
+        <div class="card stat-card">
+          <span class="stat-label">Shadow AI Status</span>
+          <span class="stat-value" style="color:var(--amber)" id="gov-shadow-count">1 Monitored</span>
+          <span class="stat-sub">Telemetry continuous scan</span>
+        </div>
+        <div class="card stat-card">
+          <span class="stat-label">Global Safe Mode</span>
+          <span class="stat-value" style="color:var(--indigo)" id="gov-safe-mode-val">NORMAL</span>
+          <span class="stat-sub">Kill Switches: 0 Active</span>
+        </div>
+      </div>
+
+      <!-- Shadow AI Detector & Safe Mode Controls -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:2rem">
+        <div class="card">
+          <h3 style="font-size:1.15rem; color:#fff; margin-bottom:0.75rem">Shadow AI Telemetry Scanner</h3>
+          <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1rem">
+            Inspects outbound HTTP calls, unapproved API keys, and browser AI plugins outside governed ShiVi pipelines.
+          </p>
+          <div style="background:var(--bg-elevated); padding:0.75rem; border-radius:var(--radius-md); font-family:var(--font-mono); font-size:0.8rem; margin-bottom:1rem" id="shadow-scan-output">
+            <span style="color:var(--green)">✔ Normal:</span> Google Vertex AI (Approved)<br/>
+            <span style="color:var(--amber)">⚠️ Warning:</span> unregistered-third-party-ai.io (Unapproved API Key)
+          </div>
+          <button class="btn-hero-primary" onclick="runShadowAIScan()">Scan Telemetry Now</button>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:1.15rem; color:#fff; margin-bottom:0.75rem">Emergency Kill Switch & Safe Mode</h3>
+          <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1rem">
+            Enforce emergency controls. In SAFE_MODE, models may read/analyze but cannot write, delete, or send emails.
+          </p>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap">
+            <button class="btn-hero-secondary" style="border-color:var(--green)" onclick="setSafeMode('NORMAL')">Normal Mode</button>
+            <button class="btn-hero-secondary" style="border-color:var(--amber)" onclick="setSafeMode('SAFE_MODE')">Activate Safe Mode</button>
+            <button class="btn-hero-secondary" style="border-color:var(--red)" onclick="setSafeMode('LOCKDOWN')">Full Lockdown</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Bill of Materials (BOM) Trigger Card -->
+      <div class="card" style="margin-bottom:2rem">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem">
+          <div>
+            <h3 style="font-size:1.15rem; color:#fff">AI Bill of Materials (AI BOM) Generator</h3>
+            <p style="color:var(--text-muted); font-size:0.85rem">Generate cryptographic software bill of materials for any agent version.</p>
+          </div>
+          <button class="btn-hero-primary" onclick="viewOrchestratorBOM()">Generate BOM (Orchestrator Agent)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         11. DATA FOUNDATION & LINEAGE GRAPH
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-data" class="page-view">
+      <div style="margin-bottom: 2rem">
+        <h1 style="font-size:2.2rem; font-weight:800; color:#fff; letter-spacing:-0.03em">Layer 2 — Data Foundation & Lineage</h1>
+        <p style="color:var(--text-muted); font-size:1.05rem; margin-top:0.35rem">
+          Enterprise multi-source hub, 8-step data lineage graph, data quality radar, freshness monitoring, and demographic bias screening.
+        </p>
+      </div>
+
+      <!-- 8-Step Interactive Lineage Graph -->
+      <div class="card" style="margin-bottom:2rem">
+        <h3 style="font-size:1.2rem; color:#fff; margin-bottom:0.5rem">8-Step Governed Decision Lineage Trace</h3>
+        <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1.5rem">Every consequential AI decision is traceable from raw source to verified external action.</p>
+        
+        <div style="display:flex; align-items:center; gap:0.5rem; overflow-x:auto; padding-bottom:1rem">
+          <div style="background:var(--bg-elevated); border:1px solid var(--cyan); padding:0.75rem; border-radius:var(--radius-md); min-width:140px; text-align:center">
+            <div style="font-size:0.7rem; color:var(--cyan); font-family:var(--font-mono)">1. SOURCE</div>
+            <div style="font-weight:700; color:#fff; font-size:0.85rem">Salesforce CRM</div>
+          </div>
+          <div style="color:var(--text-dim)">➔</div>
+          <div style="background:var(--bg-elevated); border:1px solid var(--border); padding:0.75rem; border-radius:var(--radius-md); min-width:140px; text-align:center">
+            <div style="font-size:0.7rem; color:var(--indigo); font-family:var(--font-mono)">2. TRANSFORM</div>
+            <div style="font-weight:700; color:#fff; font-size:0.85rem">DLP Redaction</div>
+          </div>
+          <div style="color:var(--text-dim)">➔</div>
+          <div style="background:var(--bg-elevated); border:1px solid var(--border); padding:0.75rem; border-radius:var(--radius-md); min-width:140px; text-align:center">
+            <div style="font-size:0.7rem; color:var(--purple); font-family:var(--font-mono)">3. STORAGE</div>
+            <div style="font-weight:700; color:#fff; font-size:0.85rem">pgvector RAG</div>
+          </div>
+          <div style="color:var(--text-dim)">➔</div>
+          <div style="background:var(--bg-elevated); border:1px solid var(--border); padding:0.75rem; border-radius:var(--radius-md); min-width:140px; text-align:center">
+            <div style="font-size:0.7rem; color:var(--blue); font-family:var(--font-mono)">4. RETRIEVAL</div>
+            <div style="font-weight:700; color:#fff; font-size:0.85rem">ACL Hybrid Rerank</div>
+          </div>
+          <div style="color:var(--text-dim)">➔</div>
+          <div style="background:var(--bg-elevated); border:1px solid var(--border); padding:0.75rem; border-radius:var(--radius-md); min-width:140px; text-align:center">
+            <div style="font-size:0.7rem; color:var(--amber); font-family:var(--font-mono)">5. MODEL</div>
+            <div style="font-weight:700; color:#fff; font-size:0.85rem">Gemini 1.5 Pro</div>
+          </div>
+          <div style="color:var(--text-dim)">➔</div>
+          <div style="background:var(--bg-elevated); border:1px solid var(--border); padding:0.75rem; border-radius:var(--radius-md); min-width:140px; text-align:center">
+            <div style="font-size:0.7rem; color:var(--pink); font-family:var(--font-mono)">6. AGENT</div>
+            <div style="font-weight:700; color:#fff; font-size:0.85rem">Deal Strategy</div>
+          </div>
+          <div style="color:var(--text-dim)">➔</div>
+          <div style="background:var(--bg-elevated); border:1px solid var(--border); padding:0.75rem; border-radius:var(--radius-md); min-width:140px; text-align:center">
+            <div style="font-size:0.7rem; color:var(--red); font-family:var(--font-mono)">7. DECISION</div>
+            <div style="font-weight:700; color:#fff; font-size:0.85rem">HITL Approved</div>
+          </div>
+          <div style="color:var(--text-dim)">➔</div>
+          <div style="background:var(--bg-elevated); border:1px solid var(--green); padding:0.75rem; border-radius:var(--radius-md); min-width:140px; text-align:center">
+            <div style="font-size:0.7rem; color:var(--green); font-family:var(--font-mono)">8. ACTION</div>
+            <div style="font-weight:700; color:#fff; font-size:0.85rem">Outreach Sent</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Quality & Bias Screening Simulator -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem">
+        <div class="card">
+          <h3 style="font-size:1.15rem; color:#fff; margin-bottom:0.5rem">Data Quality Radar (95.6% Composite)</h3>
+          <div style="display:flex; flex-direction:column; gap:0.75rem; font-size:0.85rem; margin-top:1rem">
+            <div>Completeness: <strong style="color:var(--green)">96.5%</strong></div>
+            <div>Accuracy: <strong style="color:var(--green)">95.5%</strong></div>
+            <div>Consistency: <strong style="color:var(--green)">94.2%</strong></div>
+            <div>Uniqueness: <strong style="color:var(--green)">99.4%</strong></div>
+            <div>Timeliness (Freshness): <strong style="color:var(--green)">96.5%</strong></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:1.15rem; color:#fff; margin-bottom:0.5rem">Demographic Bias Screening</h3>
+          <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:0.75rem">Evaluates disparate impact ratios across customer segments.</p>
+          <div style="background:var(--bg-elevated); padding:0.75rem; border-radius:var(--radius-md); font-family:var(--font-mono); font-size:0.8rem">
+            Disparate Impact Ratio: <strong style="color:var(--green)">0.88</strong> (Threshold >= 0.80)<br/>
+            Status: <span style="color:var(--green)">PASS — No actionable bias detected</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         12. DATA SECURITY & PII ANONYMIZER
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-security" class="page-view">
+      <div style="margin-bottom: 2rem">
+        <h1 style="font-size:2.2rem; font-weight:800; color:#fff; letter-spacing:-0.03em">Layer 3 — Data Security & Zero-Trust Access</h1>
+        <p style="color:var(--text-muted); font-size:1.05rem; margin-top:0.35rem">
+          Pre-context PII redaction, ABAC + RBAC policy evaluation, Vault KMS secret management, and strict tenant boundary isolation.
+        </p>
+      </div>
+
+      <!-- Live PII Redaction Interactive Tester -->
+      <div class="card" style="margin-bottom:2rem">
+        <h3 style="font-size:1.2rem; color:#fff; margin-bottom:0.5rem">Live Pre-Context PII Anonymizer & Redactor</h3>
+        <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1rem">
+          Test real-time regex & token redacting for emails, phone numbers, SSNs, credit cards, and API keys before sending context to LLMs.
+        </p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem">
+          <div>
+            <label class="form-label">Raw Input Context</label>
+            <textarea class="form-control" id="pii-input-box" rows="4" style="font-family:var(--font-mono); font-size:0.85rem">Contact VP John Doe at john.doe@enterprise.com or call 555-123-4567. SSN: 123-45-6789. API Key: sk-12345678901234567890.</textarea>
+          </div>
+          <div>
+            <label class="form-label">Sanitized Output Context</label>
+            <textarea class="form-control" id="pii-output-box" rows="4" style="font-family:var(--font-mono); font-size:0.85rem; color:var(--cyan)" readonly></textarea>
+          </div>
+        </div>
+        <button class="btn-hero-primary" onclick="runPIIRedactionDemo()">Run Pre-Context PII Redaction</button>
+      </div>
+
+      <!-- Access Control & KMS Status -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem">
+        <div class="card">
+          <h3 style="font-size:1.15rem; color:#fff; margin-bottom:0.5rem">ABAC + RBAC Access Policy Matrix</h3>
+          <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:0.75rem">Contextual decisions combining Tenant, Role, Resource Classification, and Operation.</p>
+          <div style="font-family:var(--font-mono); font-size:0.8rem; background:var(--bg-elevated); padding:0.75rem; border-radius:var(--radius-md)">
+            ✔ RESTRICTED data ➔ Restricted to secops/admin/legal<br/>
+            ✔ External Model ➔ Blocked on RESTRICTED data<br/>
+            ✔ Least Privilege ➔ Agent access scoped to capability token
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:1.15rem; color:#fff; margin-bottom:0.5rem">Vault KMS Secret Manager</h3>
+          <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:0.75rem">Zero secrets exposed in frontend, logs, agent prompts, or telemetry.</p>
+          <div style="font-family:var(--font-mono); font-size:0.8rem; background:var(--bg-elevated); padding:0.75rem; border-radius:var(--radius-md)">
+            ✔ AES-256-CBC envelope encryption active<br/>
+            ✔ Master Key: Rotated automatically (90d)<br/>
+            ✔ Tenant Isolation: Enforced at DB, vector, and memory layers
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         13. HUMAN OVERSIGHT & DECISION REVIEW
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-oversight" class="page-view">
+      <div style="margin-bottom: 2rem">
+        <h1 style="font-size:2.2rem; font-weight:800; color:#fff; letter-spacing:-0.03em">Layer 5 — Human Oversight & Decision Governance</h1>
+        <p style="color:var(--text-muted); font-size:1.05rem; margin-top:0.35rem">
+          Model Proposes ➔ Policy Authorizes ➔ Human Approves ➔ System Executes ➔ Verification Confirms.
+        </p>
+      </div>
+
+      <!-- Pending Decisions Queue -->
+      <div class="card" style="margin-bottom:2rem">
+        <h3 style="font-size:1.2rem; color:#fff; margin-bottom:0.5rem">Pending Human Approval Queue (1 Action Required)</h3>
+        <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1.5rem">High-risk actions (T3-T5) pause in durable state until explicitly authorized by a human operator.</p>
+
+        <div style="background:var(--bg-elevated); border:1px solid var(--border-focus); border-radius:var(--radius-lg); padding:1.25rem" id="oversight-pending-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem">
+            <div>
+              <span class="agent-risk-pill" style="background:rgba(245,158,11,0.2); color:var(--amber)">Risk Tier: T3 (High Impact)</span>
+              <h4 style="font-size:1.15rem; color:#fff; margin-top:0.35rem">Execute Executive Sponsor Outreach to CyberDyne VP</h4>
+              <div style="color:var(--text-muted); font-size:0.85rem">Initiated by: <strong>Deal Strategy Agent</strong> · Confidence: <strong>94%</strong></div>
+            </div>
+            <span class="status-badge-live" style="color:var(--amber); border-color:var(--amber)" id="oversight-status-pill">WAITING APPROVAL</span>
+          </div>
+
+          <div style="background:var(--bg-surface); padding:1rem; border-radius:var(--radius-md); font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.5">
+            <strong>Decision Context:</strong> Opportunity stalled >34 days in Proposal stage. Recommended action is to dispatch executive briefing to unblock economic buyer.<br/>
+            <strong>Expected Effect:</strong> Advance deal to Negotiation stage · +$120,000 committed ARR.
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.75rem" id="oversight-actions-row">
+            <button class="btn-hero-secondary" style="border-color:var(--red); color:var(--red)" onclick="rejectOversightAction()">Reject Action</button>
+            <button class="btn-hero-primary" style="background:linear-gradient(135deg, var(--green), #059669)" onclick="approveOversightAction()">Approve & Execute (Human Operator)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         14. COMPLIANCE CONTROL PLANE & AUDIT LEDGER
+         ───────────────────────────────────────────────────────────── -->
+    <div id="view-compliance" class="page-view">
+      <div style="margin-bottom: 2rem">
+        <h1 style="font-size:2.2rem; font-weight:800; color:#fff; letter-spacing:-0.03em">Layer 6 — Compliance Control Plane & Audit</h1>
+        <p style="color:var(--text-muted); font-size:1.05rem; margin-top:0.35rem">
+          Continuous compliance monitoring for EU AI Act, GDPR, and SOC2 with cryptographic SHA-256 evidence ledgers and CSV export.
+        </p>
+      </div>
+
+      <!-- Controls Status Table -->
+      <div class="card" style="margin-bottom:2rem">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:1rem">
+          <h3 style="font-size:1.2rem; color:#fff">Compliance Matrix (Continuous Evaluation)</h3>
+          <div style="display:flex; gap:0.5rem">
+            <button class="btn-hero-secondary" onclick="exportAudit('CSV')">Export Audit CSV</button>
+            <button class="btn-hero-secondary" onclick="exportAudit('JSON')">Export Audit JSON</button>
+          </div>
+        </div>
+
+        <table style="width:100%; border-collapse:collapse; font-size:0.85rem">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border); text-align:left; color:var(--text-dim)">
+              <th style="padding:0.75rem">Framework</th>
+              <th style="padding:0.75rem">Requirement</th>
+              <th style="padding:0.75rem">Control Description</th>
+              <th style="padding:0.75rem">Owner</th>
+              <th style="padding:0.75rem">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:0.75rem; font-family:var(--font-mono); color:var(--cyan)">EU AI Act</td>
+              <td style="padding:0.75rem; font-weight:700; color:#fff">Art. 9 & 50</td>
+              <td style="padding:0.75rem; color:var(--text-muted)">AI System Inventory & Risk Classification</td>
+              <td style="padding:0.75rem; color:var(--text-muted)">AI Compliance Officer</td>
+              <td style="padding:0.75rem"><span style="color:var(--green); font-weight:700">✔ PASS</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:0.75rem; font-family:var(--font-mono); color:var(--cyan)">EU AI Act</td>
+              <td style="padding:0.75rem; font-weight:700; color:#fff">Art. 14</td>
+              <td style="padding:0.75rem; color:var(--text-muted)">Human Oversight for High-Impact Autonomous Decisions</td>
+              <td style="padding:0.75rem; color:var(--text-muted)">RevOps Lead</td>
+              <td style="padding:0.75rem"><span style="color:var(--green); font-weight:700">✔ PASS</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:0.75rem; font-family:var(--font-mono); color:var(--blue)">GDPR</td>
+              <td style="padding:0.75rem; font-weight:700; color:#fff">Art. 5(1)(c)</td>
+              <td style="padding:0.75rem; color:var(--text-muted)">Data Minimization & Pre-Context PII Redaction</td>
+              <td style="padding:0.75rem; color:var(--text-muted)">Data Protection Officer</td>
+              <td style="padding:0.75rem"><span style="color:var(--green); font-weight:700">✔ PASS</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:0.75rem; font-family:var(--font-mono)">SOC2</td>
+              <td style="padding:0.75rem; font-weight:700; color:#fff">CC6.1</td>
+              <td style="padding:0.75rem; color:var(--text-muted)">Cryptographic SHA-256 Tamper-Evident Audit Trails</td>
+              <td style="padding:0.75rem; color:var(--text-muted)">SecOps Lead</td>
+              <td style="padding:0.75rem"><span style="color:var(--green); font-weight:700">✔ PASS</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Cryptographic Ledger Chain Verifier -->
+      <div class="card">
+        <h3 style="font-size:1.15rem; color:#fff; margin-bottom:0.5rem">Cryptographic SHA-256 Ledger Integrity</h3>
+        <p style="color:var(--text-muted); font-size:0.85rem; margin-bottom:1rem">Verifies mathematical unbroken hash chaining from genesis to current block.</p>
+        <div style="background:var(--bg-elevated); padding:0.85rem; border-radius:var(--radius-md); font-family:var(--font-mono); font-size:0.8rem; color:var(--green)">
+          ✔ Genesis Block: 0000000000000000000000000000000000000000000000000000000000000000<br/>
+          ✔ Verified Records: 14 Chained Blocks<br/>
+          ✔ Chain Integrity: VALID (0 Tampering Breaches Detected)
+        </div>
       </div>
     </div>
   </main>
@@ -1964,8 +2426,95 @@
       switchTab('workflows');
     }
 
-    function handleTenantChange(val) {
-      alert(`[ShiVi Multi-Tenant Context]\n\nSwitched active tenant context to: ${val}\n7-Layer isolation barrier established.`);
+    function rerunExecutiveAnalysis() {
+      alert('[Executive Intelligence Agent]\n\nLive Pipeline Re-analyzed:\n\n• Q3 Target: $1.85M\n• Current Committed: $1.54M (-$310K Variance)\n• 3 Root Cause Drivers Identified\n• 3 Mitigation Playbooks Generated with +$310K Total Recovery Potential.\n\nDecision provenance logged to SHA-256 evidence chain.');
+    }
+
+    function executePlaybookStep(step) {
+      alert(`[RevOps Playbook Execution]\n\nStep ${step} launched successfully!\nAssigned subagents dispatched with verified capability tokens.\nAudit ledger entry generated.`);
+    }
+
+    function runShadowAIScan() {
+      const output = document.getElementById('shadow-scan-output');
+      output.innerHTML = `
+        <span style="color:var(--green)">✔ Scanning 1,420 network telemetry flows...</span><br/>
+        <span style="color:var(--green)">✔ Google Vertex AI:</span> APPROVED (Model ID: gemini-1.5-pro)<br/>
+        <span style="color:var(--green)">✔ Anthropic Bedrock:</span> APPROVED (Model ID: claude-3-5-sonnet)<br/>
+        <span style="color:var(--amber)">⚠️ Detected Unregistered Signal:</span> unregistered-third-party-ai.io (Quarantined)
+      `;
+      alert('[AI Inventory Registry]\n\nShadow AI Scan Completed.\n1 unapproved AI integration quarantined.');
+    }
+
+    function setSafeMode(mode) {
+      document.getElementById('gov-safe-mode-val').innerText = mode;
+      alert(`[Global Kill Switch & Safe Mode]\n\nSystem safe mode updated to: ${mode}\nEnforced across all 38 agents and MCP tools.`);
+    }
+
+    function viewOrchestratorBOM() {
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `
+        <h2 style="font-size:1.4rem; color:#fff; margin-bottom:0.5rem">AI Bill of Materials (BOM)</h2>
+        <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--cyan); margin-bottom:1rem">Asset: orchestrator-agent · Version: 1.0.0</div>
+        
+        <div style="background:var(--bg-elevated); padding:1rem; border-radius:var(--radius-md); font-family:var(--font-mono); font-size:0.8rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem">
+          <strong>BOM SHA-256 Hash:</strong> e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855<br/>
+          <strong>Primary Model:</strong> gemini-1.5-pro (Google Vertex AI)<br/>
+          <strong>Allowed Tools:</strong> dispatch_subagent, read_memory, write_memory<br/>
+          <strong>Vector Index:</strong> pgvector_embeddings_v2 (1536 dim)<br/>
+          <strong>5-Way Ownership:</strong> CRO, AI Lead, SecOps, DPO, Compliance Officer<br/>
+          <strong>Risk Classification:</strong> Tier-2 (Governed High-Impact Autonomous)
+        </div>
+        <div style="display:flex; justify-content:flex-end">
+          <button class="btn-hero-primary" onclick="closeModalDirect()">Close BOM Inspector</button>
+        </div>
+      `;
+      document.getElementById('detail-modal').style.display = 'flex';
+    }
+
+    function runPIIRedactionDemo() {
+      const input = document.getElementById('pii-input-box').value;
+      let output = input
+        .replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '[REDACTED_EMAIL]')
+        .replace(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/g, '[REDACTED_PHONE]')
+        .replace(/\b\d{3}-\d{2}-\d{4}\b/g, '[REDACTED_SSN]')
+        .replace(/sk-[a-zA-Z0-9]{20,}/g, '[REDACTED_API_KEY]');
+      document.getElementById('pii-output-box').value = output;
+    }
+
+    function approveOversightAction() {
+      const card = document.getElementById('oversight-pending-card');
+      const statusPill = document.getElementById('oversight-status-pill');
+      const actionsRow = document.getElementById('oversight-actions-row');
+      
+      statusPill.innerText = 'APPROVED & EXECUTED';
+      statusPill.style.color = 'var(--green)';
+      statusPill.style.borderColor = 'var(--green)';
+      card.style.borderColor = 'var(--green)';
+
+      actionsRow.innerHTML = `
+        <span style="color:var(--green); font-weight:700; font-size:0.85rem">✔ Approved by Human Operator · Executed & Logged with SHA-256 Proof</span>
+      `;
+      alert('[Human Oversight Manager]\n\nDecision Approved!\nAction dispatched to durable workflow.\nAudit receipt logged.');
+    }
+
+    function rejectOversightAction() {
+      const card = document.getElementById('oversight-pending-card');
+      const statusPill = document.getElementById('oversight-status-pill');
+      const actionsRow = document.getElementById('oversight-actions-row');
+      
+      statusPill.innerText = 'REJECTED';
+      statusPill.style.color = 'var(--red)';
+      statusPill.style.borderColor = 'var(--red)';
+      card.style.borderColor = 'var(--red)';
+
+      actionsRow.innerHTML = `
+        <span style="color:var(--red); font-weight:700; font-size:0.85rem">✖ Action Rejected by Operator · Workflow State Halted</span>
+      `;
+      alert('[Human Oversight Manager]\n\nDecision Rejected.\nNo mutations applied to CRM or external channels.');
+    }
+
+    function exportAudit(format) {
+      alert(`[ShiVi Audit & Compliance Service]\n\nExporting ${format} Audit Ledger...\n14 Cryptographically Chained Entries exported.\nIntegrity: 100% Tamper-Evident.`);
     }
 
     // Initialize default tab

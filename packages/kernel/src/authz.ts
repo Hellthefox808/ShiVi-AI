@@ -92,4 +92,8 @@ export class AuthorizationEngine {
       evaluatedAt: now,
     };
   }
+
+  public static resetStore(): void {
+    this.tupleStore = [];
+  }
 }

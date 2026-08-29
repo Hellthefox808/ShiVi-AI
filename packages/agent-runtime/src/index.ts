@@ -6,6 +6,7 @@ export * from './roster.js';
 export * from './harness.js';
 export * from './scenarios.js';
 export * from './workflows.js';
+export * from './drift-detector.js';
 
 
 
