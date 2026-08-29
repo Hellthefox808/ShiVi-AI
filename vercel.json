@@ -1,5 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "pnpm --recursive run build",
-  "outputDirectory": "public"
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
