@@ -2314,18 +2314,20 @@
       document.getElementById('cmd-prompt-input').value = `Execute autonomous task cycle for: ${name}`;
     }
 
-    // 5 Live Scenarios Engine
+    // Canonical 5 Live Primary Scenarios Engine (§16-§20)
     const scenarioDefinitions = {
       1: {
         title: 'Scenario 1: Recover Stalled $100K Enterprise Opportunity',
-        target: 'Target: Acme Corp ($100,000 Expansion ARR)',
+        target: 'Target: CyberDyne Systems / Acme Corp ($100,000 Expansion ARR)',
         steps: [
-          { agent: 'Deal Risk Agent', action: 'Detect Stage Stagnation & Risk Factors', out: 'Risk Score: 78 · Stalled 34d in Proposal · No Economic Buyer activity in 24d' },
+          { agent: 'Deal Risk Agent', action: 'Detect Stage Stagnation & Risk Factors', out: 'Risk Score: 78 · Stalled 34d in Proposal · Missing Economic Buyer (Sarah Chen)' },
           { agent: 'Hybrid RAG Agent', action: 'Retrieve Meeting Transcripts & Objections', out: 'Retrieved transcript: "Sarah Chen noted budget freeze without security audit" · Groundedness: 98.4%' },
           { agent: 'Buying Committee Agent', action: 'Map Stakeholder Graph & Missing Buyer', out: 'Champion: David Miller · Missing Economic Buyer: Sarah Chen (VP Infrastructure)' },
           { agent: 'Deal Strategy Agent', action: 'Generate Executive Sponsorship Playbook', out: 'Action: CRO-to-VP briefing with SOC2 packet · Win prob increase: +32%' },
           { agent: 'Policy Agent', action: 'Enforce T3 Gate & Human Approval', out: 'HITL Gate: Human approval granted by operator@acme.shivi.ai · T3 Authorized', approval: true },
-          { agent: 'Forecast Agent', action: 'Execute CRM Mutation & Commit Forecast', out: 'CRM Task created · Stage advanced to Negotiation · +$75,000 Weighted Commit ARR' }
+          { agent: 'CRM Service', action: 'Execute CRM Mutation & Task Dispatch', out: 'CRM Task created for VP outreach · Stage advanced to Negotiation' },
+          { agent: 'Forecast Agent', action: 'Recalculate Weighted ARR Forecast', out: '+$120,000 Committed ARR restored · Total Committed: $1,640,000' },
+          { agent: 'Audit Service', action: 'Commit SHA-256 Tamper-Evident Ledger Block', out: 'Evidence Block #1437 committed with SHA-256 hash chaining' }
         ]
       },
       2: {
@@ -2341,23 +2343,28 @@
         title: 'Scenario 3: Mitigate $250K Renewal Churn Risk',
         target: 'Target: Northstar Technologies ($250,000 ARR Contract)',
         steps: [
-          { agent: 'Customer Health Agent', action: 'Detect Telemetry Drops & Open Issues', out: 'Health Score: 48 (At Risk) · Usage drop: -35% · Open Sev-1 Tickets: 2' },
-          { agent: 'Contract Renewal Agent', action: 'Trigger Executive CSM Intervention Playbook', out: 'Playbook: EXEC_CSM_ESC · QBR Scheduled · Escalated to Support Engineering' }
+          { agent: 'Customer Health Agent', action: 'Detect Telemetry Usage Drops & Health Degradation', out: 'Health Score: 48 (At Risk) · Usage drop: -35% in past 14 days · Open Sev-1 Tickets: 2' },
+          { agent: 'Contract Renewal Agent', action: 'Evaluate 60-Day Renewal Timeline & Terms', out: 'Renewal proximity: 45 days · ARR at risk: $250,000' },
+          { agent: 'Customer Success Copilot', action: 'Trigger Executive CSM Intervention Playbook', out: 'Emergency QBR scheduled with VP Engineering · Assigned dedicated support engineer to fix Postgres timeout' },
+          { agent: 'Support Intelligence Agent', action: 'Verify Resolution & SLA Recovery', out: 'Support blocker resolved · Telemetry rebounded +42% · Health Score: 86 (Healthy)' }
         ]
       },
       4: {
         title: 'Scenario 4: CRM Data Hygiene & Merge Repair',
-        target: 'Target: CRM Database (1,200 Records Scanned)',
+        target: 'Target: Enterprise CRM Database (1,200 Records Scanned)',
         steps: [
-          { agent: 'CRM Hygiene Agent', action: 'Scan Database for Duplicates & Stale Deals', out: 'Scanned 1,200 records · Found 14 duplicate clusters and 6 stale opportunities' },
-          { agent: 'CRM Hygiene Agent', action: 'Execute Deduplication Merge & Conflict Resolution', out: 'Merged 14 clusters cleanly · 28 records deduplicated · Data integrity: 99.8%' }
+          { agent: 'Data Quality Agent', action: 'Scan Database for Duplicates, Stale Records & Drift', out: 'Scanned 1,200 records · Detected 14 duplicate clusters and 6 stale opportunities' },
+          { agent: 'CRM Hygiene Agent', action: 'Formulate Conflict Resolution & Merge Plan', out: 'Field merge strategy: Retain primary Salesforce ID, update verified emails and tech stacks' },
+          { agent: 'Policy Agent', action: 'Validate Bulk Mutation Policy Rules', out: 'Policy pol_crm_dedup evaluated: ALLOW with mandatory audit tracking' },
+          { agent: 'CRM Hygiene Agent', action: 'Execute Database Merge & Verify Integrity', out: '14 clusters merged cleanly · 28 records cleaned · Data integrity: 99.8%' }
         ]
       },
       5: {
         title: 'Scenario 5: Executive Forecast Risk Analysis',
         target: 'Target: 2026-Q3 Revenue Forecast ($1.54M Committed ARR)',
         steps: [
-          { agent: 'Executive Intelligence Agent', action: 'Synthesize Macro Slippage Risk & Mitigation Plan', out: 'Committed ARR: $1.54M · Slippage Exposure: $260K across 3 late-stage deals · 3 Action items generated' }
+          { agent: 'Executive Intelligence Agent', action: 'Synthesize Macro Slippage Risk & Mitigation Plan', out: 'Committed ARR: $1.54M · Slippage Exposure: $260K across 3 late-stage deals · 3 Action items generated' },
+          { agent: 'Security Agent', action: 'Scan Document for Prompt Injection & Jailbreaks', out: 'Detected malicious override: "Ignore previous rules" · Neutralized safely' }
         ]
       }
     };
